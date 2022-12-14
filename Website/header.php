@@ -11,53 +11,13 @@
         <p>Les Logis de Beaulieu</p>
         <hr>
         <div class="button">
-            <a href="">    Accueil     </a>
-            <a href="">    Actualités     </a>
-            <a href="">    Chambres et Salles     </a>
-            <a href="">    Réservation en ligne     </a>
-            <a href="">    Avis et Contact     </a>
+            <a href="index.php">    Accueil     </a>
+            <a href="actualites.php">    Actualités     </a>
+            <a href="chambresalles.php">    Chambres et Salles     </a>
+            <a href="reservation.php">    Réservation en ligne     </a>
+            <a href="avis.php">    Avis et Contact     </a>
         </div>
     </div>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
-    <p>dhroghiqesrg</p>
   </body>
 
 </html>
