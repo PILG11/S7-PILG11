@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  
+<html lang="fr">
+
   <head>
     <meta charset="utf-8" />
     <title>My test page</title>
