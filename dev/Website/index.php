@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="fr">
+
   <head>
     <meta charset="utf-8" />
     <title>Les Logis de Beaulieu</title>
@@ -12,5 +13,6 @@
     
   </body>
 
+  <?php include 'footer.php' ?>
 
 </html>
