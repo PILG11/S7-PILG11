@@ -3,11 +3,14 @@
 
   <head>
     <meta charset="utf-8" />
-    <title>My test page</title>
+    <title>Les Logis de Beaulieu</title>
+    <link rel="stylesheet" href="css/index.css" >
   </head>
 
+  <?php include "header.php" ?>
+
   <body>
-    <p>This is my page</p>
+    
   </body>
 
   <?php include 'footer.php' ?>
