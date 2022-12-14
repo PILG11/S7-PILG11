@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en-US">
   <head>
     <meta charset="utf-8" />
-    <title>Les Logis de Beaulieu</title>
+    <title>Avis et Contact</title>
     <link rel="stylesheet" href="css/style.css" >
   </head>
 
