@@ -2,4 +2,5 @@ logs/*.log
 .vagrant/**
 packer_debian/output-virtualbox-iso
 packer_debian/*.box
+.DS_Store
 
