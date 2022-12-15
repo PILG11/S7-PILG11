@@ -4,7 +4,7 @@ Dépôt opérationnel "Ops" pour les étudiants Cloud, System & Sécurité (CSS)
 
 ## Overview 
 
-Les fichiers d'injections SQL pour la DB sont dans le répertoire `files/`
+Les fichiers d'injections SQL pour la DB sont dans le répertoire `files/`  
 Les scripts BASH utilisées pour configurer les VMs sont dans le répertoire `scripts/`
 
 Fichiers et répertoires spécifiques :
