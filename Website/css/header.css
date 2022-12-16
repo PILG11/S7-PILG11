@@ -1,0 +1,24 @@
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+    margin-top: -15px;
+    background-color: white;
+}
+
+hr {
+    width: 70%;
+    color:black;
+    margin-bottom: 2px;
+    margin-top: -15px;
+}
+
+a {
+    font-size: 17px;
+    padding-left: 0.7%;
+    padding-right: 0.7%;
+    text-decoration: none;
+    color: black;
+}
