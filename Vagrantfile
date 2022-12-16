@@ -46,14 +46,13 @@ Vagrant.configure("2") do |config|
     machine.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--name", "srv-web"]
       v.customize ["modifyvm", :id, "--groups", "/S7-projet"]
-      v.customize ["modifyvm", :id, "--cpus", "2"]
+      v.customize ["modifyvm", :id, "--cpus", "1"]
       v.customize ["modifyvm", :id, "--memory", 2*1024]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
       v.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     end
     machine.vm.provision "shell", path: "scripts/install_sys.sh"
     machine.vm.provision "shell", path: "scripts/install_web.sh"
-    machine.vm.provision "shell", path: "scripts/install_bdd.sh"
     machine.vm.provision "shell", path: "scripts/install_moodle.sh"
     machine.vm.provision "shell", path: "scripts/install_myadmin.sh"
   end
@@ -63,7 +62,6 @@ Vagrant.configure("2") do |config|
     db.vm.hostname = "db"
     db.vm.box = "chavinje/fr-bull-64"
     db.vm.network :private_network, ip: "192.168.56.81"
-    db.vm.network :forwarded_port, guest: 3306, host: 3306
     
     db.vm.provider :virtualbox do |v2|
       v2.customize ["modifyvm", :id, "--name", "db"]
@@ -73,6 +71,8 @@ Vagrant.configure("2") do |config|
       v2.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
       v2.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     end
+    db.vm.provision "shell", path: "scripts/install_sys.sh"
+    db.vm.provision "shell", path: "scripts/install_bdd.sh"
   end
 
   config.vm.provision "shell", inline: <<-SHELL
