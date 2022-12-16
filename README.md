@@ -1,6 +1,6 @@
 # Projet Infrastructure et Logiciels
 
-Dépôt opérationnel "Ops" pour les étudiants Cloud, System & Sécurité (CSS) de ESEO Angers (2022-2023):
+Dépôt opérationnel "Ops" pour les étudiants Cloud, System & Sécurité (CSS) de ESEO Angers (2022-2023).  
 
 ## Overview 
 
