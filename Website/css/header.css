@@ -20,5 +20,9 @@ a {
     padding-left: 0.7%;
     padding-right: 0.7%;
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
+}
+
+.button{
+    margin-bottom: 15px;
 }
