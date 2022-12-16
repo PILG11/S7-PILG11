@@ -42,6 +42,8 @@ CREATE TABLE Reservations (
     Date DATE,
     Duree INTEGER,
     Chambres INTEGER,
+    Salles INTEGER,
+    Client INTEGER,
     FOREIGN KEY (Chambres) REFERENCES Chambres(Id),
     FOREIGN KEY (Salles) REFERENCES Salles(Id),
     FOREIGN KEY (Client) REFERENCES Clients(Id)
