@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
       v.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     end
-    config.vm.provision "shell", inline: <<-SHELL
+    machine.vm.provision "shell", inline: <<-SHELL
       sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config    
       sleep 3
       service ssh restart
@@ -27,8 +27,10 @@ Vagrant.configure("2") do |config|
     machine.vm.provision "shell", path: "scripts/install_sys.sh"
     machine.vm.provision "shell", path: "scripts/install_web.sh"
     machine.vm.provision "shell", path: "scripts/install_bdd.sh"
-    machine.vm.provision "shell", path: "scripts/install_moodle.sh"
     machine.vm.provision "shell", path: "scripts/install_myadmin.sh"
-    config.vm.provision "file", source: "Website/*", destination: "/var/www/html"
+    # Copier le site web de la machine hôte vers la VM 
+    machine.vm.provision "file", source: "./Website", destination: "./Website"
+    # Copier de la VM vers le root de la VM
+    machine.vm.provision "shell", inline: "mv ./Website /var/www/html/Website"
   end
 end
