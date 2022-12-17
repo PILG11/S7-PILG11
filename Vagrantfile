@@ -29,5 +29,6 @@ Vagrant.configure("2") do |config|
     machine.vm.provision "shell", path: "scripts/install_bdd.sh"
     machine.vm.provision "shell", path: "scripts/install_moodle.sh"
     machine.vm.provision "shell", path: "scripts/install_myadmin.sh"
+    config.vm.provision "file", source: "Website/*", destination: "/var/www/html"
   end
 end
