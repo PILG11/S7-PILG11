@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <title>Avis et Contact</title>
-    <link rel="stylesheet" href="/css/style.css" >
+    <link rel="stylesheet" href="../css/style.css" >
   </head>
 
-  <?php include "header.php" ?>
+  <?php include "./header.php" ?>
 
   <body>
 
   </body>
 
-  <?php include 'footer.php' ?>
+  <?php include './footer.php' ?>
 
 </html>
