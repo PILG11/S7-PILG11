@@ -35,6 +35,13 @@ CREATE TABLE Salles (
     Image VARCHAR(255)
 );
 
+CREATE TABLE Actualites (
+    Id INTEGER PRIMARY KEY,
+    Nom VARCHAR(20),
+    Description VARCHAR(255),
+    Image VARCHAR(255)
+);
+
 CREATE TABLE Reservations (
     Id INTEGER PRIMARY KEY,
     Type VARCHAR(20),
