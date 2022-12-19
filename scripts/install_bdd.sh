@@ -8,17 +8,18 @@ LOG_FILE="/vagrant/logs/install_bdd.log"
 DEBIAN_FRONTEND="noninteractive"
 
 #Utilisateur a créer (si un vide alors pas de création)
-DBNAME="moodle"
-DBUSER="moodle_user"
-DBPASSWD="network"
+DBNAME="gite"
+DBUSER="admin"
+DBPASSWD="mdpgite"
 #Fichier sql à injecter (présent dans un sous répertoire)
-DBFILE="files/creation_bdd.sql"
+DBFILE="files/database.sql"
+DBCONFIGFILE=".my.cnf"
 
 echo "START - install MariaDB - "$IP
 
 echo "=> [1]: Install required packages ..."
-DEBIAN_FRONTEND=noninteractive
-apt-get install -o Dpkg::Progress-Fancy="0" -q -y \
+DEBIAN_FRONTEND=$DEBIAN_FRONTEND
+apt-get install $APT_OPT \
 	mariadb-server \
 	mariadb-client \
    >> $LOG_FILE 2>&1
@@ -29,12 +30,14 @@ if [ -n "$DBNAME" ] && [ -n "$DBUSER" ] && [ -n "$DBPASSWD" ] ;then
   >> $LOG_FILE 2>&1
   mysql -e "grant all privileges on $DBNAME.* to '$DBUSER'@'%' identified by '$DBPASSWD'" \
   >> $LOG_FILE 2>&1
+  echo "BDD CREER ET PRIVILEGES DONNEES"
 fi
 
 echo "=> [3]: Configuration de BDD"
-if [ -f "$DBFILE" ] ;then
-  mysql < /vagrant/$DBFILE \
+if [ -n "$DBFILE" ] ;then
+  mysql -u $DBUSER --password=$DBPASSWD < /vagrant/$DBFILE \
   >> $LOG_FILE 2>&1
+  echo "FICHIER SQL INJECTE"
 fi
 
 echo "END - install MariaDB"
