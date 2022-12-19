@@ -24,12 +24,6 @@ apt-get install $APT_OPT \
   php-cgi \
   >> $LOG_FILE 2>&1
 
-echo "=> [1bis]: Install mysql (MariaDB) ...."
-apt-get install $APT_OPT \
-  mariadb-server \
-	mariadb-client \
-  >> $LOG_FILE 2>&1
-
 echo "=> [2]: Download files"
 wget -q -O /tmp/myadmin.zip \
 https://files.phpmyadmin.net/phpMyAdmin/${MYADMIN_VERSION}/phpMyAdmin-${MYADMIN_VERSION}-all-languages.zip \
