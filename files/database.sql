@@ -1,5 +1,3 @@
-CREATE DATABASE gite;
-
 USE gite;
 
 CREATE TABLE inventaire (
