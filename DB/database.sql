@@ -39,7 +39,10 @@ CREATE TABLE Actualites (
     Id INTEGER PRIMARY KEY,
     Nom VARCHAR(20),
     Description VARCHAR(255),
-    Image VARCHAR(255)
+    PremiereImage VARCHAR(255),
+    SecondeImage VARCHAR(255),
+    TroisiemeImage VARCHAR(255),
+    QuatriemeImage VARCHAR(255)
 );
 
 CREATE TABLE Reservations (

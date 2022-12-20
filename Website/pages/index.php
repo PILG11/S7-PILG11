@@ -13,7 +13,7 @@
   <body>
 
     <div class="first_img">
-      <img src="/img/accueil.png" alt="Photo gîte">
+      <img src="/img/Accueil/accueil.png" alt="Photo gîte">
     </div>
 
     <div class="welcome">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="second_img">
-      <img src="/img/accueil2.png" alt="Photo gîte">
+      <img src="/img/Accueil/accueil2.png" alt="Photo gîte">
     </div>
 
   </body>
