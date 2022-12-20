@@ -5,15 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les Logis de Beaulieu</title>
-    <link rel="stylesheet" href="/css/style.css" >
+    <link rel="stylesheet" href="../css/style.css" >
   </head>
 
-  <?php include "header.php" ?>
+  <?php include "./header.php" ?>
 
   <body>
 
     <div class="first_img">
-      <img src="/img/Accueil/accueil.png" alt="Photo gîte">
+      <img src="../img/Accueil/accueil.png" alt="Photo gîte">
     </div>
 
     <div class="welcome">
@@ -21,11 +21,11 @@
     </div>
 
     <div class="second_img">
-      <img src="/img/Accueil/accueil2.png" alt="Photo gîte">
+      <img src="../img/Accueil/accueil2.png" alt="Photo gîte">
     </div>
 
   </body>
 
-  <?php include 'footer.php' ?>
+  <?php include "./footer.php" ?>
 
 </html>
