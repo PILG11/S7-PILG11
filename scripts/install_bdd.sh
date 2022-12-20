@@ -13,7 +13,6 @@ DBUSER="admin"
 DBPASSWD="mdpgite"
 #Fichier sql à injecter (présent dans un sous répertoire)
 DBFILE="files/database.sql"
-DBCONFIGFILE=".my.cnf"
 
 echo "START - install MariaDB - "$IP
 
