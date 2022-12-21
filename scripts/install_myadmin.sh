@@ -24,6 +24,11 @@ apt-get install $APT_OPT \
   php-cgi \
   >> $LOG_FILE 2>&1
 
+echo "=> [1bis]: Install required mariadb-client ...."
+apt-get install $APT_OPT \
+  mariadb-client \
+  >> $LOG_FILE 2>&1
+
 echo "=> [2]: Download files"
 wget -q -O /tmp/myadmin.zip \
 https://files.phpmyadmin.net/phpMyAdmin/${MYADMIN_VERSION}/phpMyAdmin-${MYADMIN_VERSION}-all-languages.zip \
@@ -43,20 +48,16 @@ sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfis
   ${WWW_REP}/myadmin/config.sample.inc.php \
   > ${WWW_REP}/myadmin/config.inc.php
 
-mysql -e "CREATE DATABASE phpmyadmin"
-mysql -e "GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass'"
-mysql < ${WWW_REP}/myadmin/sql/create_tables.sql 
-
 echo "[4] Restarting Apache..."
 service apache2 restart
 
 cat <<EOF
 Service installed at http://192.168.56.80/myadmin/
 
-You will need to add a hosts file entry for:
+Login to manage database:
 
-username: pma
-password: pmapass
+username: admin
+password: mdpgite
 
 EOF
 
