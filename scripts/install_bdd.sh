@@ -39,5 +39,12 @@ if [ -n "$DBFILE" ] ;then
   echo "FICHIER SQL INJECTE"
 fi
 
+echo "=> [4] Ouverture ecoute du serveur à tous et restart"
+sed -e "s|bind-address = 127.0.0.1|bind-address = 0.0.0.0|" \
+  /etc/mysql/mariadb.conf.d/50-server.cnf
+
+service mariadb restart
+
+
 echo "END - install MariaDB"
 
