@@ -48,6 +48,9 @@ sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfis
   ${WWW_REP}/myadmin/config.sample.inc.php \
   > ${WWW_REP}/myadmin/config.inc.php
 
+sed -e "s|['host'] = 'localhost';|['host'] = '192.168.56.81';\n\$cfg['Servers'][\$i]['user'] = 'admin';\n\$cfg['Servers'][\$i]['password'] = 'mdpgite';|" \
+${WWW_REP}/myadmin/config.inc.php
+
 echo "[4] Restarting Apache..."
 service apache2 restart
 
