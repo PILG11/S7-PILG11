@@ -10,14 +10,14 @@
     $user = 'admin';
     $password = 'mdpgite';
     $db = 'gite';
-    $host = 'localhost';
+    $host = '192.168.56.81';
     $port = 3306;
 
     $link = mysqli_init();
     $success = mysqli_real_connect($link,$host,$user,$password,$db,$port);
 
     $infoBdd = [
-        'server' => 'localhost',
+        'server' => '192.168.56.81',
         'login' => 'admin',
         'password' => 'mdpgite',
         'db_name' => 'gite',
@@ -31,5 +31,3 @@
 
     $result = $mysqli->query("INSERT INTO `Actualites` (`Id`,`Nom`,`Description`) 
                             VALUES (2,'Mariage', 'Premier mariage Champetre');");
-
-?>
