@@ -25,14 +25,14 @@ Les machines sont reliées à votre machine réelle par un réseau privé hôte 
 
 ## Utilisation des commandes vagrant
 
-Activer une VM uniquement (srv-web par exemple)
-    ```vagrant up srv-web```
+Activer toutes les VMs
+    ```vagrant up```
 
-Se connecter à une VM (firewall par exemple)
-    ```vagrant ssh srv-web```
+Se connecter à une VM (web par exemple)
+    ```vagrant ssh web```
 
-Arréter une VM (victime par exemple)
-    ```vagrant halt srv-web```
+Arréter une VM (db par exemple)
+    ```vagrant halt db```
 
 Détruire toutes les VMs (sans demande de confirmation)
     ```vagrant destroy -f```
