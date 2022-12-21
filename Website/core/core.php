@@ -1,13 +1,26 @@
 <?php
+
+    echo '<p> Hello </p>';
+
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
     ini_set('display_startup_errors', 'On');
+
+
+    $user = 'root';
+    $password = 'root';
+    $db = 'gite';
+    $host = 'localhost';
+    $port = 8889;
+
+    $link = mysqli_init();
+    $success = mysqli_real_connect($link,$host,$user,$password,$db,$port);
 
     $infoBdd = [
         'server' => 'localhost',
         'login' => 'root',
         'password' => 'root',
-        'db_name' => 'projet',
+        'db_name' => 'gite',
     ];
     
     $mysqli = new mysqli($infoBdd['server'], $infoBdd['login'],
@@ -16,9 +29,7 @@
      exit("Problème de connexion à la BDD");
     }
 
-    /*
-    if(isset($_GET['logout']) && $_GET['logout'] == 1) {
-        unset($_SESSION['compte']);
-        header("Location: ./");
-    }*/
+    $result = $mysqli->query("INSERT INTO `actualites` (`Id`,`Nom`,`Description`) 
+                            VALUES (2,'Mariage', 'Premier mariage Champetre');");
+
 ?>
