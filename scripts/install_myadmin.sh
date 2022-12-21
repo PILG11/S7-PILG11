@@ -24,10 +24,9 @@ apt-get install $APT_OPT \
   php-cgi \
   >> $LOG_FILE 2>&1
 
-echo "=> [1bis]: Install mysql (MariaDB) ...."
+echo "=> [1bis]: Install required mariadb-client ...."
 apt-get install $APT_OPT \
-  mariadb-server \
-	mariadb-client \
+  mariadb-client \
   >> $LOG_FILE 2>&1
 
 echo "=> [2]: Download files"
@@ -49,9 +48,12 @@ sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfis
   ${WWW_REP}/myadmin/config.sample.inc.php \
   > ${WWW_REP}/myadmin/config.inc.php
 
-mysql -e "CREATE DATABASE phpmyadmin"
-mysql -e "GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass'"
-mysql < ${WWW_REP}/myadmin/sql/create_tables.sql 
+# Modification du serveur hôte dans phpmyadmin
+sed -i "s|'localhost'|'192.168.56.81'|" ${WWW_REP}/myadmin/config.inc.php
+# Ajout de l'utilisateur et du mot de passe
+sed -i "/'192.168.56.81';/a \
+\$cfg['Servers'][\$i]['user'] = 'admin'; \n\
+\$cfg['Servers'][\$i]['password'] = 'mdpgite';" ${WWW_REP}/myadmin/config.inc.php
 
 echo "[4] Restarting Apache..."
 service apache2 restart
@@ -59,10 +61,10 @@ service apache2 restart
 cat <<EOF
 Service installed at http://192.168.56.80/myadmin/
 
-You will need to add a hosts file entry for:
+Login to manage database:
 
-username: pma
-password: pmapass
+username: admin
+password: mdpgite
 
 EOF
 
