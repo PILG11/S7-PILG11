@@ -1,31 +1,19 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-#Vagrant.configure("2") do |config|
-  # Use the latest version of Ubuntu as the base image
-  #config.vm.box = "ubuntu/focal64"
-
-  # Enable network access to the VM
-  #config.vm.network "forwarded_port", guest: 80, host: 8080
-  #config.vm.network "private_network", ip: "192.168.33.10"
-
-  # Set the hostname of the VM
-  #config.vm.hostname = "my-vm"
 
   # Enable SSH access to the VM
- # config.vm.provision "shell", inline: <<-SHELL
-    # Update the package index
-   # sudo apt-get update
+  # config.vm.provision "shell", inline: <<-SHELL
 
-    # Install the OpenSSH server
-   # sudo apt-get install -y openssh-server
+  # Update the package index
+  # sudo apt-get update
 
-    # Configure the OpenSSH server
+  # Install the OpenSSH server
+  # sudo apt-get install -y openssh-server
+
+  # Configure the OpenSSH server
   #  sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
-   # sudo sed -i 's/^#PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
-   # sudo systemctl restart ssh
+  # sudo sed -i 's/^#PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
+  # sudo systemctl restart ssh
   #SHELL
 
   # Configure SSH access to the VM
@@ -75,6 +63,7 @@ Vagrant.configure("2") do |config|
     end
     db.vm.provision "shell", path: "scripts/install_sys.sh"
     db.vm.provision "shell", path: "scripts/install_bdd.sh"
+    db.vm.provision "shell", path: "scripts/backup_database.sh"
   end
 
   config.vm.provision "shell", inline: <<-SHELL
