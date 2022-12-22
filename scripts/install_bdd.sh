@@ -8,11 +8,11 @@ LOG_FILE="/vagrant/logs/install_bdd.log"
 DEBIAN_FRONTEND="noninteractive"
 
 #Utilisateur a créer (si un vide alors pas de création)
-DBNAME="gite"
-DBUSER="admin"
-DBPASSWD="mdpgite"
+DB_NAME="gite"
+DB_USER="admin"
+DB_PASSWD="mdpgite"
 #Fichier sql à injecter (présent dans un sous répertoire)
-DBFILE="files/database.sql"
+DB_FILE="files/database.sql"
 
 echo "START - install MariaDB - "$IP
 
@@ -24,17 +24,17 @@ apt-get install $APT_OPT \
    >> $LOG_FILE 2>&1
 
 echo "=> [2]: Configuration du service"
-if [ -n "$DBNAME" ] && [ -n "$DBUSER" ] && [ -n "$DBPASSWD" ] ;then
-  mysql -e "CREATE DATABASE $DBNAME" \
+if [ -n "$DB_NAME" ] && [ -n "$DB_USER" ] && [ -n "$DB_PASSWD" ] ;then
+  mysql -e "CREATE DATABASE $DB_NAME" \
   >> $LOG_FILE 2>&1
-  mysql -e "grant all privileges on $DBNAME.* to '$DBUSER'@'%' identified by '$DBPASSWD'" \
+  mysql -e "grant all privileges on $DB_NAME.* to '$DB_USER'@'%' identified by '$DB_PASSWD'" \
   >> $LOG_FILE 2>&1
   echo "BDD CREER ET PRIVILEGES DONNEES"
 fi
 
 echo "=> [3]: Configuration de BDD"
-if [ -n "$DBFILE" ] ;then
-  mysql -u $DBUSER --password=$DBPASSWD < /vagrant/$DBFILE \
+if [ -n "$DB_FILE" ] ;then
+  mysql -u $DB_USER --password=$DB_PASSWD < /vagrant/$DB_FILE \
   >> $LOG_FILE 2>&1
   echo "FICHIER SQL INJECTE"
 fi
