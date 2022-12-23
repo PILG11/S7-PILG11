@@ -32,7 +32,7 @@ echo "=> [2]: Retrieving the database and storing it"
 mkdir -p $BACKUP_FILE/$DATE
 
 # Dumb the database and gzip the .sql file
-mysqldump --force --opt --user=$DB_USER -p$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME | gzip > "$BACKUP_FILE/$DATE/$DB_NAME.sql.gz"
+mysqldump --force --opt --user=$DB_USER -p$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME > "$BACKUP_FILE/$DATE/$DB_NAME.sql"
 
 # Remove files older than X days
 find $BACKUP_FILE/* -mtime +$RETENTION -delete
