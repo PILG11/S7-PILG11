@@ -1,0 +1,75 @@
+body {
+    padding-top: 150px;
+}
+
+.publications{
+    margin-top: 3%;
+    padding-left: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.publication{
+    width: 30%;
+    max-height: 150px;
+    margin-bottom: 20%;
+}
+
+.image {
+    border-radius: 6px;
+    z-index: 1;
+    height: auto;
+    width: 100%;
+}
+.image:hover{
+    z-index: -1;
+    opacity: 75%;
+	transition: .3s ease-in-out;
+}
+
+.post{
+    display: flex;
+    margin:5%;
+    min-width: 70%;
+}
+
+.photoContainer{
+    width: 70%;
+    text-align: center;
+}
+
+.active{
+    width: 90%;
+    min-width: 300px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.notActive{
+    display: none;
+}
+
+.scrollButton{
+    width: 50px;
+    height: auto;
+}
+
+button{
+    background-color: white;
+    border: none;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+button:hover{
+    background-color: rgb(240, 240, 240);
+	transition: .1s ease-in-out;
+}
+
+.textContainer{
+    margin-left: 3%;
+}
