@@ -6,7 +6,7 @@ CREATE TABLE inventaire (
     Id INTEGER PRIMARY KEY,
     Materiel VARCHAR(20),
     Quantite INTEGER,
-    Etat ENUM('bon', 'moyen', 'mauvais'),
+    Etat ENUM('neuf', 'bon', 'moyen', 'mauvais'),
     Lieu VARCHAR(20)
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE Clients (
     Id INTEGER PRIMARY KEY,
     Nom VARCHAR(20),
     Prenom VARCHAR(20),
-    Email VARCHAR(20),
+    Email VARCHAR(50),
     Numero VARCHAR(20)
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE Actualites (
     SecondeImage VARCHAR(255),
     TroisiemeImage VARCHAR(255),
     QuatriemeImage VARCHAR(255),
-    Date DATE,
+    date DATE
 );
 
 CREATE TABLE Reservations (
