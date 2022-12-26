@@ -10,18 +10,21 @@
 
   <body>
 
-    <p style="text-align: center; font-size:30px; margin-top:3%; margin-bottom:3%;"> Nos Services :</p>
+    <p style="text-align: center; font-size:20px; margin-top:3%; margin-bottom:3%;"> Nos Services :</p>
 
     <div class="onglets">
       <ul class="choix">
         <li class="option">
           Chambres
+          <hr class="notActive">
         </li>
         <li class="option">
           Salle des fêtes
+          <hr class="notActive">
         </li>
         <li class="option">
           Formules
+          <hr class="active">
         </li>
       </ul>
     </div>
