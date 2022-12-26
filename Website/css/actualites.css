@@ -4,12 +4,12 @@ body {
 
 .publications{
     margin-top: 3%;
-    padding-left: 15%;
+    padding-left: 10%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    width: 80%;
 }
 
 .publication{
@@ -33,11 +33,11 @@ body {
 .post{
     display: flex;
     margin:5%;
-    min-width: 70%;
+    min-width: 80%;
 }
 
 .photoContainer{
-    width: 70%;
+    width: 100%;
     text-align: center;
 }
 
