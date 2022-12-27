@@ -1,0 +1,30 @@
+name: test
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache Vagrant boxes
+        uses: actions/cache@v2
+        with:
+          path: ~/.vagrant.d/boxes
+          key: ${{ runner.os }}-vagrant-${{ hashFiles('Vagrantfile') }}
+          restore-keys: |
+            ${{ runner.os }}-vagrant-
+
+      - name: validate yaml files
+        run: >
+          find ./.github/workflows -name '*.yaml'
+          | xargs -IQ sh -c 'yq -o json Q | jq empty'
+
+      - name: version
+        run: vagrant --version
+
+      - name: validate
+        run: vagrant validate -no-color

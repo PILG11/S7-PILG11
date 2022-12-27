@@ -1,0 +1,16 @@
+name: backup to aws
+run-name: backup to aws
+
+on:
+  pull_request:
+    branches: 
+      - main
+      - ops
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
+  account:
+    uses: ./.github/workflows/vagrant.yml
+    needs: [test]
