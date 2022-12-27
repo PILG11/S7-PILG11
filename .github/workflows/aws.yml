@@ -30,5 +30,6 @@ jobs:
 
       # delete backups files from the repo
       - name: delete all backups files
-        run: rm -rf ./backups
-        shell: bash
+        uses: JesseTG/rm@v1.0.3
+        with:
+          path: ./backups/
