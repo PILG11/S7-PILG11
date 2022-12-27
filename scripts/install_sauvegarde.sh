@@ -40,7 +40,7 @@ find $BACKUP_FILE/* -mtime +$RETENTION -delete
 # Récupérer la base de données à partir de PHPMyAdmin et enregistrer le fichier de sauvegarde dans le dossier de sauvegarde
 #curl --silent "$PHPMYADMIN_URL/export.php?db=$DB_NAME&server=1&format=sql&username=$DB_USER&password=$DB_PASSWD" -o "$BACKUP_FILE/database_backup_$(date +\%R \%d/\%m/\%Y).sql"
 # Configurer une tâche cron pour exécuter ce script tous les jours
-echo "0 0 * * * root scripts/backup_database.sh" > /etc/cron.d/database_backup
+echo "0 0 * * * root scripts/install_sauvegarde.sh" > /etc/cron.d/database_backup
 # Redémarrer cron pour prendre en compte la nouvelle tâche
 service cron restart
 
