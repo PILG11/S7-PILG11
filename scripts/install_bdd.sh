@@ -40,7 +40,7 @@ if [ -n "$DB_FILE" ] ;then
 fi
 
 echo "=> [4] Ouverture ecoute du serveur à tous et restart"
-sed -i "s|bind-address            = 127.0.0.1|bind-address            = 0.0.0.0|" \
+sed -i "s|bind-address            = 127.0.0.1|bind-address            = 192.168.56.80|" \
   /etc/mysql/mariadb.conf.d/50-server.cnf
 
 service mariadb restart
