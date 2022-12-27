@@ -27,4 +27,4 @@ jobs:
         run: vagrant --version
 
       - name: validate
-        run: vagrant validate -no-color
+        run: vagrant validate --no-color
