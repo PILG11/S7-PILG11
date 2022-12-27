@@ -4,9 +4,7 @@ on:
   workflow_call:
     secrets:
       aws-access-key-id:
-        required: true
       aws-secret-access-key:
-        required: true
 
 jobs:
   aws:
