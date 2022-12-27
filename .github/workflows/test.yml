@@ -24,7 +24,7 @@ jobs:
           | xargs -IQ sh -c 'yq -o json Q | jq empty'
 
       - name: version
-        run: vagrant --version
+        run: vagrant -v
 
       - name: validate
         run: vagrant validate -no-color

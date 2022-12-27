@@ -11,6 +11,6 @@ jobs:
   test:
     uses: ./.github/workflows/test.yml
 
-  account:
+  backup:
     uses: ./.github/workflows/vagrant.yml
     needs: [test]
