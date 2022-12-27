@@ -25,7 +25,7 @@ jobs:
 
       # copy backups files to aws
       - name: copy all sql files to s3 bucket
-        run: aws s3 cp ./backups/* s3://pilg11-db-backup
+        run: aws s3 cp ./backups s3://pilg11-db-backup --recursive
         shell: bash
 
       # delete backups files from the repo
