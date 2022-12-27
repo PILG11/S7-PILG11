@@ -13,6 +13,6 @@ jobs:
     secrets: inherit
 
   backup:
-    uses: ./.github/workflows/vagrant.yml
+    uses: ./.github/workflows/aws.yml
     needs: [test]
     secrets: inherit
