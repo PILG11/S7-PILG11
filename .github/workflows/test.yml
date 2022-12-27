@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     name: test
-    runs-on: ubuntu-latest
+    runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
 
@@ -23,8 +23,8 @@ jobs:
           find ./.github/workflows -name '*.yaml'
           | xargs -IQ sh -c 'yq -o json Q | jq empty'
 
-      - name: version
-        run: vagrant -v
+      - name: Check vagrant version
+        run: vagrant --version
 
       - name: validate
         run: vagrant validate -no-color
