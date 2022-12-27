@@ -9,7 +9,7 @@ on:
         required: true
 
 jobs:
-  component:
+  aws:
     runs-on: ubuntu-latest
 
     steps:

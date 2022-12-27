@@ -3,14 +3,16 @@ run-name: backup to aws
 
 on:
   pull_request:
-    branches: 
+    branches:
       - main
       - ops
 
 jobs:
   test:
     uses: ./.github/workflows/test.yml
+    secrets: inherit
 
   backup:
     uses: ./.github/workflows/vagrant.yml
     needs: [test]
+    secrets: inherit
