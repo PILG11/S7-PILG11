@@ -1,5 +1,5 @@
 body {
-    padding-top: 120px;
+    padding-top: 150px; /* Pour ne pas afficher sous le header*/
 }
 
 .first_img > img{
