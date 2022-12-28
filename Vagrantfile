@@ -71,4 +71,5 @@ Vagrant.configure("2") do |config|
       sleep 3
       service ssh restart
     SHELL
+
 end
