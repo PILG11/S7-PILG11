@@ -63,7 +63,7 @@ Vagrant.configure("2") do |config|
     end
     db.vm.provision "shell", path: "scripts/install_sys.sh"
     db.vm.provision "shell", path: "scripts/install_bdd.sh"
-    db.vm.provision "shell", path: "scripts/backup_database.sh"
+    db.vm.provision "shell", path: "scripts/install_backup.sh"
   end
 
   config.vm.provision "shell", inline: <<-SHELL

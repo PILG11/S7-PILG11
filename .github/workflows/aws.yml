@@ -1,0 +1,29 @@
+name: aws
+
+on:
+  workflow_call:
+
+jobs:
+  aws:
+    runs-on: ubuntu-latest
+
+    steps:
+      # pull the source code
+      - uses: actions/checkout@v3
+
+      # configure crendentials for terraform init (state bucket + dynamodb access)
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-3
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # verify identity
+      - name: verify identity
+        run: aws sts get-caller-identity
+        shell: bash
+
+      # upload backups files to aws
+      - name: upload all sql files to s3 bucket
+        run: aws s3 cp ./backups/ ${{ secrets.AWS_S3_BUCKET_BACKUP }} --recursive
+        shell: bash

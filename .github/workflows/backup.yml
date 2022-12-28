@@ -1,0 +1,18 @@
+name: backup to aws
+run-name: backup to aws
+
+on:
+  pull_request:
+    branches:
+      - main
+      - ops
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+
+  backup:
+    uses: ./.github/workflows/aws.yml
+    needs: [test]
+    secrets: inherit
