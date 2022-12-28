@@ -14,9 +14,14 @@ Les machines sont reliées à votre machine réelle par un réseau privé hôte 
 * Le site web est accéssible par l'adresse <http://192.168.56.80/Website>
 
 
-## Utilisation du dépôt
+Activer toutes les VMs
+    ```vagrant up```
 
-Activer la VM et la configuration de l'infra  
-    ```vagrant up```  
-Se connecter au site web a l'adresse    
-    ```http://192.168.56.80/Website```  
+Se connecter à une VM (web par exemple)
+    ```vagrant ssh web```
+
+Arréter une VM (db par exemple)
+    ```vagrant halt db```
+
+Détruire toutes les VMs (sans demande de confirmation)
+    ```vagrant destroy -f```

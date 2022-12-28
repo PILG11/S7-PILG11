@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Avis et Contact</title>
