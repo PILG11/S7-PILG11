@@ -6,7 +6,7 @@ if($num_post == NULL){
 
 include_once 'core.php';
 
-$result = $mysqli->query("SELECT * FROM `actualites`");
+$result = $mysqli->query("SELECT * FROM `Actualites`");
 
 if(!$result) {
     exit($mysqli->error);
@@ -43,7 +43,7 @@ else{
 
     include_once 'core.php';
 
-    $result = $mysqli->query("SELECT * FROM `actualites` WHERE id = '".$num_post."';");
+    $result = $mysqli->query("SELECT * FROM `Actualites` WHERE id = '".$num_post."';");
 
     if(!$result) {
         exit($mysqli->error);
