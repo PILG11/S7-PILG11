@@ -21,4 +21,4 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Deleted backups files in '&path'"
-          git push origin HEAD
+          git push origin HEAD:$GITHUB_HEAD_REF
