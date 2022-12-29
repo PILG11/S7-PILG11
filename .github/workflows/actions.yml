@@ -16,11 +16,11 @@ jobs:
 
       - name: Pull latest changes
         run: |
-          git pull origin $branch
+          git pull origin "$branch"
 
       - name: Checkout branch
         run: |
-          git checkout $branch
+          git checkout "$branch"
 
       - name: Delete backups file
         run: |
@@ -35,4 +35,4 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Deleted backups files in '&path'"
-          git push origin $branch
+          git push origin "$branch"
