@@ -8,6 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Extract branch name
+        run: |
+          branch=$(echo $GITHUB_HEAD_REF | sed 's|refs/heads/||')
+          echo "Branch name: $branch"
+
+      - name: Pull latest changes
+        run: |
+          git pull origin $branch
+
+      - name: Checkout branch
+        run: |
+          git checkout $branch
+
       - name: Delete backups file
         run: |
           path='./backups/27.12.2022_15h12-gite.sql'
@@ -15,13 +29,10 @@ jobs:
             rm -rf "$path"
           fi
 
-      - name: Checkout branch
-        run: |
-          git checkout $GITHUB_HEAD_REF
       - name: Commit and push changes
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Deleted backups files in '&path'"
-          git push origin $GITHUB_HEAD_REF
+          git push origin $branch
