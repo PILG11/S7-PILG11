@@ -1,0 +1,24 @@
+name: aws
+
+on:
+  workflow_call:
+
+jobs:
+  delete_backups:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Delete backups file
+        run: |
+          path='./backups/'
+          if [ -f "$path" ]; then
+            rm -rf "$path"
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Deleted backups files in '&path'"
+          git push origin HEAD
