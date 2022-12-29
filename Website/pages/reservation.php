@@ -27,7 +27,12 @@
             <hr class="active">
         </li>
       </ul>
-    </div> 
+    </div>
+
+    <div id="Chambres"></div>
+    <div id="SalleDesFetes"></div>
+    <div id="Formules"></div>
+
   </body>
 
   <?php include 'footer.php' ?>

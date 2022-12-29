@@ -38,7 +38,11 @@ body {
 }
 
 button{
-    text-decoration: none;
+    font-size: 18px;
+    font-family: Arial;
+    border: none;
+    background-color: white;
+    cursor: pointer;
 }
 
 
