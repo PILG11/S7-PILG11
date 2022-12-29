@@ -11,7 +11,7 @@ jobs:
 
       - name: Checkout
         run: |
-          git checkout $GITHUB_HEAD_REF
+          git checkout $GITHUB_REF
 
       - name: Delete backups file
         run: |
@@ -26,4 +26,4 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Deleted backups files in '&path'"
-          git push origin $GITHUB_HEAD_REF
+          git push origin $GITHUB_REF
