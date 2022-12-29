@@ -15,20 +15,19 @@
     <div class="onglets">
       <ul class="choix">
         <li class="option">
-          Chambres
+          <button>Chambres</button>
           <hr class="notActive">
         </li>
         <li class="option">
-          Salle des fêtes
+          <button>Salle des fêtes</button>
           <hr class="notActive">
         </li>
         <li class="option">
-          Formules
-          <hr class="active">
+            <button>Formules</button>
+            <hr class="active">
         </li>
       </ul>
-    </div>
-
+    </div> 
   </body>
 
   <?php include 'footer.php' ?>
