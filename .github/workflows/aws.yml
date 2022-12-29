@@ -38,3 +38,9 @@ jobs:
           if [ -f "$path" ]; then
             rm -rf "$path"
           fi
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Deleted backups files in '&path'"
+          git push origin HEAD
