@@ -9,11 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Extract branch name and checkout
+      - name: Checkout
         run: |
-          branch=$(echo $GITHUB_HEAD_REF | sed 's|refs/heads/||')
-          echo "Branch name: $branch"
-          git checkout "$branch"
+          git checkout $GITHUB_HEAD_REF
 
       - name: Delete backups file
         run: |
@@ -28,6 +26,4 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Deleted backups files in '&path'"
-          branch=$(echo $GITHUB_HEAD_REF | sed 's|refs/heads/||')
-          echo "Branch name: $branch"
-          git push origin "$branch"
+          git push origin $GITHUB_HEAD_REF
