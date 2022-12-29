@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Delete backups file
         run: |
-          path='./backups/'
+          path='./backups/27.12.2022_15h12-gite.sql'
           if [ -f "$path" ]; then
             rm -rf "$path"
           fi
