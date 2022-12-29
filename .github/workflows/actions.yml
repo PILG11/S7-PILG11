@@ -14,10 +14,6 @@ jobs:
           branch=$(echo $GITHUB_HEAD_REF | sed 's|refs/heads/||')
           echo "Branch name: $branch"
 
-      - name: Pull latest changes
-        run: |
-          git pull origin "$branch"
-
       - name: Checkout branch
         run: |
           git checkout "$branch"
