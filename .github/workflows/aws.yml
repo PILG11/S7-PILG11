@@ -27,3 +27,14 @@ jobs:
       - name: upload all sql files to s3 bucket
         run: aws s3 cp ./backups/ ${{ secrets.AWS_S3_BUCKET_BACKUP }} --recursive
         shell: bash
+
+  delete_backups:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Delete backups file
+        run: |
+          path='./backups/'
+          if [ -f "$path" ]; then
+            rm -rf "$path"
+          fi
