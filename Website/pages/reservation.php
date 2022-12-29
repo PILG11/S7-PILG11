@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Réservation</title>
     <link rel="stylesheet" href="../css/reservation.css" >
+    <script src="../js/onglet.js"></script>
   </head>
 
   <?php include "header.php" ?>
@@ -15,16 +16,16 @@
     <div class="onglets">
       <ul class="choix">
         <li class="option">
-          <button>Chambres</button>
+          <button onclick="onglet(Chambres)">Chambres</button>
           <hr class="notActive">
         </li>
         <li class="option">
-          <button>Salle des fêtes</button>
+          <button onclick="onglet(SalleDesFetes)">Salle des fêtes</button>
           <hr class="notActive">
         </li>
         <li class="option">
-            <button>Formules</button>
-            <hr class="active">
+          <button onclick="onglet(Formules)">Formules</button>
+          <hr class="active">
         </li>
       </ul>
     </div>
