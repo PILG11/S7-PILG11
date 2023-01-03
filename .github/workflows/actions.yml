@@ -23,4 +23,4 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Deleted files in '$folder'"
-          git push origin HEAD
+          git push origin $GITHUB_REF
