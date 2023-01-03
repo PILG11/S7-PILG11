@@ -10,9 +10,12 @@ on:
 jobs:
   test:
     uses: ./.github/workflows/test.yml
-    secrets: inherit
 
   backup:
     uses: ./.github/workflows/aws.yml
     needs: [test]
     secrets: inherit
+
+  deletion:
+    uses: ./.github/workflows/deletion.yml
+    needs: [backup]
