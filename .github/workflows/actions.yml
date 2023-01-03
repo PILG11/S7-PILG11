@@ -7,12 +7,12 @@ jobs:
   delete_backups:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Config git
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-      - name: Checkout repository
-        uses: actions/checkout@v2
       - name: Delete files
         run: |
           folder='.backups/'
