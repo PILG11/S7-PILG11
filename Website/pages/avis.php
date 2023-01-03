@@ -10,33 +10,33 @@
 <?php include "./header.php" ?>
 
 <body>
-  <div class="container">
+  <div class="container" style="margin-bottom: 30px;">
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-adresse.png" alt="Logo adresse">
+      <img src="../img/AvisEtContact/logo-adresse.png" alt="Logo adresse" style="width:55px; height:60px; margin-top: 15px; margin-bottom: 0px;">
       <h3>Adresse</h3>
-      <p>Chemin des Logis de Beaulieu, Soucelles, 49140, Rives du Loir en Anjou</p>
+      <p style="margin-bottom: 15px; text-align:center;">Chemin des Logis de Beaulieu, Soucelles, 49140, Rives du Loire en Anjou</p>
     </div>
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-telephone.png" alt="Logo téléphone">
+      <img src="../img/AvisEtContact/logo-telephone.png" alt="Logo téléphone" style="width:50px; height:50px; margin-top: 15px; margin-bottom: 10px;">
       <h3>Téléphone</h3>
       <p>07 84 14 66 59</p>
     </div>
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-mail.png" alt="Logo email">
+      <img src="../img/AvisEtContact/logo-mail.png" alt="Logo email" style="width:60px; height:50px; margin-top: 15px; margin-bottom: 10px;">
       <h3>Email</h3>
       <p>hugo.blois@reseau.eseo.fr</p>
     </div>
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-pouce.png" alt="Logo réseaux sociaux">
+      <img src="../img/AvisEtContact/logo-pouce.png" alt="Logo réseaux sociaux" style="width:60px; height:60px; margin-top: 15px; margin-bottom: 0px;">
       <h3>Réseaux Sociaux</h3>
-      <p>
-        <a href="https://www.facebook.com/Les-Logis-de-Beaulieu-929752433837612"><i class="icon ion-social-facebook"></i></a>
-        <a href="https://www.instagram.com/leslogisdebeaulieu/"><i class="icon ion-social-instagram"></i></a>
+      <p style="display: flex;">
+        <a href="https://www.facebook.com/Les-Logis-de-Beaulieu-929752433837612"><i class="icon ion-social-facebook" style="margin-right: 5px;"></i></a>
+        <a href="https://www.instagram.com/leslogisdebeaulieu/"><i class="icon ion-social-instagram" style="margin-right: 5px;"></i></a>
         <a href="#"><i class="icon ion-social-twitter"></i></a>
       </p>
     </div>
   </div>
-
+  
   <form>
     <div id="Formulaire" style="display: flex;">
       <div class="type" style="text-align:center;">
