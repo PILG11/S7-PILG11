@@ -1,4 +1,5 @@
 <?php
+
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
     ini_set('display_startup_errors', 'On');
@@ -7,7 +8,7 @@
         'server' => 'localhost',
         'login' => 'root',
         'password' => 'root',
-        'db_name' => 'projet',
+        'db_name' => 'gite',
     ];
     
     $mysqli = new mysqli($infoBdd['server'], $infoBdd['login'],
@@ -16,9 +17,4 @@
      exit("Problème de connexion à la BDD");
     }
 
-    /*
-    if(isset($_GET['logout']) && $_GET['logout'] == 1) {
-        unset($_SESSION['compte']);
-        header("Location: ./");
-    }*/
 ?>

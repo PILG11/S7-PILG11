@@ -7,7 +7,7 @@
     <script src="../js/onglets.js"></script>
   </head>
 
-  <?php include "header.php" ?>
+  <?php include "./header.php" ?>
 
   <body>
 
@@ -93,7 +93,7 @@
 
   </body>
 
-  <?php include 'footer.php' ?>
+  <?php include "./footer.php" ?>
 
   
 </html>
