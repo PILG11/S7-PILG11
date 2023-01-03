@@ -2,6 +2,93 @@ body {
     padding-top: 150px; /* Pour ne pas afficher sous le header*/
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .contact-info {
+    width: 25%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .contact-info p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  
+  .contact-info a {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+
+form {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+  
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+  
+input[type="text"], input[type="email"], textarea {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+  
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.envoyer{
+    text-align: center;
+
+    height: 30px;
+    width: 60%;
+
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-bottom: 30px;
+
+    padding-top: 7px;
+    
+    background-color: rgb(48, 118, 55);
+}
+
+.type{
+    margin: 5%;
+    border: 1px solid rgb(183, 183, 183);
+    width: 100%;
+}
+
 .first_img > img{
     display: block;
     height: auto;
