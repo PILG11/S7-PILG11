@@ -12,7 +12,7 @@ jobs:
 
       - name: List contents of .backups folder
         run: |
-          ls -l ./backups/
+          ls -l ./backups/*
 
       - name: Delete all backups files
         run: |
@@ -25,7 +25,7 @@ jobs:
 
       - name: List contents of .backups folder
         run: |
-          ls -l .backups/
+          ls -l ./backups/*
 
       - name: Commit and push changes to actual branch
         uses: stefanzweifel/git-auto-commit-action@v4
