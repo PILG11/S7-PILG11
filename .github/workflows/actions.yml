@@ -10,20 +10,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # - name: Delete files
-      #   run: |
-      #     folder='.backups/'
-      #     for file in "$folder"/*; do
-      #       if [ -f "$file" ]; then
-      #         rm "$file"
-      #       fi
-      #     done
-      - name: Delete backups file
+      - name: Delete files
         run: |
-          path='./backups/27.12.2022_15h12-gite.sql'
-          if [ -f "$path" ]; then
-            rm -rf "$path"
-          fi
+          folder='.backups'
+          for file in "$folder"/*; do
+            if [ -f "$file" ]; then
+              rm "$file"
+            fi
+          done
 
 
       - uses: stefanzweifel/git-auto-commit-action@v4
