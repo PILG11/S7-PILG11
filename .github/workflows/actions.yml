@@ -41,5 +41,5 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -a -m "Deleted files in '$folder'"
-          git push origin $GITHUB_REF
+          git push origin 'refs/remotes/pull/33/merge'
         shell: bash
