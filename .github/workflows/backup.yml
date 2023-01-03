@@ -17,5 +17,5 @@ jobs:
     secrets: inherit
 
   deletion:
-    uses: ./.github/workflows/actions.yml
+    uses: ./.github/workflows/deletion.yml
     needs: [backup]

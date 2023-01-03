@@ -10,7 +10,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Delete files
+      - name: Delete all backups files
         run: |
           folder='.backups'
           for file in "$folder"/*; do
@@ -19,7 +19,7 @@ jobs:
             fi
           done
 
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Commit and push changes to actual branch
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
          commit_message: Delete all backups files on GitHub repo
