@@ -12,11 +12,11 @@ jobs:
 
       - name: List contents of .backups folder
         run: |
-          ls -l .backups/
+          ls -l ./backups/
 
       - name: Delete all backups files
         run: |
-          folder='.backups'
+          folder='./backups'
           for file in "$folder"/*; do
             if [ -f "$file" ]; then
               rm "$file"
