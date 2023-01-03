@@ -9,11 +9,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Config git
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-        shell: bash
 
       - name: Delete files
         run: |
@@ -23,23 +18,7 @@ jobs:
               rm "$file"
             fi
           done
-        shell: bash
 
-      - name: Stage changes
-        run: |
-          git add ./backups/*
-        shell: bash
-
-      - name: Check status
-        run: |
-          git status
-        shell: bash
-
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add .
-          git commit -a -m "Deleted files in '$folder'"
-          git push origin 'refs/remotes/pull/33/merge'
-        shell: bash
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+         commit_message: Delete all backups files on GitHub repo
