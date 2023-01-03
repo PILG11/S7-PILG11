@@ -13,6 +13,8 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+        shell: bash
+
       - name: Delete files
         run: |
           folder='.backups/'
@@ -21,12 +23,18 @@ jobs:
               rm "$file"
             fi
           done
+        shell: bash
+
       - name: Stage changes
         run: |
           git add ./backups/*
+        shell: bash
+
       - name: Check status
         run: |
           git status
+        shell: bash
+
       - name: Commit and push changes
         run: |
           git config --local user.email "actions@github.com"
@@ -34,3 +42,4 @@ jobs:
           git add .
           git commit -a -m "Deleted files in '$folder'"
           git push origin $GITHUB_REF
+        shell: bash
