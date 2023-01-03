@@ -7,6 +7,10 @@ jobs:
   delete_backups:
     runs-on: ubuntu-latest
     steps:
+      - name: Config git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Delete files
@@ -17,10 +21,16 @@ jobs:
               rm "$file"
             fi
           done
+      - name: Stage changes
+        run: |
+          git add ./backups/*
+      - name: Check status
+        run: |
+          git status
       - name: Commit and push changes
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
-          git commit -m "Deleted files in '$folder'"
+          git commit -a -m "Deleted files in '$folder'"
           git push origin $GITHUB_REF
