@@ -14,8 +14,8 @@ DB_PASSWD="mdpgite"
 BACKUP_FILE="/vagrant/backups"
 BACKUP_NAME="$DATE-$DB_NAME"
 
-# Nombre de jours à garder les dossiers (seront effacés après X jours)
-RETENTION=14
+# Les fichiers backups seront gardés 1h
+RETENTION=60
 
 echo "START - Database backup "$IP
 
@@ -30,18 +30,19 @@ apt-get install $APT_OPT \
 
 echo "=> [2]: Retrieving the database and storing it"
 
-# Dumb the database and gzip the .sql file
+# Dumb the database
 mysqldump --force --opt --user=$DB_USER -p$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME > "$BACKUP_FILE/$BACKUP_NAME.sql"
 
 # Remove files older than X days
-find $BACKUP_FILE/* -mtime +$RETENTION -delete
+find $BACKUP_FILE/* -mmin +$RETENTION -delete
 
 # Récupérer la base de données à partir de PHPMyAdmin et enregistrer le fichier de sauvegarde dans le dossier de sauvegarde
 #curl --silent "$PHPMYADMIN_URL/export.php?db=$DB_NAME&server=1&format=sql&username=$DB_USER&password=$DB_PASSWD" -o "$BACKUP_FILE/database_backup_$(date +\%R \%d/\%m/\%Y).sql"
 # Configurer une tâche cron pour exécuter ce script tous les jours
-echo "0 0 * * * root scripts/install_backup.sh" > /etc/cron.d/database_backup
+#echo "20 17 * * * root /scripts/install_backup.sh" | crontab -
+
 # Redémarrer cron pour prendre en compte la nouvelle tâche
-service cron restart
+#service cron restart
 
 # Copier la sauvegarde sur GitHub tous les jours à 1h du matin
 #echo "0 1 * * * root cd /root/backups && git add . && git commit -m 'Sauvegarde de la base de données $(date)'" >> /etc/cron.d/database-backup

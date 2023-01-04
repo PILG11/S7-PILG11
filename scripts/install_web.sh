@@ -31,6 +31,33 @@ apt-get install $APT_OPT \
 
 echo "=> [2]: Apache2 configuration"
 	# Add configuration of /etc/apache2
+  sudo cp -r /vagrant/Website /var/www/les-logis-de-beaulieu
 
+  # Attribue les bonnes permissions au répertoire
+  sudo chmod -R 755 /var/www/les-logis-de-beaulieu
+
+  # Crée un fichier de configuration Apache pour votre site web
+  sudo touch /etc/apache2/sites-available/les-logis-de-beaulieu.conf
+
+  # Ajoute la configuration suivante au fichier de configuration Apache
+  echo "<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/les-logis-de-beaulieu
+    ErrorLog \${APACHE_LOG_DIR}/error.les-logis-de-beaulieu.log
+    CustomLog \${APACHE_LOG_DIR}/access.les-logis-de-beaulieu.log combined
+  </VirtualHost>
+  " | sudo tee /etc/apache2/sites-available/les-logis-de-beaulieu.conf
+
+  #sudo sed -i "/debian/a \
+  #127.0.0.1       www.les-logis-de-beaulieu.com" /etc/hosts  
+  
+  # Active le site web
+  sudo a2dissite 000-default.conf
+  sudo systemctl restart apache2
+  sudo a2ensite les-logis-de-beaulieu.conf
+
+  # Redémarre Apache pour prendre en compte les changements
+  sudo systemctl restart apache2
+  sudo systemctl status apache2
 echo "END - install web Server"
 

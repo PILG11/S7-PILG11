@@ -8,7 +8,7 @@ APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 LOG_FILE="/vagrant/logs/install_myadmin.log"
 DEBIAN_FRONTEND="noninteractive"
 MYADMIN_VERSION="5.1.1"
-WWW_REP="/var/www/html"
+WWW_REP="/var/www"
 
 echo "START - Installation of phpMyAdmin - "$IP
 
