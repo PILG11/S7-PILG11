@@ -23,7 +23,6 @@ apt-get update $APT_OPT \
   >> $LOG_FILE 2>&1
 
 apt-get install $APT_OPT \
-  cron \
   curl \
   >> $LOG_FILE 2>&1
 
