@@ -1,7 +1,5 @@
 <?php
 
-    echo '<p> Hello </p>';
-
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
     ini_set('display_startup_errors', 'On');
@@ -28,6 +26,3 @@
     if ($mysqli->connect_errno) {
      exit("Problème de connexion à la BDD");
     }
-
-    $result = $mysqli->query("INSERT INTO `Actualites` (`Id`,`Nom`,`Description`) 
-                            VALUES (2,'Mariage', 'Premier mariage Champetre');");
