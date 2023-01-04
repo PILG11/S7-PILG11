@@ -47,4 +47,3 @@ service mariadb restart
 
 
 echo "END - install MariaDB"
-
