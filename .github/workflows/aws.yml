@@ -25,5 +25,5 @@ jobs:
 
       # upload backups files to aws
       - name: upload all sql files to s3 bucket
-        run: aws s3 cp ./backups/ ${{ secrets.AWS_S3_BUCKET_BACKUP }} --recursive
+        run: aws s3 cp ./backups/ ${{ secrets.AWS_S3_BUCKET_BACKUP }} --exclude "README.md" --recursive
         shell: bash
