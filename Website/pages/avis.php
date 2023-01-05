@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<?php include('../core/affichage_avis.php'); ?>
+
 <head>
   <meta charset="utf-8" />
   <title>Avis et Contact</title>
@@ -70,15 +72,15 @@
         </div>
         <div style="margin-top: 5px">Note* :</div>
         <div style="margin-top: 5px;">
-          <span class="notationEtoiles">
+          <span class="notationEtoiles" name="etoile">
             <div></div>
-            <span class="notationEtoiles">
+            <span class="notationEtoiles" name="etoile">
               <div></div>
-              <span class="notationEtoiles">
+              <span class="notationEtoiles" name="etoile">
                 <div></div>
-                <span class="notationEtoiles">
+                <span class="notationEtoiles" name="etoile">
                   <div></div>
-                  <span class="notationEtoiles">
+                  <span class="notationEtoiles" name="etoile">
                     <div></div>
                   </span>
                 </span>
@@ -86,7 +88,7 @@
             </span>
           </span>
         </div>
-        <input type="submit" value="Envoyer" style="margin-top: 30px;">
+        <input type="submit" name="avis_submit" value="Envoyer" style="margin-top: 30px;">
     </form>
   </div>
   </form>
