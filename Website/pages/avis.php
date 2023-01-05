@@ -52,20 +52,20 @@
       <div style="text-align: center">
         <div style="display: flex;">
           <div style="width: 50%">
-            <label class="titreInput" for="nom">Nom :</label>
+            <label class="titreInput" for="nom">Nom* :</label>
             <input type="text" id="nom" name="nom" style="width: 70%;">
           </div>
           <div style="width: 50%">
-            <label class="titreInput" for="prenom">Prénom :</label>
+            <label class="titreInput" for="prenom">Prénom* :</label>
             <input type="text" id="prenom" name="prenom" style="width: 70%;">
           </div>
         </div>
         <div>
-          <label class="titreInput" for="email">Adresse mail :</label>
+          <label class="titreInput" for="email">Adresse mail* :</label>
           <input type="text" id="email" name="email" style="width: 85%;">
         </div>
         <div>
-          <label class="titreInput" for="message">Message :</label>
+          <label class="titreInput" for="message">Message* :</label>
           <textarea id="message" name="message" rows="5" cols="30" style="width: 85%"></textarea>
         </div>
         <input type="submit" value="Envoyer" style="margin-top: 30px;">

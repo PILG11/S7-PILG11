@@ -44,8 +44,6 @@ body {
 }
 
 .titreForm h1{
-    margin-top: 62%;
-    margin-bottom: 62%;
     color: white
     
 }
@@ -79,25 +77,18 @@ textarea {
 }
 
 input[type="submit"] {
-    
     text-align: center;
-
     height: 40px;
     width: 60%;
-
     margin-right: 20%;
     margin-left: 20%;
     margin-bottom: 30px;
-
     padding-top: 15px;
     padding-bottom: 30px;
-
     border: none;
     border-radius: 4px;
-
     background-color: rgb(48, 118, 55);
     color: white;
-
     cursor: pointer;
 }
 
