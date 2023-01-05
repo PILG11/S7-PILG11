@@ -62,6 +62,24 @@ Vagrant.configure("2") do |config|
     db.vm.provision "shell", path: "scripts/install_backup.sh"
   end
 
+  # Serveur virtuel du reverse-proxy
+  config.vm.define "reverse-proxy" do |rp|
+    rp.vm.hostname = "reverse-proxy"
+    rp.vm.box = "chavinje/fr-bull-64"
+    rp.vm.network :private_network, ip: "192.168.56.82"
+    
+    rp.vm.provider :virtualbox do |v3|
+      v3.customize ["modifyvm", :id, "--name", "rp"]
+      v3.customize ["modifyvm", :id, "--groups", "/S7-projet"]
+      v3.customize ["modifyvm", :id, "--cpus", "1"]
+      v3.customize ["modifyvm", :id, "--memory", 2*1024]
+      v3.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v3.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
+    end
+    rp.vm.provision "shell", path: "scripts/install_sys.sh"
+    rp.vm.provision "shell", path: "scripts/install_rp.sh"
+  end
+
   config.vm.provision "shell", inline: <<-SHELL
       sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config    
       sleep 3
