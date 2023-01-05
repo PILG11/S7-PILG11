@@ -27,3 +27,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Delete all backups files on GitHub repo
+          push_options: '--force'
