@@ -11,23 +11,23 @@ DEBIAN_FRONTEND="noninteractive"
 echo "START - install web Server - "$IP
 
 echo "=> [1]: Installing required packages..."
-apt-get install $APT_OPT \
-apache2 \
-libapache2-mod-rpaf \
-php \
-libapache2-mod-php \
-php-mysql \
-php-intl \
-php-curl \
-php-xmlrpc \
-php-soap \
-php-gd \
-php-json \
-php-cli \
-php-pear \
-php-xsl \
-php-zip \
-php-mbstring \
+  apt-get install $APT_OPT \
+  apache2 \
+  libapache2-mod-rpaf \
+  php \
+  libapache2-mod-php \
+  php-mysql \
+  php-intl \
+  php-curl \
+  php-xmlrpc \
+  php-soap \
+  php-gd \
+  php-json \
+  php-cli \
+  php-pear \
+  php-xsl \
+  php-zip \
+  php-mbstring \
 >> $LOG_FILE 2>&1
 
 echo "=> [2]: Apache2 configuration"
