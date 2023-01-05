@@ -30,7 +30,7 @@ body {
     margin-bottom: 5px;
 }
 
-.formulaire{
+.formulaire {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,14 +38,13 @@ body {
     background-color: #4b5676;
 }
 
-.titreForm{
+.titreForm {
     width: 50%;
     text-align: center;
 }
 
-.titreForm h1{
+.titreForm h1 {
     color: white
-    
 }
 
 form {
@@ -54,8 +53,8 @@ form {
     text-align: left;
     padding: 20px;
     background-color: white;
-    border: 3px solid white;  
-    min-height: 422px;  
+    border: 3px solid white;
+    min-height: 422px;
 }
 
 .titreInput {
@@ -94,6 +93,30 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #45a049;
+}
+
+.notationEtoiles{
+    display: inline-block;
+    justify-content: center;
+    background: white;
+}
+
+.notationEtoiles div{
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.notationEtoiles div:after{
+    content:"\002605";
+    color: black;
+    font-size: 30px;
+}
+
+.notationEtoiles div:hover::after{
+    content:"\002605";
+    color: green;
 }
 
 .type {

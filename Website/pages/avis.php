@@ -68,6 +68,24 @@
           <label class="titreInput" for="message">Message* :</label>
           <textarea id="message" name="message" rows="5" cols="30" style="width: 85%"></textarea>
         </div>
+        <div style="margin-top: 5px">Note* :</div>
+        <div style="margin-top: 5px;">
+          <span class="notationEtoiles">
+            <div></div>
+            <span class="notationEtoiles">
+              <div></div>
+              <span class="notationEtoiles">
+                <div></div>
+                <span class="notationEtoiles">
+                  <div></div>
+                  <span class="notationEtoiles">
+                    <div></div>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </span>
+        </div>
         <input type="submit" value="Envoyer" style="margin-top: 30px;">
     </form>
   </div>
