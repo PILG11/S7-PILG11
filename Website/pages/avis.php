@@ -12,48 +12,67 @@
 <body>
   <div class="container" style="margin-bottom: 30px;">
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-adresse.png" alt="Logo adresse" style="width:55px; height:60px; margin-top: 15px; margin-bottom: 0px;">
+      <img src="../img/AvisEtContact/logo-adresse.png" alt="Logo adresse"
+        style="width:55px; height:60px; margin-top: 15px; margin-bottom: 0px;">
       <h3>Adresse</h3>
-      <p style="margin-bottom: 15px; text-align:center;">Chemin des Logis de Beaulieu, Soucelles, 49140, Rives du Loire en Anjou</p>
+      <p style="margin-bottom: 15px; text-align:center;">Chemin des Logis de Beaulieu, Soucelles, 49140, Rives du Loire
+        en Anjou</p>
     </div>
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-telephone.png" alt="Logo téléphone" style="width:50px; height:50px; margin-top: 15px; margin-bottom: 10px;">
+      <img src="../img/AvisEtContact/logo-telephone.png" alt="Logo téléphone"
+        style="width:50px; height:50px; margin-top: 15px; margin-bottom: 10px;">
       <h3>Téléphone</h3>
       <p>07 84 14 66 59</p>
     </div>
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-mail.png" alt="Logo email" style="width:60px; height:50px; margin-top: 15px; margin-bottom: 10px;">
+      <img src="../img/AvisEtContact/logo-mail.png" alt="Logo email"
+        style="width:60px; height:50px; margin-top: 15px; margin-bottom: 10px;">
       <h3>Email</h3>
       <p>hugo.blois@reseau.eseo.fr</p>
     </div>
     <div class="contact-info">
-      <img src="../img/AvisEtContact/logo-pouce.png" alt="Logo réseaux sociaux" style="width:60px; height:60px; margin-top: 15px; margin-bottom: 0px;">
+      <img src="../img/AvisEtContact/logo-pouce.png" alt="Logo réseaux sociaux"
+        style="width:60px; height:60px; margin-top: 15px; margin-bottom: 0px;">
       <h3>Réseaux Sociaux</h3>
       <p style="display: flex;">
-        <a href="https://www.facebook.com/Les-Logis-de-Beaulieu-929752433837612"><i class="icon ion-social-facebook" style="margin-right: 5px;"></i></a>
-        <a href="https://www.instagram.com/leslogisdebeaulieu/"><i class="icon ion-social-instagram" style="margin-right: 5px;"></i></a>
+        <a href="https://www.facebook.com/Les-Logis-de-Beaulieu-929752433837612"><i class="icon ion-social-facebook"
+            style="margin-right: 5px;"></i></a>
+        <a href="https://www.instagram.com/leslogisdebeaulieu/"><i class="icon ion-social-instagram"
+            style="margin-right: 5px;"></i></a>
         <a href="#"><i class="icon ion-social-twitter"></i></a>
       </p>
     </div>
   </div>
-  
-  <form>
-    <div id="Formulaire" style="display: flex;">
-      <div class="type" style="text-align:center;">
-        <label for="titreFormulaire" style="text-align: center; font-size:35px; margin-top:10px;">Soyez le prochain à
-          témoigner</label>
-        <label for="first-name" style="text-align: center; font-size:18px; margin-top:25px;">Prénom:</label>
-        <input type="text" id="first-name" name="first-name" style="margin-left:">
-        <label for="last-name" style="text-align: center; font-size:18px; margin-top:10px" ;>Nom:</label>
-        <input type="text" id="last-name" name="last-name">
-        <label for="email" style="text-align: center; font-size:18px; margin-top:10px;">Email:</label>
-        <input type="email" id="email" name="email">
-        <label for="message" style="text-align: center; font-size:18px; margin-top:10px;">Message:</label>
-        <textarea id="message" name="message"></textarea>
-        <p class="envoyer"><a style="color: white;">Envoyer</a></p>
-      </div>
+
+  <div class="formulaire">
+    <div class="titreForm">
+      <h1>Soyez le prochain à témoigner</h1>
     </div>
+    <form>
+      <div style="text-align: center">
+        <div style="display: flex;">
+          <div style="width: 50%">
+            <label class="titreInput" for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" style="width: 70%;">
+          </div>
+          <div style="width: 50%">
+            <label class="titreInput" for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" style="width: 70%;">
+          </div>
+        </div>
+        <div>
+          <label class="titreInput" for="email">Adresse mail :</label>
+          <input type="text" id="email" name="email" style="width: 85%;">
+        </div>
+        <div>
+          <label class="titreInput" for="message">Message :</label>
+          <textarea id="message" name="message" rows="5" cols="30" style="width: 85%"></textarea>
+        </div>
+        <input type="submit" value="Envoyer" style="margin-top: 30px;">
+    </form>
+  </div>
   </form>
+  </div>
 </body>
 
 <?php include "./footer.php" ?>

@@ -1,89 +1,117 @@
 body {
-    padding-top: 150px; /* Pour ne pas afficher sous le header*/
+    padding-top: 150px;
+    /* Pour ne pas afficher sous le header*/
 }
 
 .container {
     display: flex;
     justify-content: center;
-  }
-  
-  .contact-info {
+}
+
+.contact-info {
     width: 24%;
     text-align: center;
     border: 1px solid rgb(0, 0, 0);
-  }
-  
-  .contact-info h3 {
+}
+
+.contact-info h3 {
     font-size: 18px;
     margin-bottom: 5px;
-  }
-  
-  .contact-info p {
+}
+
+.contact-info p {
     font-size: 14px;
     margin-bottom: 0;
     justify-content: center;
-  }
-  
-  .contact-info a {
+}
+
+.contact-info a {
     display: block;
     margin-bottom: 5px;
-  }
-  
+}
+
+.formulaire{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #4b5676;
+}
+
+.titreForm{
+    width: 50%;
+    text-align: center;
+}
+
+.titreForm h1{
+    margin-top: 62%;
+    margin-bottom: 62%;
+    color: white
+    
+}
 
 form {
-    width: 500px;
+    width: 100%;
     margin: 0 auto;
     text-align: left;
+    padding: 20px;
+    background-color: white;
+    border: 3px solid white;  
+    min-height: 422px;  
 }
-  
-label {
+
+.titreInput {
     display: block;
     margin-bottom: 8px;
+    text-align: left;
+    margin-left: 50px;
 }
-  
-input[type="text"], input[type="email"], textarea {
-    width: 90%;
+
+input[type="text"],
+textarea {
+    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
     resize: vertical;
 }
-  
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-  
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
 
-.envoyer{
+input[type="submit"] {
+    
     text-align: center;
 
-    height: 30px;
+    height: 40px;
     width: 60%;
 
     margin-right: 20%;
     margin-left: 20%;
     margin-bottom: 30px;
 
-    padding-top: 7px;
-    
+    padding-top: 15px;
+    padding-bottom: 30px;
+
+    border: none;
+    border-radius: 4px;
+
     background-color: rgb(48, 118, 55);
+    color: white;
+
+    cursor: pointer;
 }
 
-.type{
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.type {
     margin: 5%;
     border: 1px solid rgb(183, 183, 183);
     width: 100%;
 }
 
-.first_img > img{
+.first_img>img {
     display: block;
     height: auto;
     width: 70%;
@@ -92,12 +120,14 @@ input[type="submit"]:hover {
     margin-top: 10px;
     margin-bottom: 30px;
 }
-.welcome > p{
+
+.welcome>p {
     text-align: center;
     font-size: 300%;
     margin: auto;
 }
-.second_img > img{
+
+.second_img>img {
     height: auto;
     width: 100%;
     min-width: 500px;
