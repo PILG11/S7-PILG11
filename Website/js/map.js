@@ -1,8 +1,10 @@
+// Initialisation et affichage de la map
 var map = L.map('mapid').setView([47.579937, -0.430671], 10);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// Marqueur pour le logis en rouge pour le différencier
 var marker = L.marker([47.579937, -0.430671])
     .bindPopup("Les Logis de Beaulieu")
     .addTo(map);
@@ -13,20 +15,23 @@ marker.setIcon(L.icon({
 marker.on("mouseover", function(event) { this.openPopup(); });
 marker.on("mouseout", function(event) { this.closePopup(); });
 
-var canoe = L.marker([47.593383, -0.476700])
-    .bindPopup("Canoë");
-canoe.on("mouseover", function(event) { this.openPopup(); });
-canoe.on("mouseout", function(event) { this.closePopup(); });
+// Affichage des marqueurs pour les lieux des différentes activités (page index)
+if (window.location.href == "http://localhost:8888/") {
+    var canoe = L.marker([47.593383, -0.476700])
+        .bindPopup("Canoë")
+        .addTo(map);
+    canoe.on("mouseover", function(event) { this.openPopup(); });
+    canoe.on("mouseout", function(event) { this.closePopup(); });
 
-accrobranche = L.marker([47.580901, -0.373485])
-    .bindPopup("Accrobranche");
-accrobranche.on("mouseover", function(event) { this.openPopup(); });
-accrobranche.on("mouseout", function(event) { this.closePopup(); });
+    accrobranche = L.marker([47.580901, -0.373485])
+        .bindPopup("Accrobranche")
+        .addTo(map);
+    accrobranche.on("mouseover", function(event) { this.openPopup(); });
+    accrobranche.on("mouseout", function(event) { this.closePopup(); });
 
-daronne = L.marker([47.549582, -0.398853])
-    .bindPopup("La daronne d'Hugo");
-daronne.on("mouseover", function(event) { this.openPopup(); });
-daronne.on("mouseout", function(event) { this.closePopup(); });
-
-L.layerGroup([canoe, accrobranche, daronne])
-    .addTo(map);
+    cheval = L.marker([47.549582, -0.398853])
+        .bindPopup("Le")
+        .addTo(map);
+    daronne.on("mouseover", function(event) { this.openPopup(); });
+    daronne.on("mouseout", function(event) { this.closePopup(); });
+}
