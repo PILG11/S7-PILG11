@@ -16,6 +16,23 @@ apt-get install $APT_OPT \
   >> $LOG_FILE 2>&1
 
 echo "=> [2]: NGINX Configuration"
-sudo service nginx restart
+echo "upstream backend_apache {
+    server 192.168.56.80;
+}
+
+server {
+    listen    80;
+    server_name    www.les-logis-de-beaulieu.com;
+    root /var/www/html/les-logis-de-beaulieu;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://backend_apache;
+    }
+}" >> /etc/nginx/sites-available/les-logis-de-beaulieu.conf
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/les-logis-de-beaulieu.conf /etc/nginx/sites-enabled/les-logis-de-beaulieu.conf
+sudo systemctl restart nginx
 
 echo "END - Install reverse-proxy Server "$IP
