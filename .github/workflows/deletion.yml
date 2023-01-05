@@ -19,7 +19,7 @@ jobs:
       - name: Delete all backups files
         run: |
           folder='./backups'
-          for file in "$folder"/*; do
+          for file in "$folder"/*.sql; do
             if [ -f "$file" ]; then
               rm "$file"
             fi
