@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css" >
   </head>
 
-  <?php include "./header.php" ?>
+  <?php include "./pages/header.php" ?>
 
   <body>
 
@@ -26,6 +26,6 @@
 
   </body>
 
-  <?php include "./footer.php" ?>
+  <?php include "./pages/footer.php" ?>
 
 </html>

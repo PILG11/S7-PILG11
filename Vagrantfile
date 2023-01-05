@@ -41,10 +41,6 @@ Vagrant.configure("2") do |config|
     web.vm.provision "shell", path: "scripts/install_sys.sh"
     web.vm.provision "shell", path: "scripts/install_web.sh"
     web.vm.provision "shell", path: "scripts/install_myadmin.sh"
-    # Copier le site web de la machine hôte vers la VM 
-    web.vm.provision "file", source: "./Website", destination: "./Website"
-    # Copier de la VM vers le root de la VM
-    web.vm.provision "shell", inline: "mv ./Website /var/www/html/Website"
   end
 
   # Serveur virtuel de la base de données

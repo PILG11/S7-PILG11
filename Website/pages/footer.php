@@ -14,7 +14,7 @@
     </div>
     
     <ul>
-        <li><a href="avis.php">Nous Contacter</a></li>
+        <li><a href="../pages/avis.php">Nous Contacter</a></li>
         <li><a href="#">Politique de confidentialité</a></li>
         <li><a href="#">Mentions légales</a></li>
     </ul>
