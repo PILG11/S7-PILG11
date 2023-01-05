@@ -11,7 +11,7 @@ DEBIAN_FRONTEND="noninteractive"
 echo "START - install web Server - "$IP
 
 echo "=> [1]: Installing required packages..."
-  apt-get install $APT_OPT \
+apt-get install $APT_OPT \
   apache2 \
   libapache2-mod-rpaf \
   php \
