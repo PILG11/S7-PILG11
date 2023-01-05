@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: List contents of backups folder
         run: |
@@ -17,7 +19,7 @@ jobs:
       - name: Delete all backups files
         run: |
           folder='./backups'
-          for file in "$folder"/*; do
+          for file in "$folder"/*.sql; do
             if [ -f "$file" ]; then
               rm "$file"
             fi
@@ -26,5 +28,5 @@ jobs:
       - name: Commit and push changes to actual branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Delete all backups files on GitHub repo
+          commit_message: Delete all backups files on GitHub repository
           push_options: '--force'
