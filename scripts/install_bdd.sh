@@ -20,7 +20,7 @@ echo "=> [1]: Install required packages ..."
 DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get install $APT_OPT \
 	mariadb-server \
-	mariadb-client \
+	# mariadb-client \
    >> $LOG_FILE 2>&1
 
 echo "=> [2]: Configuration du service"
