@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include('../core/affichage_avis.php'); ?>
+<?php include('../core/upload_avis.php'); ?>
 
 <head>
   <meta charset="utf-8" />
   <title>Avis et Contact</title>
   <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/avis.js"></script>
 </head>
 
 <?php include "./header.php" ?>
-
 <body>
   <div class="container" style="margin-bottom: 30px;">
     <div class="contact-info">
@@ -50,7 +50,7 @@
     <div class="titreForm">
       <h1>Soyez le prochain à témoigner</h1>
     </div>
-    <form>
+    <form method="post">
       <div style="text-align: center">
         <div style="display: flex;">
           <div style="width: 50%">
@@ -70,7 +70,7 @@
           <label class="titreInput" for="message">Message* :</label>
           <textarea id="message" name="message" rows="5" cols="30" style="width: 85%"></textarea>
         </div>
-        <div style="margin-top: 5px">Note* :</div>
+        <div style="margin-top: 5px">Note :</div>
         <div style="margin-top: 5px;">
           <span class="notationEtoiles" name="etoile">
             <div></div>
