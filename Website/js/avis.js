@@ -7,7 +7,42 @@ function note() {
     const etoile5 = document.getElementsByName("etoile5");
 
 
+    if (etoile1) {
+        etoile1.style.color = "green";
+    }
 
+    if (etoile2) {
+        console.log("etoile2")
+        etoile1.style.color = "green";
+        etoile2.style.color = "green";
+    }
+
+    if (numero === etoile3) {
+        etoile3.addEventListener("mouseenter", () => {
+            etoile1.style.color = "green";
+            etoile2.style.color = "green";
+            etoile3.style.color = "green";
+        });
+    }
+
+    if (numero === etoile4) {
+        etoile5.addEventListener("mouseenter", () => {
+            etoile1.style.color = "green";
+            etoile2.style.color = "green";
+            etoile3.style.color = "green";
+            etoile4.style.color = "green";
+        });
+    }
+
+    if (numero === etoile5) {
+        etoile5.addEventListener("mouseenter", () => {
+            etoile1.style.color = "green";
+            etoile2.style.color = "green";
+            etoile3.style.color = "green";
+            etoile4.style.color = "green";
+            etoile5.style.color = "green";
+        });
+    }
 }
 
 note();
