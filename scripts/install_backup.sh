@@ -30,7 +30,7 @@ echo "=> [2]: Retrieving the database and storing it"
 mkdir -p $BACKUP_FILE
 
 # Dumb the database
-mysqldump --force --opt --user=$DB_USER -p$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME > "$BACKUP_FILE/$BACKUP_NAME.sql"
+# mysqldump --force --opt --user=$DB_USER -p$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME > "$BACKUP_FILE/$BACKUP_NAME.sql"
 
 # Remove files older than X days
 find $BACKUP_FILE/* -mmin +$RETENTION -delete
