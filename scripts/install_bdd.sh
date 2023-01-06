@@ -20,7 +20,7 @@ echo "=> [1]: Install required packages ..."
 DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get install $APT_OPT \
 	mariadb-server \
-	mariadb-client \
+  awscli \
    >> $LOG_FILE 2>&1
 
 echo "=> [2]: Configuration du service"
@@ -32,7 +32,24 @@ if [ -n "$DB_NAME" ] && [ -n "$DB_USER" ] && [ -n "$DB_PASSWD" ] ;then
   echo "BDD CREER ET PRIVILEGES DONNEES"
 fi
 
-echo "=> [3]: Configuration de BDD"
+echo "=> [3]: Récupération de la dernière version de database stocké sur AWS en backup"
+
+echo "=> [3.1]: Paramétrage credentials aws"
+aws configure set aws_access_key_id "AKIAQOFL2WZBXU6LHDU5"
+aws configure set aws_secret_access_key "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"
+aws configure set default.region "eu-west-3"
+
+echo "=> [3.2]: Verification identité"
+aws sts get-caller-identity
+
+echo "=> [3.3]: Récupération dernière sauvegarde database sur aws"
+# Store the name of the latest file in a variable
+LATEST_FILE=$(aws s3 ls s3://pilg11-db-backup | sort | tail -n 1 | awk '{print $4}')
+
+# Use the variable in the aws s3 cp command to download and rename database
+aws s3 cp s3://pilg11-db-backup/$LATEST_FILE  /vagrant/files/database.sql
+
+echo "=> [4]: Configuration de la database"
 if [ -n "$DB_FILE" ] ;then
   mysql -u $DB_USER --password=$DB_PASSWD < /vagrant/$DB_FILE \
   >> $LOG_FILE 2>&1
