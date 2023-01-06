@@ -35,8 +35,8 @@ fi
 echo "=> [3]: Récupération de la dernière version de database stocké sur AWS en backup"
 
 echo "=> [3.1]: Paramétrage credentials aws"
-aws configure set aws_access_key_id "AKIAQOFL2WZBXU6LHDU5"
-aws configure set aws_secret_access_key "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"
+aws configure set aws_access_key_id ""
+aws configure set aws_secret_access_key ""
 aws configure set default.region "eu-west-3"
 
 echo "=> [3.2]: Verification identité"
