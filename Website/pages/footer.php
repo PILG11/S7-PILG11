@@ -8,9 +8,9 @@
     </head>
 
     <div class="social">
-        <a href="https://www.facebook.com/Les-Logis-de-Beaulieu-929752433837612"><i class="icon ion-social-facebook"></i></a>
-        <a href="https://www.instagram.com/leslogisdebeaulieu/"><i class="icon ion-social-instagram"></i></a>
-        <a href="#"><i class="icon ion-social-twitter"></i></a>
+        <a href="https://www.facebook.com/Les-Logis-de-Beaulieu-929752433837612" target="_blank"><i class="icon ion-social-facebook"></i></a>
+        <a href="https://www.instagram.com/leslogisdebeaulieu/" target="_blank"><i class="icon ion-social-instagram"></i></a>
+        <a href="#" target="_blank"><i class="icon ion-social-twitter"></i></a>
     </div>
     
     <ul>
