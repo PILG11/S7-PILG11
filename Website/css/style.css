@@ -20,11 +20,28 @@ body {
     margin-bottom: 40px;
 }
 
+.second_img {
+    position: relative;
+    overflow: hidden;
+}
+
 .second_img>img {
     height: auto;
     width: 100%;
     min-width: 500px;
     margin: auto;
+}
+
+.descr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: white;
+    font-size: 22px;
 }
 
 .container {
