@@ -13,9 +13,19 @@ apt-get update $APT_OPT \
 
 apt-get install $APT_OPT \
   nginx \
+  libnss3-tools \
   >> $LOG_FILE 2>&1
 
-echo "=> [2]: NGINX Configuration"
+echo "=> [2]: Protocol SSL Configuration"
+wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 >> $LOG_FILE 2>&1
+sudo mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
+sudo chmod +x /usr/bin/mkcert
+mkcert -install
+sudo mkcert les-logis-de-beaulieu.com localhost 192.168.56.82
+sudo mv ./les-logis-de-beaulieu.com+2.pem /etc/ssl/certs/
+sudo mv ./les-logis-de-beaulieu.com+2-key.pem /etc/ssl/private/
+
+echo "=> [3]: NGINX Configuration"
 echo "upstream backend_apache {
     server 192.168.56.80;
 }
@@ -23,6 +33,18 @@ echo "upstream backend_apache {
 server {
     listen    80;
     server_name    www.les-logis-de-beaulieu.com;
+    root /var/www/html/les-logis-de-beaulieu;
+
+    return 301 https://\$host\$request_uri;
+}
+
+server {
+    listen 443 ssl;
+
+    ssl on;
+    ssl_certificate /etc/ssl/certs/les-logis-de-beaulieu.com+2.pem;
+    ssl_certificate_key /etc/ssl/private/les-logis-de-beaulieu.com+2-key.pem;
+
     root /var/www/html/les-logis-de-beaulieu;
 
     location / {
