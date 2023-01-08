@@ -13,6 +13,12 @@ DB_USER="admin"
 DB_PASSWD="mdpgite"
 #Fichier sql à injecter (présent dans un sous répertoire)
 DB_FILE="files/database.sql"
+#Fichier accès bucket
+GPG_PASSPHRASE="pilg11projet"
+GPG_KEY_FILE="/vagrant/data/gnupg/key.asc"
+GPG_FILE="/vagrant/data/gnupg/config.sh.gpg"
+AWS_FILE="/vagrant/data/gnupg/config.sh"
+
 
 echo "START - install MariaDB - "$IP
 
@@ -21,6 +27,7 @@ DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get install $APT_OPT \
 	mariadb-server \
   awscli \
+  gnupg \
    >> $LOG_FILE 2>&1
 
 echo "=> [2]: Configuration du service"
@@ -32,31 +39,35 @@ if [ -n "$DB_NAME" ] && [ -n "$DB_USER" ] && [ -n "$DB_PASSWD" ] ;then
   echo "BDD CREER ET PRIVILEGES DONNEES"
 fi
 
-echo "=> [3]: Récupération de la dernière version de database stocké sur AWS en backup"
+echo "=> [3]: Récupération du fichier conf chiffré"
+sudo gpg --batch --yes --passphrase $GPG_PASSPHRASE --import $GPG_KEY_FILE
+sudo gpg --batch --yes --passphrase $GPG_PASSPHRASE $GPG_FILE
 
-echo "=> [3.1]: Paramétrage credentials aws"
-aws configure set aws_access_key_id ""
-aws configure set aws_secret_access_key ""
-aws configure set default.region "eu-west-3"
+echo "=> [4]: Récupération de la dernière version de database stocké sur AWS en backup"
 
-echo "=> [3.2]: Verification identité"
+echo "=> [4.1]: Config AWS credentials"
+source $AWS_FILE
+aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+aws configure set default.region "$AWS_REGION"
+echo "=> [4.2]: Verification identité"
 aws sts get-caller-identity
 
-echo "=> [3.3]: Récupération dernière sauvegarde database sur aws"
+echo "=> [4.3]: Récupération dernière sauvegarde database sur aws"
 # Store the name of the latest file in a variable
-LATEST_FILE=$(aws s3 ls s3://pilg11-db-backup | sort | tail -n 1 | awk '{print $4}')
+LATEST_FILE=$(aws s3 ls $AWS_S3_BUCKET | sort | tail -n 1 | awk '{print $4}')
 
 # Use the variable in the aws s3 cp command to download and rename database
-aws s3 cp s3://pilg11-db-backup/$LATEST_FILE  /vagrant/files/database.sql
+aws s3 cp $AWS_S3_BUCKET/$LATEST_FILE  /vagrant/files/database.sql
 
-echo "=> [4]: Configuration de la database"
+echo "=> [5]: Configuration de la database"
 if [ -n "$DB_FILE" ] ;then
   mysql -u $DB_USER --password=$DB_PASSWD < /vagrant/$DB_FILE \
   >> $LOG_FILE 2>&1
   echo "FICHIER SQL INJECTE"
 fi
 
-echo "=> [4] Ouverture ecoute du serveur à tous et restart"
+echo "=> [5] Ouverture ecoute du serveur à tous et restart"
 sed -i "s|bind-address            = 127.0.0.1|bind-address            = 0.0.0.0|" \
   /etc/mysql/mariadb.conf.d/50-server.cnf
 
