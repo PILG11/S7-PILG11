@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--cpus", "1"]
       v.customize ["modifyvm", :id, "--memory", 2*1024]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
+      v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     end
     web.vm.provision "shell", path: "scripts/install_sys.sh"
     web.vm.provision "shell", path: "scripts/install_web.sh"
@@ -54,8 +54,6 @@ Vagrant.configure("2") do |config|
       v2.customize ["modifyvm", :id, "--groups", "/S7-projet"]
       v2.customize ["modifyvm", :id, "--cpus", "1"]
       v2.customize ["modifyvm", :id, "--memory", 2*1024]
-      v2.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v2.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     end
     db.vm.provision "shell", path: "scripts/install_sys.sh"
     db.vm.provision "shell", path: "scripts/install_bdd.sh"
@@ -74,7 +72,7 @@ Vagrant.configure("2") do |config|
       v3.customize ["modifyvm", :id, "--cpus", "1"]
       v3.customize ["modifyvm", :id, "--memory", 2*1024]
       v3.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v3.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
+      v3.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     end
     rp.vm.provision "shell", path: "scripts/install_sys.sh"
     rp.vm.provision "shell", path: "scripts/install_rp.sh"
