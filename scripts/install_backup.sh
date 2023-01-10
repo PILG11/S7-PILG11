@@ -5,32 +5,27 @@ APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 LOG_FILE="/vagrant/logs/install_backup.log"
 DEBIAN_FRONTEND="noninteractive"
 
-DATE=$(date +"%d.%m.%Y_%Hh%M")
-DB_NAME="gite"
-DB_USER="admin"
-DB_PASSWD="mdpgite"
-
 BACKUP_FILE="/vagrant/backups"
-BACKUP_NAME="$DATE-$DB_NAME"
+#Fichier config AWS
+AWS_CONF_FILE="/vagrant/scripts/config_aws.sh"
 
 # Les fichiers backups seront gardés 1h
 RETENTION=60
 
 echo "START - Database backup "$IP
 
-echo "=> [1]: Installing required packages..."
-apt-get update $APT_OPT \
-  >> $LOG_FILE 2>&1
-
+echo "=> [1]: Install required packages ..."
+DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get install $APT_OPT \
-  curl \
+  cron \
   >> $LOG_FILE 2>&1
 
-echo "=> [2]: Retrieving the database and storing it"
-mkdir -p $BACKUP_FILE
+echo "=> [2]: Use AWS config script"
+bash $AWS_CONF_FILE
 
-# Dumb the database
-# mysqldump --force --opt --user=$DB_USER -p$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME > "$BACKUP_FILE/$BACKUP_NAME.sql"
+echo "=> [3]: Retrieving the database and storing it"
+mkdir -p $BACKUP_FILE
+echo "*/5 * * * * /vagrant/scripts/upload_backup.sh" | crontab -
 
 # Remove files older than X days
 find $BACKUP_FILE/* -mmin +$RETENTION -delete
