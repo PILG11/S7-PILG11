@@ -20,12 +20,9 @@ apt-get install $APT_OPT \
   cron \
   >> $LOG_FILE 2>&1
 
-echo "=> [2]: Use AWS config script"
-bash $AWS_CONF_FILE
-
-echo "=> [3]: Retrieving the database and storing it"
+echo "=> [2]: Retrieving the database and storing it"
 mkdir -p $BACKUP_FILE
-echo "*/5 * * * * /vagrant/scripts/upload_backup.sh" | crontab -
+echo "*/5 * * * * bash /vagrant/scripts/upload_backup.sh" | crontab -
 
 # Remove files older than X days
 find $BACKUP_FILE/* -mmin +$RETENTION -delete
