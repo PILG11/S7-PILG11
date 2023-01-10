@@ -15,9 +15,9 @@ echo "=> [4]: Récupération de la dernière version de database stocké sur AWS
 
 echo "=> [4.1]: Config AWS credentials"
 source $AWS_FILE
-aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
-aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
-aws configure set default.region "$AWS_REGION"
+aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+aws configure set default.region $AWS_REGION
 
 echo "=> [4.2]: Verification identité"
 aws sts get-caller-identity
