@@ -7,6 +7,11 @@ APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 LOG_FILE="/vagrant/logs/install_bdd.log"
 DEBIAN_FRONTEND="noninteractive"
 
+#Variable pour déchiffrage
+GPG_PASSPHRASE="pilg11projet"
+GPG_KEY_FILE="/vagrant/data/gnupg/key.asc"
+GPG_FILE="/vagrant/data/gnupg/config.sh.gpg"
+
 #Fichier config DB
 DB_CONF_FILE="/vagrant/scripts/db_settings.sh"
 #Fichier config AWS
@@ -33,6 +38,11 @@ if [ -n "$DB_NAME" ] && [ -n "$DB_USER" ] && [ -n "$DB_PASSWD" ] ;then
   >> $LOG_FILE 2>&1
   echo "BDD CREER ET PRIVILEGES DONNEES"
 fi
+
+#Déchiffrage script config AWS
+echo "=> [3]: Récupération du fichier conf chiffré"
+sudo gpg --batch --yes --passphrase $GPG_PASSPHRASE --import $GPG_KEY_FILE
+sudo gpg --batch --yes --passphrase $GPG_PASSPHRASE $GPG_FILE
 
 echo "=> [3]: Config AWS identity"
 bash $AWS_CONF_FILE
