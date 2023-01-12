@@ -13,9 +13,9 @@ GPG_KEY_FILE="/vagrant/data/gnupg/key.asc"
 GPG_FILE="/vagrant/data/gnupg/config.sh.gpg"
 
 #Fichier config DB
-DB_CONF_FILE="/vagrant/scripts/db_settings.sh"
+DB_CONF_FILE="/vagrant/scripts/config/config_db.sh"
 #Fichier config AWS
-AWS_CONF_FILE="/vagrant/scripts/config_aws.sh"
+AWS_CONF_FILE="/vagrant/scripts/config/config_aws.sh"
 #Variable pour config AWS
 AWS_FILE="/vagrant/data/gnupg/config.sh"
 
@@ -52,13 +52,13 @@ source $AWS_FILE
 # Store the name of the latest file in a variable
 LATEST_FILE=$(aws s3 ls $AWS_S3_BUCKET | sort | tail -n 1 | awk '{print $4}')
 
+source $DB_CONF_FILE
 # Use the variable in the aws s3 cp command to download and rename database
-aws s3 cp $AWS_S3_BUCKET/$LATEST_FILE  /vagrant/files/database.sql
+aws s3 cp $AWS_S3_BUCKET/$LATEST_FILE  $DB_FILE
 
 echo "=> [5]: Configuration de la database"
-source $DB_CONF_FILE
 if [ -n "$DB_FILE" ] ;then
-  mysql -u $DB_USER --password=$DB_PASSWD < /vagrant/$DB_FILE \
+  mysql -u $DB_USER --password=$DB_PASSWD < $DB_FILE \
   >> $LOG_FILE 2>&1
   echo "FICHIER SQL INJECTE"
 fi

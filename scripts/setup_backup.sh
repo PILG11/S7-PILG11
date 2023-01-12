@@ -7,7 +7,7 @@ DEBIAN_FRONTEND="noninteractive"
 
 BACKUP_FILE="/vagrant/backups"
 #Fichier config AWS
-AWS_CONF_FILE="/vagrant/scripts/config_aws.sh"
+AWS_CONF_FILE="/vagrant/scripts/config/config_aws.sh"
 
 # Les fichiers backups seront gardés 1h
 RETENTION=60

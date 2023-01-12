@@ -3,4 +3,4 @@ export DB_NAME="gite"
 export DB_USER="admin"
 export DB_PASSWD="mdpgite"
 #Fichier sql à injecter (présent dans un sous répertoire)
-export DB_FILE="files/database.sql"
+export DB_FILE="/vagrant/files/database.sql"
