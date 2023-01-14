@@ -38,9 +38,9 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     end
-    web.vm.provision "shell", path: "scripts/install_sys.sh"
-    web.vm.provision "shell", path: "scripts/install_web.sh"
-    web.vm.provision "shell", path: "scripts/install_myadmin.sh"
+    web.vm.provision "shell", path: "scripts/install/install_sys.sh"
+    web.vm.provision "shell", path: "scripts/install/install_web.sh"
+    web.vm.provision "shell", path: "scripts/install/install_myadmin.sh"
   end
 
   # Serveur virtuel de la base de données
@@ -57,9 +57,27 @@ Vagrant.configure("2") do |config|
       v2.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v2.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
     end
-    db.vm.provision "shell", path: "scripts/install_sys.sh"
-    db.vm.provision "shell", path: "scripts/install_bdd.sh"
-    db.vm.provision "shell", path: "scripts/install_backup.sh"
+    db.vm.provision "shell", path: "scripts/install/install_sys.sh"
+    db.vm.provision "shell", path: "scripts/install/install_bdd.sh"
+    db.vm.provision "shell", path: "scripts/setup_backup.sh"
+  end
+
+  # Serveur virtuel du reverse-proxy
+  config.vm.define "reverse-proxy" do |rp|
+    rp.vm.hostname = "reverse-proxy"
+    rp.vm.box = "chavinje/fr-bull-64"
+    rp.vm.network :private_network, ip: "192.168.56.82"
+    
+    rp.vm.provider :virtualbox do |v3|
+      v3.customize ["modifyvm", :id, "--name", "rp"]
+      v3.customize ["modifyvm", :id, "--groups", "/S7-projet"]
+      v3.customize ["modifyvm", :id, "--cpus", "1"]
+      v3.customize ["modifyvm", :id, "--memory", 2*1024]
+      v3.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v3.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
+    end
+    rp.vm.provision "shell", path: "scripts/install/install_sys.sh"
+    rp.vm.provision "shell", path: "scripts/install/install_rp.sh"
   end
 
   config.vm.provision "shell", inline: <<-SHELL
