@@ -9,9 +9,9 @@ L'infra est pour l'instant celle de base.
 
 ## Description du Labs
 
-Les machines sont reliées à votre machine réelle par un réseau privé hôte via l'adresse 192.168.56.80
+Les machines sont reliées à votre machine réelle par un réseau privé hôte
 
-* Le site web est accéssible par l'adresse <http://192.168.56.80/Website>
+* Le site web est accéssible par l'adresse <http://192.168.56.82>
 
 
 Activer toutes les VMs
