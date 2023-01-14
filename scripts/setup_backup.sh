@@ -22,9 +22,9 @@ apt-get install $APT_OPT \
 
 echo "=> [2]: Retrieving the database and storing it"
 mkdir -p $BACKUP_FILE
+sed -i -e 's/\r$//' /vagrant/scripts/upload_backup.sh
 echo "*/5 * * * * bash /vagrant/scripts/upload_backup.sh" | crontab -
 
 # Remove files older than X days
 find $BACKUP_FILE/* -mmin +$RETENTION -delete
-
 echo "END - Database backup completed successfully "$IP

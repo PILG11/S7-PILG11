@@ -1,8 +1,9 @@
 DATE=$(date +"%d.%m.%Y_%Hh%M")
-#Fichier config DB
-DB_CONF_FILE="/vagrant/scripts/config/config_db.sh"
+#Utilisateur a créer (si un vide alors pas de création)
+DB_NAME="gite"
+DB_USER="admin"
+DB_PASSWD="mdpgite"
 
-source $DB_CONF_FILE
 BACKUP_FILE="/vagrant/backups"
 BACKUP_NAME="$DATE-$DB_NAME"
 

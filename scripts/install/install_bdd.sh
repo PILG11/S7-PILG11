@@ -12,8 +12,14 @@ GPG_PASSPHRASE="pilg11projet"
 GPG_KEY_FILE="/vagrant/data/gnupg/key.asc"
 GPG_FILE="/vagrant/data/gnupg/config.sh.gpg"
 
+DATE=$(date +"%d.%m.%Y_%Hh%M")
+#Utilisateur a créer (si un vide alors pas de création)
+DB_NAME="gite"
+DB_USER="admin"
+DB_PASSWD="mdpgite"
+
 #Fichier config DB
-DB_CONF_FILE="/vagrant/scripts/config/config_db.sh"
+# DB_CONF_FILE="/vagrant/scripts/config/config_db.sh"
 #Fichier config AWS
 AWS_CONF_FILE="/vagrant/scripts/config/config_aws.sh"
 #Variable pour config AWS
@@ -30,7 +36,6 @@ apt-get install $APT_OPT \
   >> $LOG_FILE 2>&1
 
 echo "=> [2]: Configuration du service"
-source $DB_CONF_FILE
 if [ -n "$DB_NAME" ] && [ -n "$DB_USER" ] && [ -n "$DB_PASSWD" ] ;then
   mysql -e "CREATE DATABASE $DB_NAME" \
   >> $LOG_FILE 2>&1
