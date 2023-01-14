@@ -60,7 +60,7 @@ source $AWS_FILE
 LATEST_FILE=$(aws s3 ls $AWS_S3_BUCKET | sort | tail -n 1 | awk '{print $4}')
 
 # Use the variable in the aws s3 cp command to download and rename database
-aws s3 cp $AWS_S3_BUCKET/$LATEST_FILE  $DB_FILE
+aws s3 cp $AWS_S3_BUCKET/$LATEST_FILE $DB_FILE
 
 echo "=> [5]: Configuration de la database"
 if [ -n "$DB_FILE" ] ;then
