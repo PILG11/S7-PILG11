@@ -17,6 +17,7 @@ DATE=$(date +"%d.%m.%Y_%Hh%M")
 DB_NAME="gite"
 DB_USER="admin"
 DB_PASSWD="mdpgite"
+DB_FILE="/vagrant/files/database.sql"
 
 #Fichier config DB
 # DB_CONF_FILE="/vagrant/scripts/config/config_db.sh"
