@@ -52,7 +52,6 @@ source $AWS_FILE
 # Store the name of the latest file in a variable
 LATEST_FILE=$(aws s3 ls $AWS_S3_BUCKET | sort | tail -n 1 | awk '{print $4}')
 
-source $DB_CONF_FILE
 # Use the variable in the aws s3 cp command to download and rename database
 aws s3 cp $AWS_S3_BUCKET/$LATEST_FILE  $DB_FILE
 
