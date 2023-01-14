@@ -50,6 +50,7 @@ sudo gpg --batch --yes --passphrase $GPG_PASSPHRASE --import $GPG_KEY_FILE
 sudo gpg --batch --yes --passphrase $GPG_PASSPHRASE $GPG_FILE
 
 echo "=> [3]: Config AWS identity"
+sed -i -e 's/\r$//' $AWS_CONF_FILE
 bash $AWS_CONF_FILE
 
 echo "=> [4]: Récupération dernière sauvegarde database sur aws"
