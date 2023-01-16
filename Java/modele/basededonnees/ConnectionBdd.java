@@ -9,7 +9,7 @@ public class ConnectionBdd {
     public void openConnection() {
         try {
             // Établir la connexion à la base de données en utilisant les informations de connexion
-            String url = "jdbc:mysql://localhost:8889/gite";
+            String url = "jdbc:mysql://localhost:8889";
             String login = "root";
             String password = "root";
             connection = DriverManager.getConnection(url, login, password);
