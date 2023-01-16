@@ -38,9 +38,9 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     end
-    web.vm.provision "shell", path: "scripts/install_sys.sh"
-    web.vm.provision "shell", path: "scripts/install_web.sh"
-    web.vm.provision "shell", path: "scripts/install_myadmin.sh"
+    web.vm.provision "shell", path: "scripts/install/install_sys.sh"
+    web.vm.provision "shell", path: "scripts/install/install_web.sh"
+    web.vm.provision "shell", path: "scripts/install/install_myadmin.sh"
   end
 
   # Serveur virtuel de la base de données
@@ -55,9 +55,9 @@ Vagrant.configure("2") do |config|
       v2.customize ["modifyvm", :id, "--cpus", "1"]
       v2.customize ["modifyvm", :id, "--memory", 2*1024]
     end
-    db.vm.provision "shell", path: "scripts/install_sys.sh"
-    db.vm.provision "shell", path: "scripts/install_bdd.sh"
-    db.vm.provision "shell", path: "scripts/install_backup.sh"
+    db.vm.provision "shell", path: "scripts/install/install_sys.sh"
+    db.vm.provision "shell", path: "scripts/install/install_bdd.sh"
+    db.vm.provision "shell", path: "scripts/setup_backup.sh"
   end
 
   # Serveur virtuel du reverse-proxy
@@ -74,8 +74,8 @@ Vagrant.configure("2") do |config|
       v3.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v3.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     end
-    rp.vm.provision "shell", path: "scripts/install_sys.sh"
-    rp.vm.provision "shell", path: "scripts/install_rp.sh"
+    rp.vm.provision "shell", path: "scripts/install/install_sys.sh"
+    rp.vm.provision "shell", path: "scripts/install/install_rp.sh"
   end
 
   config.vm.provision "shell", inline: <<-SHELL
