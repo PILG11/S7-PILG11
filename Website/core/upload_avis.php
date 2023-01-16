@@ -3,11 +3,12 @@
 include_once 'core.php';
 
 $emissionAvisFail = false;
+$inputAvisFail = false;
 
 if (isset($_POST['avis_submit'])) {
     if (
         $_POST['nom'] != NULL && $_POST['prenom'] != NULL && isset($_POST['email'])
-        && $_POST['message'] != NULL && $_POST['rate'] != NULL
+        && $_POST['message'] != NULL && isset($_POST['rate'])
     ) {
 
         $nom_escaped = $mysqli->real_escape_string(trim($_POST['nom']));
@@ -28,17 +29,16 @@ if (isset($_POST['avis_submit'])) {
             $sql = "INSERT INTO avis (nom, prenom, commentaire, email, note)
             VALUES ('" . $nom_escaped . "', '" . $prenom_escaped . "'
 , '" . $message_escaped . "' , '" . $mail_escaped . "' , '" . $note_escaped . "')";
-            echo ($sql);
             $mysqli->query($sql);
         } else {
             // Une personne a déjà mis un avis avec cette adresse mail
-            $emissionAvisFail = true;
-            $error_message = "Vous avez déjà essayé de déposer un avis";
+            $inputAvisFail = true;
+            $error_input_message = "Vous avez déjà essayé de déposer un avis avec cette adresse email";
         }
     } else {
         // Manque une information
         $emissionAvisFail = true;
-        $error_message = "Merci de renseigner tous les champs";
+        $error_emission_message = "Merci de renseigner tous les champs";
     }
 }
 
