@@ -1,14 +1,13 @@
-package Java.vue.ihm;
+package java.vue.ihm;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
-
-import Java.controleur.actions.ActionActualites;
-import Java.controleur.actions.ActionReservations;
-import Java.controleur.actions.ActionQuestions;
+import java.controleur.actions.ActionActualites;
+import java.controleur.actions.ActionQuestions;
+import java.controleur.actions.ActionReservations;
 
 public class PanneauAccueil extends JPanel{
 
