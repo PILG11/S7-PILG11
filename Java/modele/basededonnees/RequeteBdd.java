@@ -1,8 +1,13 @@
-package java.modele.basededonnees;
+package Java.modele.baseDeDonnees;
 
 import java.sql.*;
 
 public class RequeteBdd {
+
+    public static void main(String[] args) {
+        RequeteBdd service = new RequeteBdd();
+        service.verifyConnection();
+    }
 
     private ConnectionBdd dbConnection;
 

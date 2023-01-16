@@ -1,4 +1,4 @@
-package java.modele.basededonnees;
+package Java.modele.baseDeDonnees;
 
 import java.sql.*;
 

@@ -1,9 +1,11 @@
-package java;
+package Java;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+
 import java.awt.BorderLayout;
-import java.vue.ihm.PanneauAccueil;
+
+import Java.vue.ihm.PanneauAccueil;
 
 public class GestionSite {
 	
