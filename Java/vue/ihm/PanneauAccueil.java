@@ -7,8 +7,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import Java.controleur.actions.ActionActualites;
-import Java.controleur.actions.ActionReservations;
 import Java.controleur.actions.ActionQuestions;
+import Java.controleur.actions.ActionReservations;
 
 public class PanneauAccueil extends JPanel{
 
