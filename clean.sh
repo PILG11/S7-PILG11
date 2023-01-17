@@ -1,4 +1,4 @@
 #!/bin/bash
 rm -r .vagrant
-rm -rf logs/*
+rm -rf logs/*.log
 # rm -rf backups/* 

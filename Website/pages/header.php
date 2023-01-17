@@ -11,7 +11,7 @@
         <p>Les Logis de Beaulieu</p>
         <hr>
         <div class="button">
-            <a href="../index.php">    Accueil     </a>
+            <a href="../">    Accueil     </a>
             <a href="../pages/actualites.php">    Actualités     </a>
             <a href="../pages/chambresalles.php">    Chambres et Salles     </a>
             <a href="../pages/reservation.php">    Réservation en ligne     </a>
