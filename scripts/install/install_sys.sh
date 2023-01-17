@@ -5,9 +5,9 @@
 
 IP=$(hostname -I | awk '{print $2}')
 #Utilisateur a créer (si vide pas de création)
-NOM=""
-MDP=""
-HDIR=""
+NOM="admin"
+MDP="mdpvm"
+HDIR="admin"
 
 APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 LOG_FILE="/vagrant/logs/install_sys.log"
@@ -44,6 +44,9 @@ if [ -n "$NOM" ] ;then
   echo $NOM:$MDP | chpasswd
   chown $NOM $HDIR
   chmod 755 $HDIR
+  usermod -aG sudo admin
 fi
+
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 
 echo "END - Install Base System on "$IP
