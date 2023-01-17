@@ -1,4 +1,4 @@
-package Java.modele.baseDeDonnees;
+package Java.modele.basededonnees;
 
 import java.sql.*;
 
@@ -9,7 +9,7 @@ public class ConnectionBdd {
     public void openConnection() {
         try {
             // Établir la connexion à la base de données en utilisant les informations de connexion
-            String url = "jdbc:mysql://localhost:8889";
+            String url = "jdbc:mysql://localhost:8889 ";
             String login = "root";
             String password = "root";
             connection = DriverManager.getConnection(url, login, password);
