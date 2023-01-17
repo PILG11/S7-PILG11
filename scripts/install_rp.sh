@@ -21,7 +21,7 @@ wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.
 sudo mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
 sudo chmod +x /usr/bin/mkcert
 mkcert -install
-sudo mkcert les-logis-de-beaulieu.com localhost 192.168.56.82
+mkcert les-logis-de-beaulieu.com 192.168.56.82 localhost
 sudo mv ./les-logis-de-beaulieu.com+2.pem /etc/ssl/certs/
 sudo mv ./les-logis-de-beaulieu.com+2-key.pem /etc/ssl/private/
 
@@ -41,7 +41,6 @@ server {
 server {
     listen 443 ssl;
 
-    ssl on;
     ssl_certificate /etc/ssl/certs/les-logis-de-beaulieu.com+2.pem;
     ssl_certificate_key /etc/ssl/private/les-logis-de-beaulieu.com+2-key.pem;
 
