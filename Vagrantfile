@@ -41,6 +41,7 @@ Vagrant.configure("2") do |config|
     web.vm.provision "shell", path: "scripts/install/install_sys.sh"
     web.vm.provision "shell", path: "scripts/install/install_web.sh"
     web.vm.provision "shell", path: "scripts/install/install_myadmin.sh"
+    web.vm.provision "shell", path: "scripts/install/install_firewall.sh"
   end
 
   # Serveur virtuel de la base de données
