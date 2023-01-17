@@ -6,9 +6,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 
-import Java.controleur.actions.ActionActualites;
-import Java.controleur.actions.ActionQuestions;
-import Java.controleur.actions.ActionReservations;
+import Java.controleur.actions.ActionChangerPanneau;
 
 public class PanneauAccueil extends JPanel{
 
@@ -16,22 +14,25 @@ public class PanneauAccueil extends JPanel{
 	public static final int HAUTEUR_PAR_DEFAUT = 300;
 	public static final Color COULEUR_FOND_PAR_DEFAUT = Color.WHITE;
 
-    public PanneauAccueil(){
+    private MainJFrame mainJFrame;
+
+    public PanneauAccueil(MainJFrame mainJFrame){
+        this.mainJFrame = mainJFrame;
         super.setPreferredSize(new Dimension(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT));
 		super.setBackground(COULEUR_FOND_PAR_DEFAUT);
         this.initButton();
     }
 
     private void initButton(){
-        JButton buttonReservations = new JButton(new ActionReservations());
+        JButton buttonReservations = new JButton(new ActionChangerPanneau(this.mainJFrame, "Reservations", "reservations"));
         buttonReservations.setText("Reservations");
         this.add(buttonReservations);
 
-        JButton buttonActualites = new JButton(new ActionActualites());
+        JButton buttonActualites = new JButton(new ActionChangerPanneau(this.mainJFrame, "Actualites", "actualites"));
         buttonActualites.setText("Actualites");
         this.add(buttonActualites);
 
-        JButton buttonQuestions = new JButton(new ActionQuestions());
+        JButton buttonQuestions = new JButton(new ActionChangerPanneau(this.mainJFrame, "Questions", "questions"));
         buttonQuestions.setText("Questions");
         this.add(buttonQuestions);
 

@@ -1,11 +1,8 @@
 package Java;
 
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import java.awt.BorderLayout;
-
-import Java.vue.ihm.PanneauAccueil;
+import Java.vue.ihm.MainJFrame;
 
 public class GestionSite {
 	
@@ -19,14 +16,7 @@ public class GestionSite {
 	}
 
     private GestionSite() {
-		JFrame testFrame = new JFrame("Gestion Du Site");
-		PanneauAccueil panel = new PanneauAccueil();
-
-        testFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		testFrame.add(panel,BorderLayout.WEST);
-		testFrame.pack();
-		testFrame.setLocationRelativeTo(null);
-		testFrame.setVisible(true);
+		new MainJFrame();
     }
 
 }
