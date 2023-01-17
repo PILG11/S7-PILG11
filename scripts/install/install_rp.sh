@@ -20,8 +20,7 @@ echo "=> [2]: Protocol SSL Configuration"
 wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 >> $LOG_FILE 2>&1
 sudo mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
 sudo chmod +x /usr/bin/mkcert
-mkcert -install
-mkcert les-logis-de-beaulieu.com 192.168.56.82 localhost
+mkcert -install les-logis-de-beaulieu.com 192.168.56.82 localhost
 sudo mv ./les-logis-de-beaulieu.com+2.pem /etc/ssl/certs/
 sudo mv ./les-logis-de-beaulieu.com+2-key.pem /etc/ssl/private/
 
