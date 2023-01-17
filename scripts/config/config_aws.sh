@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Variable pour config AWS
 AWS_FILE="/vagrant/data/gnupg/config.sh"
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DATE=$(date +"%d.%m.%Y_%Hh%M")
 #Utilisateur a créer (si un vide alors pas de création)
 DB_NAME="gite"

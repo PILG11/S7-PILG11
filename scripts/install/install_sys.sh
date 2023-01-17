@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ## install base system
 ## [JCG] creation d'un script system de base commun à toutes les VMS
 
