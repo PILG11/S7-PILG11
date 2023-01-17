@@ -43,6 +43,8 @@ echo "[3] - Configuration files for phpmyadmin  "
 ln -s ${WWW_REP}/phpMyAdmin-${MYADMIN_VERSION}-all-languages ${WWW_REP}/myadmin
 mkdir ${WWW_REP}/myadmin/tmp
 chown www-data:www-data ${WWW_REP}/myadmin/tmp
+
+# crypter les cookies de session de PHPMyAdmin
 randomBlowfishSecret=$(openssl rand -base64 32)
 sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" \
   ${WWW_REP}/myadmin/config.sample.inc.php \
