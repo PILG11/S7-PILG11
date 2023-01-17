@@ -18,13 +18,13 @@ public class MainJFrame extends JFrame{
             case "accueil":
                 this.setContentPane(this.panneauAccueil);
                 break;
-            case "reservation":
+            case "reservations":
                 this.setContentPane(this.panneauReservation);
                 break;
-            case "question":
+            case "questions":
                 this.setContentPane(this.panneauQuestions);
                 break;
-            case "actualite":
+            case "actualites":
                 this.setContentPane(this.panneauActualites);
                 break;
         }
