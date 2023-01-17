@@ -57,7 +57,7 @@
     <script src="../js/mapAvis.js"></script>
   </div>
 
-  <div class="formulaire">
+  <div class="formulaire" id="formulaire">
     <div class="titreForm">
       <h1>Soyez le prochain à témoigner</h1>
     </div>
@@ -84,19 +84,19 @@
         <div style="margin-top: 5px">Note* :</div>
         <div style="margin-top: 5px;">
           <div class="rate" id="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
+            <input type="radio" id="star5" name="rate" value="5" onclick="goToSectionAfterRefresh('formulaire')" />
             <label for="star5" title="text" href="#rate">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4" />
+            <input type="radio" id="star4" name="rate" value="4" onclick="goToSectionAfterRefresh('formulaire')" />
             <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3" />
+            <input type="radio" id="star3" name="rate" value="3" onclick="goToSectionAfterRefresh('formulaire')" />
             <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2" />
+            <input type="radio" id="star2" name="rate" value="2" onclick="goToSectionAfterRefresh('formulaire')" />
             <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1" />
+            <input type="radio" id="star1" name="rate" value="1" onclick="goToSectionAfterRefresh('formulaire')" />
             <label for="star1" title="text">1 star</label>
           </div>
         </div>
-        <input type="submit" name="avis_submit" value="Envoyer" style="margin-top: 30px;">
+        <input type="submit" name="avis_submit" value="Envoyer" style="margin-top: 30px;" onclick="goToSectionAfterRefresh('formulaire')">
         <?php if ($inputAvisFail) { ?>
           <div class="text_danger"><?php echo $error_input_message ?></div>
         <?php } ?>
