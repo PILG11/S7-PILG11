@@ -1,89 +1,3 @@
-var date = new Date();
-
-const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-
-var renderCalendar = () => {
-  date.setDate(1);
-
-  var monthDays = document.querySelector(".jours");
-
-  var lastDay = new Date(
-    date.getFullYear(),
-    date.getMonth() + 1,
-    0
-  ).getDate();
-
-  var prevLastDay = new Date(
-    date.getFullYear(),
-    date.getMonth(),
-    0
-  ).getDate();
-
-  var firstDayIndex = date.getDay();
-
-  var lastDayIndex = new Date(
-    date.getFullYear(),
-    date.getMonth() + 1,
-    0
-  ).getDay();
-
-  var nextDays = 7 - lastDayIndex - 1;
-
-  var months = [
-    "Janvier",
-    "Février",
-    "Mars",
-    "Avril",
-    "Mai",
-    "Juin",
-    "Juillet",
-    "Aout",
-    "Septembre",
-    "Octobre",
-    "Novembre",
-    "Décembre",
-  ];
-
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
-
-//   document.querySelector(".date p").innerHTML = new Date().toLocaleDateString('fr-FR', options);
-  document.getElementById("date_aujourdhui").innerHTML = new Date().toLocaleDateString('fr-FR', options);
-
-  let days = "";
-
-  for (let x = firstDayIndex; x > 0; x--) {
-    days += `<div class="jours-precedents">${prevLastDay - x + 1}</div>`;
-  }
-
-  for (let i = 1; i <= lastDay; i++) {
-    if (
-      i === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth()
-    ) {
-      days += `<div class="aujourdhui">${i}</div>`;
-    } else {
-      days += `<div>${i}</div>`;
-    }
-  }
-
-  for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="jours-suivants">${j}</div>`;
-  }
-  monthDays.innerHTML = days;
-};
-
-document.querySelector(".prev").addEventListener("click", () => {
-  date.setMonth(date.getMonth() - 1);
-  renderCalendar();
-});
-
-document.querySelector(".next").addEventListener("click", () => {
-  date.setMonth(date.getMonth() + 1);
-  renderCalendar();
-});
-
-renderCalendar();
-
 function afficherdeplacer(option){
     const titre = document.getElementById('titre_reservation');
     document.getElementById('bloc').style.display = 'block';
@@ -100,3 +14,46 @@ window.addEventListener('load', function() {
     const calendrier = document.getElementById('bloc');
     calendrier.style.display = 'none';
   });
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+    var from_$input = $('#input_from').pickadate(),
+      from_picker = from_$input.pickadate('picker')
+  
+    var to_$input = $('#input_to').pickadate(),
+      to_picker = to_$input.pickadate('picker')
+  
+  
+    // Check if there’s a “from” or “to” date to start with.
+    if ( from_picker.get('value') ) {
+      to_picker.set('min', from_picker.get('select'))
+    }
+    if ( to_picker.get('value') ) {
+      from_picker.set('max', to_picker.get('select'))
+    }
+  
+    // When something is selected, update the “from” and “to” limits.
+    from_picker.on('set', function(event) {
+
+      if ( event.select ) {
+        to_picker.set('min', from_picker.get('select')) 
+      }
+      else if ( 'clear' in event ) {
+        to_picker.set('min', false)
+      }
+    })
+    to_picker.on('set', function(event) {
+
+      if ( event.select ) {
+        from_picker.set('max', to_picker.get('select'))
+      }
+      else if ( 'clear' in event ) {
+        from_picker.set('max', false)
+      }
+    })
+  
+    document.querySelector('[aria-label="19 Janvier, 2023"]').classList.add("selected-date");
+
+  });
+ 

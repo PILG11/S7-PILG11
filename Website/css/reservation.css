@@ -22,7 +22,7 @@ body {
     list-style-type: none;
 }
 
-.notActive{
+.buttonNotActive{
     margin-top: 15px;
     width: 100%;
     height: 3px;
@@ -31,7 +31,7 @@ body {
     transition-duration: 500ms;
 }
 
-.active{
+.buttonActive{
     margin-top: 15px;
     width: 100%;
     height: 3px;
@@ -107,92 +107,44 @@ img{
     cursor: pointer;
 }
 
-
-.conteneur{
-    margin-bottom: 5%;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.formulaire{
+    display: block;
 }
 
-.calendrier{
-    width: 70%;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
+.formulaire input{
+    width: 90%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
     border: 1px solid rgb(183, 183, 183);
     border-radius: 5px;
-    padding: 2%;
+    margin: 20px;
 }
 
-.mois{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    background-color: rgb(212, 212, 212);
+.formulaire select{
+    width: auto;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgb(183, 183, 183);
     border-radius: 5px;
+    margin: 20px;
+    margin-top: 10px;
 }
 
-.mois i {
-    width: 20%;
-    height: 100%;
-    text-align: center;
-    cursor: pointer;
-  }
-
-.date{
-    width: 60%;
+.formulaire label{
+    margin: 15px;
+    margin-left: 20px;
+    font-size: 18px;
 }
 
-.date h1{
-    height: 40px;
-}
-.date p{
-    height: 20px;
+.selected-date{
+    background-color: blue;
 }
 
-.semainejours{
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-top: 2%;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.jours{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.jours div {
-    width: 14.28%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.jours div:hover:not(.aujourdhui) {
-    background-color: rgb(212, 212, 212);
-    cursor: pointer;
-  }
-
-.aujourdhui{
-    color:red;
-}
-
-.jours-suivants{
-    color: rgb(162, 162, 162);
-}
-
-.jours-precedents{
-    color: rgb(162, 162, 162);
-}
