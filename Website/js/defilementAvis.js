@@ -4,17 +4,24 @@ var avis = document.getElementsByName("affichage_avis");
 
 var pos = 0;
 
-function defilement_gauche(){
+window.addEventListener('load', function () {
+    document.getElementById('formulaire').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+});
+
+function defilement_gauche() {
 
     var taille_image = avis.length;
 
     avis[increment].classList.remove("active");
     avis[increment].classList.add("notActive");
 
-    if(increment == taille_image-1){
+    if (increment == taille_image - 1) {
         increment = -1;
     }
-    
+
     avis[increment + 1].classList.remove("notActive");
     avis[increment + 1].classList.add("active");
 
@@ -22,14 +29,14 @@ function defilement_gauche(){
 
 }
 
-function defilement_droite(){
+function defilement_droite() {
 
     var taille_image = avis.length;
 
     avis[increment].classList.remove("active");
     avis[increment].classList.add("notActive");
 
-    if(increment == 0){
+    if (increment == 0) {
         increment = taille_image;
     }
 
@@ -40,14 +47,14 @@ function defilement_droite(){
 
 }
 
-function defilement_auto(){
+function defilement_auto() {
 
     var taille_image = avis.length;
 
     avis[increment].classList.remove("active");
     avis[increment].classList.add("notActive");
 
-    if(increment == 0){
+    if (increment == 0) {
         increment = taille_image;
     }
 
