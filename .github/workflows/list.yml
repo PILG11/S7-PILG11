@@ -13,5 +13,5 @@ jobs:
   list:
     uses: ./.github/workflows/aws.yml
     with:
-      env-name: list
+      env-name: manual-list
       list-bucket: ${{ inputs.list-bucket }}

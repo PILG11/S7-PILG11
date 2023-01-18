@@ -17,3 +17,4 @@ jobs:
     secrets: inherit
     with:
       list-bucket: true
+      env-name: auto-list
