@@ -1,5 +1,5 @@
-name: backup to aws
-run-name: backup to aws
+name: list aws backups
+run-name: list aws backups
 
 on:
   pull_request:
