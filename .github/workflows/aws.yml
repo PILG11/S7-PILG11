@@ -34,7 +34,6 @@ jobs:
         id: list
         run: >
           aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }} --human-readable --summarize
-          | awk '{print $4}' 
           > list.txt
         
       - name: test
