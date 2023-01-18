@@ -3,6 +3,9 @@ name: aws
 on:
   workflow_call:
     inputs:
+      env-name:
+        required: true
+        type: string
       list-bucket:
         required: true
         type: boolean
@@ -11,6 +14,13 @@ on:
 jobs:
   aws:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component-name:
+          - aws
+    concurrency:
+      group: list-${{ matrix.component-name }}-backups
 
     steps:
       # pull the source code
