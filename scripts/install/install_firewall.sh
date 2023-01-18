@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# IP de la VM web
-WEB_IP="192.168.56.80"
-
 # IP du reverse-proxy
-PROXY_IP="192.168.56.82"
+PROXY_IP="192.168.56.80"
 
 # Installer iptables
 apt-get install iptables -y
