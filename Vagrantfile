@@ -3,8 +3,15 @@
 
 Vagrant.configure("2") do |config|
 
-  config.ssh.insert_key = false
-  config.ssh.private_key_path = ["data/ssh/admin_key"]
+  # config.ssh.insert_key = false
+  # config.ssh.private_key_path = ["data/ssh/admin_key"]
+  # config.vm.provision "shell", inline: <<-SHELL
+  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.80
+  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.81
+  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.82   
+  #     sleep 3
+  #     service ssh restart
+  #   SHELL
 
   # Serveur virtuel du site web
   config.vm.define "web" do |web|
@@ -34,7 +41,6 @@ Vagrant.configure("2") do |config|
     db.vm.hostname = "db"
     db.vm.box = "chavinje/fr-bull-64"
     db.vm.network :private_network, ip: "192.168.56.81"
-    db.vm.network "forwarded_port", guest: 3306, host: 3306
     
     db.vm.provider :virtualbox do |v2|
       v2.customize ["modifyvm", :id, "--name", "db"]
@@ -52,8 +58,6 @@ Vagrant.configure("2") do |config|
     rp.vm.hostname = "reverse-proxy"
     rp.vm.box = "chavinje/fr-bull-64"
     rp.vm.network :private_network, ip: "192.168.56.82"
-    rp.vm.network "forwarded_port", guest: 443, host: 8443
-    rp.vm.network "forwarded_port", guest: 80, host: 80
     
     rp.vm.provider :virtualbox do |v3|
       v3.customize ["modifyvm", :id, "--name", "rp"]
