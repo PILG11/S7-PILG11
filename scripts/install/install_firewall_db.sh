@@ -7,25 +7,6 @@ APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 WEB1_IP="192.168.56.82"
 WEB2_IP="192.168.56.83"
 
-# On bloque tout le trafic entrant par défaut
-iptables -P INPUT DROP
-
-# On autorise les connexions sortantes
-iptables -P OUTPUT ACCEPT
-
-# On autorise le trafic local
-iptables -A INPUT -i lo -j ACCEPT
-
-# On autorise le trafic sur le port 3306 pour les connexions en provenance des deux VM web
-iptables -A INPUT -p tcp -s $WEB1_IP --dport 3306 -j ACCEPT
-iptables -A INPUT -p tcp -s $WEB2_IP --dport 3306 -j ACCEPT
-
-# On loggue les paquets refusés
-iptables -A INPUT -m limit --limit 5/min -j LOG --log-prefix "Paquet refusé: " --log-level 7
-
-# On sauvegarde les règles
-/sbin/service iptables save
-
 #Fichier config all
 ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
 
