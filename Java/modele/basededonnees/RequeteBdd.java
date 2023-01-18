@@ -2,12 +2,15 @@ package Java.modele.basededonnees;
 
 import java.sql.*;
 
+/// Sert uniquement à avoir des requetes sql de référence pour la suite
+/// Permet de vérifier la bonne connection avec la bdd
+
 public class RequeteBdd {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         RequeteBdd service = new RequeteBdd();
         service.tryPull(service.dbConnection);
-    }
+    }*/
 
     private ConnectionBdd dbConnection;
 
