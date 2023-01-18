@@ -22,6 +22,10 @@ public class PanneauActualites extends JPanel{
     private JTextField titreField;
     private JLabel descriptionLabel;
     private JTextArea descriptionArea;
+    private JLabel pathImage1;
+    private JLabel pathImage2;
+    private JLabel pathImage3;
+    private JLabel pathImage4;
 
     public PanneauActualites(MainJFrame mainJFrame){
         this.mainJFrame = mainJFrame;
@@ -50,21 +54,29 @@ public class PanneauActualites extends JPanel{
     }
 
     private void initChampImage(){
-        JButton buttonChoixImg1 = new JButton(new ActionChoisirImage(this));
+        pathImage1 = new JLabel("Choisir une image 1");
+        JButton buttonChoixImg1 = new JButton(new ActionChoisirImage(this,pathImage1));
         buttonChoixImg1.setText("Choisir Image 1");
 
-        JButton buttonChoixImg2 = new JButton(new ActionChoisirImage(this));
+        pathImage2 = new JLabel("Choisir une image 2");
+        JButton buttonChoixImg2 = new JButton(new ActionChoisirImage(this,pathImage2));
         buttonChoixImg2.setText("Choisir Image 2");
 
-        JButton buttonChoixImg3 = new JButton(new ActionChoisirImage(this));
+        pathImage3 = new JLabel("Choisir une image 3");
+        JButton buttonChoixImg3 = new JButton(new ActionChoisirImage(this,pathImage3));
         buttonChoixImg3.setText("Choisir Image 3");
 
-        JButton buttonChoixImg4 = new JButton(new ActionChoisirImage(this));
+        pathImage4 = new JLabel("Choisir une image 4");
+        JButton buttonChoixImg4 = new JButton(new ActionChoisirImage(this,pathImage4));
         buttonChoixImg4.setText("Choisir Image 4");
 
+        this.add(pathImage1);
         this.add(buttonChoixImg1);
+        this.add(pathImage2);
         this.add(buttonChoixImg2);
+        this.add(pathImage3);
         this.add(buttonChoixImg3);
+        this.add(pathImage4);
         this.add(buttonChoixImg4);
     }
 
@@ -81,6 +93,10 @@ public class PanneauActualites extends JPanel{
         this.add(buttonRetour);
         this.add(buttonValider);
         this.add(buttonReset);
+    }
+
+    public void setPath(JLabel pathImage, String path){
+        pathImage.setText(path);
     }
     
 }
