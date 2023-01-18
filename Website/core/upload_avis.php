@@ -19,14 +19,14 @@ if (isset($_POST['avis_submit'])) {
 
         // Vérifier si un utilisateur a déjà déposé un avis avec cette adresse mail !
         $sql = "SELECT COUNT(*) AS NOMBRE
-        FROM avis WHERE email  = '" . $mail_escaped . "'";
+        FROM Avis WHERE email  = '" . $mail_escaped . "'";
 
         $result = $mysqli->query($sql);
         $resultfinal = $result->fetch_array()['NOMBRE'];
 
         if ($resultfinal == 0) {
             // Requête SQL pour ajouter l'avis à la base de donnée
-            $sql = "INSERT INTO avis (nom, prenom, commentaire, email, note)
+            $sql = "INSERT INTO Avis (nom, prenom, commentaire, email, note)
             VALUES ('" . $nom_escaped . "', '" . $prenom_escaped . "'
 , '" . $message_escaped . "' , '" . $mail_escaped . "' , '" . $note_escaped . "')";
             $mysqli->query($sql);

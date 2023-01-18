@@ -2,7 +2,7 @@
 
 include_once 'core.php';
 
-$result = $mysqli->query("SELECT nom, prenom, commentaire, note FROM avis");
+$result = $mysqli->query("SELECT nom, prenom, commentaire, note FROM Avis");
 
 include_once 'core.php';
 
