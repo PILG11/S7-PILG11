@@ -1,18 +1,8 @@
 
-
 var increment = 0;
 var avis = document.getElementsByName("affichage_avis");
 
 var pos = 0;
-
-function goToSectionAfterRefresh(sectionId) {
-    console.log('oui')
-    window.onload = function () {
-        console.log(sectionId)
-        var section = document.getElementById(sectionId);
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
 
 function defilement_gauche(){
 
