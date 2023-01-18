@@ -1,6 +1,13 @@
 name: aws
 
 on:
+  workflow_dispatch:
+      inputs:
+        list-bucket:
+          description: Do you want to list all object from S3 bucket ?
+          required: false
+          default: false
+          type: boolean
   workflow_call:
 
 jobs:
@@ -23,7 +30,16 @@ jobs:
         run: aws sts get-caller-identity
         shell: bash
 
-      # upload backups files to aws
+      # list backups files on aws
       - name: upload all sql files to s3 bucket
-        run: aws s3 cp ./backups/ ${{ secrets.AWS_S3_BUCKET_BACKUP }} --exclude "Readme.md" --recursive
+        id: list
+        run: aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }}
         shell: bash
+
+      # run our custom summary script to generate the clickable output
+      - name: save output to summary
+        if: steps.id.outcome == 'success'
+        uses: actions/github-script@v6
+        with:
+          script: >
+            require('./.github/summary.js')(require)
