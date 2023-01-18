@@ -16,8 +16,8 @@ if (!$result) {
 <div class="affichageAvis">
     <img src="../img/AvisEtContact/fond-avis.png" alt="Photo livre">
     <div class="imageFond">
-    <button onclick="defilement_gauche()"><img class="scrollButton" src="../img/icon/fleche_gauche.png" alt="bouton gauche"></button>
-        <div class="avisContainer active" name="affichage_avis">
+    <button onclick="defilement_gauche()" id="leftButton"><img class="scrollButton" src="../img/icon/fleche_gauche.png" alt="bouton gauche"></button>
+        <div class="avisContainer active" name="affichage_avis" id="affichage_avis">
             <?php if ($row['nom'] != NULL) {
                 ?>
                 <p style="font-size: 20px; margin-bottom: -15px;"><?php echo $row['nom'];
@@ -57,7 +57,7 @@ if (!$result) {
             </p>
         </div>
         <?php $row = $result->fetch_assoc(); ?>
-        <div class="avisContainer notActive" name="affichage_avis">
+        <div class="avisContainer notActive" name="affichage_avis" onload="affichage_auto()">
             <?php if ($row['nom'] != NULL) {
                 ?>
                 <p style="font-size: 20px; margin-bottom: -15px;"><?php echo $row['nom'];

@@ -14,7 +14,7 @@
 
 <?php include "./header.php" ?>
 
-<body>
+<body onload="defilement_auto()">
 
   <?php include('../core/affichage_avis.php'); ?>
 
