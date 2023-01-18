@@ -2,11 +2,12 @@
 
 ## install web server with php
 
-IP=$(hostname -I | awk '{print $2}')
-
-APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 LOG_FILE="/vagrant/logs/install_web.log"
-DEBIAN_FRONTEND="noninteractive"
+
+#Fichier config all
+ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
+
+source $ALL_CONF_FILE
 
 echo "START - install web Server - "$IP
 
@@ -14,8 +15,8 @@ echo "=> [1]: Installing required packages..."
 apt-get install $APT_OPT \
   apache2 \
   libapache2-mod-rpaf \
-  php \
   libapache2-mod-php \
+  php \
   php-mysql \
   php-intl \
   php-curl \
@@ -47,15 +48,18 @@ echo "<VirtualHost *:80>
   ErrorLog \${APACHE_LOG_DIR}/error.les-logis-de-beaulieu.log
   CustomLog \${APACHE_LOG_DIR}/access.les-logis-de-beaulieu.log combined
 </VirtualHost>
-" | sudo tee /etc/apache2/sites-available/les-logis-de-beaulieu.conf
+" | sudo tee /etc/apache2/sites-available/les-logis-de-beaulieu.conf >> $LOG_FILE 2>&1
 
 # Active le site web
-sudo a2dissite 000-default.conf
+sudo a2dissite 000-default.conf \
+>> $LOG_FILE 2>&1
 sudo systemctl restart apache2
-sudo a2ensite les-logis-de-beaulieu.conf
+sudo a2ensite les-logis-de-beaulieu.conf \
+>> $LOG_FILE 2>&1
 
 # Redémarre Apache pour prendre en compte les changements
 sudo systemctl restart apache2
-sudo systemctl status apache2
+sudo systemctl status apache2 \
+>> $LOG_FILE 2>&1
 echo "END - install web Server"
 

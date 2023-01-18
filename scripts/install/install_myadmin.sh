@@ -2,30 +2,23 @@
 
 ## install PhpMyAdmin Application
 
-IP=$(hostname -I | awk '{print $2}')
-
-APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 LOG_FILE="/vagrant/logs/install_myadmin.log"
-DEBIAN_FRONTEND="noninteractive"
 MYADMIN_VERSION="5.1.1"
 WWW_REP="/var/www/html/les-logis-de-beaulieu"
+
+#Fichier config all
+ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
+
+source $ALL_CONF_FILE
 
 echo "START - Installation of phpMyAdmin - "$IP
 
 echo "=> [1]: Install required packages ...."
 apt-get install $APT_OPT \
   openssl \
-  php-mbstring \
-  php-zip \
-  php-gd \
   php-xml \
-  php-pear \
   php-gettext \
   php-cgi \
-  >> $LOG_FILE 2>&1
-
-echo "=> [1bis]: Install required mariadb-client ...."
-apt-get install $APT_OPT \
   mariadb-client \
   >> $LOG_FILE 2>&1
 
