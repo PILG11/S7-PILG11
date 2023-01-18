@@ -35,9 +35,6 @@ jobs:
         run: >
           aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }} --human-readable --summarize
           > list.txt
-        
-      - name: test
-        run : cat list.txt
 
       # run our custom summary script to generate the clickable output
       - name: save output to summary
