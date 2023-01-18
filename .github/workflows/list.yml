@@ -1,0 +1,14 @@
+name: List AWS S3 backups
+
+on:
+  workflow_dispatch:
+    inputs:
+      list-bucket:
+        description: Do you want to list all object from S3 bucket ?
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  list:
+    uses: ./.github/workflows/aws.yml
