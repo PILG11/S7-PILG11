@@ -8,6 +8,7 @@ WWW_REP="/var/www/html/les-logis-de-beaulieu"
 
 #Fichier config all
 ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
+APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 source $ALL_CONF_FILE
 

@@ -5,6 +5,7 @@ LOG_FILE="/vagrant/logs/install_rp.log"
 
 #Fichier config all
 ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
+APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 source $ALL_CONF_FILE
 

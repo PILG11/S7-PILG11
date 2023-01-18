@@ -3,6 +3,7 @@
 ## install Mariadb server (ex Mysql))
 
 LOG_FILE="/vagrant/logs/install_bdd.log"
+APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 #Variable pour déchiffrage
 GPG_PASSPHRASE="pilg11projet"

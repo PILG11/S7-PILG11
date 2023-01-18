@@ -1,6 +1,7 @@
 #!/bin/bash
 
 LOG_FILE="/vagrant/logs/install_firewall.log"
+APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 # IP du reverse-proxy
 PROXY_IP="192.168.56.82"
