@@ -20,13 +20,16 @@ echo "=> [2]: Protocol SSL Configuration"
 wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 >> $LOG_FILE 2>&1
 sudo mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
 sudo chmod +x /usr/bin/mkcert
-mkcert -install les-logis-de-beaulieu.com 192.168.56.82 localhost
+mkcert -install les-logis-de-beaulieu.com 192.168.56.80 localhost
 sudo mv ./les-logis-de-beaulieu.com+2.pem /etc/ssl/certs/
 sudo mv ./les-logis-de-beaulieu.com+2-key.pem /etc/ssl/private/
 
 echo "=> [3]: NGINX Configuration"
 echo "upstream backend_apache {
-    server 192.168.56.80;
+    #requête envoyée au serveur avec le moins de connexions actives
+    least_conn;
+    server 192.168.56.82;
+    server 192.168.56.83;
 }
 
 server {
@@ -48,6 +51,7 @@ server {
     location / {
         include proxy_params;
         proxy_pass http://backend_apache;
+        health_check;
     }
 }" >> /etc/nginx/sites-available/les-logis-de-beaulieu.conf
 
