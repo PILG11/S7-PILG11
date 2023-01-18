@@ -28,17 +28,18 @@ jobs:
       # verify identity
       - name: verify identity
         run: aws sts get-caller-identity
-        shell: bash
 
       # list backups files on aws
-      - name: upload all sql files to s3 bucket
+      - name: list all sql files that are upload on s3 bucket
         id: list
-        run: aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }}
-        shell: bash
+        run: >
+          aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }} 
+          2>&1
+          | tee list.txt
 
       # run our custom summary script to generate the clickable output
       - name: save output to summary
-        if: steps.id.outcome == 'success'
+        if: steps.list.outcome == 'success'
         uses: actions/github-script@v6
         with:
           script: >
