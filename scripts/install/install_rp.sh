@@ -26,14 +26,19 @@ wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.
 >> $LOG_FILE 2>&1
 sudo mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
 sudo chmod +x /usr/bin/mkcert
+
 mkcert -install les-logis-de-beaulieu.com 192.168.56.82 localhost \
 >> $LOG_FILE 2>&1
+
 sudo mv ./les-logis-de-beaulieu.com+2.pem /etc/ssl/certs/
 sudo mv ./les-logis-de-beaulieu.com+2-key.pem /etc/ssl/private/
 
 echo "=> [3]: NGINX Configuration"
 echo "upstream backend_apache {
-    server 192.168.56.80;
+    #requête envoyée au serveur avec le moins de connexions actives
+    least_conn;
+    server 192.168.56.82 fail_timeout=5s;
+    server 192.168.56.83 fail_timeout=5s;
 }
 
 server {
