@@ -75,7 +75,7 @@ Vagrant.configure("2") do |config|
       v3.customize ["modifyvm", :id, "--memory", 2*1024]
     end
     db.vm.provision "shell", path: "scripts/install/install_sys.sh"
-    db.vm.provision "shell", path: "scripts/install/install_bdd.sh"
+    db.vm.provision "shell", path: "scripts/install/install_db.sh"
     db.vm.provision "shell", path: "scripts/setup_backup.sh"
     db.vm.provision "shell", path: "scripts/install/install_firewall_db.sh"
   end
