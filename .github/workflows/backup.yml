@@ -5,6 +5,7 @@ on:
   pull_request:
     branches:
       - main
+      - ops
       
 jobs:
   test:
@@ -13,9 +14,4 @@ jobs:
   backup:
     uses: ./.github/workflows/aws.yml
     needs: [test]
-    secrets: inherit
-
-  deletion:
-    uses: ./.github/workflows/deletion.yml
-    needs: [backup]
     secrets: inherit
