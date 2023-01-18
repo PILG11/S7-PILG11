@@ -1,13 +1,18 @@
 #!/bin/bash
 
-IP=$(hostname -I | awk '{print $2}')
+
+LOG_FILE="/vagrant/logs/install_rp.log"
+
+#Fichier config all
+ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
 APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
-LOG_FILE="/vagrant/logs/install_backup.log"
-DEBIAN_FRONTEND="noninteractive"
+
+source $ALL_CONF_FILE
 
 echo "START - reverse-proxy Server "$IP
 
 echo "=> [1]: Installing required packages..."
+DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get update $APT_OPT \
   >> $LOG_FILE 2>&1
 
@@ -17,10 +22,14 @@ apt-get install $APT_OPT \
   >> $LOG_FILE 2>&1
 
 echo "=> [2]: Protocol SSL Configuration"
-wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 >> $LOG_FILE 2>&1
+wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 \
+>> $LOG_FILE 2>&1
 sudo mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
 sudo chmod +x /usr/bin/mkcert
-mkcert -install les-logis-de-beaulieu.com 192.168.56.80 localhost
+
+mkcert -install les-logis-de-beaulieu.com 192.168.56.82 localhost \
+>> $LOG_FILE 2>&1
+
 sudo mv ./les-logis-de-beaulieu.com+2.pem /etc/ssl/certs/
 sudo mv ./les-logis-de-beaulieu.com+2-key.pem /etc/ssl/private/
 

@@ -1,32 +1,29 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Enable SSH access to the VM
-# config.vm.provision "shell", inline: <<-SHELL
-
-# Update the package index
-# sudo apt-get update
-
-# Install the OpenSSH server
-# sudo apt-get install -y openssh-server
-
-# Configure the OpenSSH server
-#  sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
-# sudo sed -i 's/^#PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
-# sudo systemctl restart ssh
-#SHELL
-
-# Configure SSH access to the VM
-#config.ssh.insert_key = false
-#config.ssh.private_key_path = ["~/.ssh/id_
-
 Vagrant.configure("2") do |config|
+  # config.ssh.insert_key = false
+  # config.ssh.private_key_path = ["data/ssh/admin_key"]
+  # config.vm.provision "shell", inline: <<-SHELL
+  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.80
+  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.81
+  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.82   
+  #     sleep 3
+  #     service ssh restart
+  #   SHELL
+  # config.vm.provision "shell", inline: <<-SHELL
+  #     mkdir -p "~/.ssh"
+  #     echo '#{File.read("data/ssh/admin_key.pub")}' >> "~/.ssh/authorized_keys"
+  #     chmod 600 "~/.ssh/authorized_keys"
+  #   SHELL
+
   # Serveur virtuel du site web
   config.vm.define "web1" do |web1|
     web1.vm.hostname = "web1"
     web1.vm.box = "chavinje/fr-bull-64"
     web1.vm.network :private_network, ip: "192.168.56.82"
     web1.vm.network "forwarded_port", guest: 80, host: 8082
+    
     # Un repertoire partagé est un plus mais demande beaucoup plus
     # de travail - a voir à la fin
     #machine.vm.synced_folder "./data", "/vagrant_data", SharedFoldersEnableSymlinksCreate: false
@@ -70,7 +67,6 @@ Vagrant.configure("2") do |config|
     db.vm.hostname = "db"
     db.vm.box = "chavinje/fr-bull-64"
     db.vm.network :private_network, ip: "192.168.56.81"
-    db.vm.network "forwarded_port", guest: 3306, host: 3306
     
     db.vm.provider :virtualbox do |v3|
       v3.customize ["modifyvm", :id, "--name", "db"]
@@ -102,12 +98,6 @@ Vagrant.configure("2") do |config|
     rp.vm.provision "shell", path: "scripts/install/install_sys.sh"
     rp.vm.provision "shell", path: "scripts/install/install_rp.sh"
   end
-
-  config.vm.provision "shell", inline: <<-SHELL
-      sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config    
-      sleep 3
-      service ssh restart
-    SHELL
 
 end
   
