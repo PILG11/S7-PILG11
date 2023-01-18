@@ -28,8 +28,8 @@ echo "=> [3]: NGINX Configuration"
 echo "upstream backend_apache {
     #requête envoyée au serveur avec le moins de connexions actives
     least_conn;
-    server 192.168.56.82;
-    server 192.168.56.83;
+    server 192.168.56.82 fail_timeout=5s;
+    server 192.168.56.83 fail_timeout=5s;
 }
 
 server {
@@ -51,7 +51,6 @@ server {
     location / {
         include proxy_params;
         proxy_pass http://backend_apache;
-        health_check;
     }
 }" >> /etc/nginx/sites-available/les-logis-de-beaulieu.conf
 
