@@ -1,6 +1,6 @@
-CREATE DATABASE gite;
+CREATE DATABASE Gite;
 
-USE gite;
+USE Gite;
 
 CREATE TABLE Chambres (
     id INTEGER PRIMARY KEY,
@@ -61,18 +61,18 @@ CREATE TABLE Avis (
   note INT
 );
 
-INSERT INTO `Actualites` (`Id`, `Nom`, `Description`, `PremièreImage`, `SecondeImage`, `TroisiemeImage`, `QuatriemeImage`, `date`) VALUES
+INSERT INTO `Actualites` (`id`, `nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`, `date`) VALUES
 (1, 'Mariage Champêtre', 'La saison des mariages n’est pas fini, mariage d’automne ce week-end.\r\n\r\n#mariagechampetre #maineetloire #bassesvalleesangevines #rivesduloirenanjou #salledereceptionmariage #salledereceptionavechebergements', '../img/Actualites/premier_post/premier_post.jpg', '../img/Actualites/premier_post/premier_post_2.jpg', '../img/Actualites/premier_post/premier_post_3.jpg', '../img/Actualites/premier_post/premier_post_4.jpg', '2022-10-08'),
 (2, 'Les extérieurs', 'Nos espaces extérieurs et la salle en mode banquet #salledereception #bibou #mariagechampetre #bassesvalleesangevines #romaintouzé #hebergementsinsolites', '../img/Actualites/second_post/second_post.jpg', '../img/Actualites/second_post/second_post_2.jpg', '../img/Actualites/second_post/second_post_3.jpg', '../img/Actualites/second_post/second_post_4.jpg', '2022-07-24'),
 (3, 'Mariage au logis', 'Mariage au logis #mariage #decomariage #lydiefleurs #salledereception #maineetloire #bassesvalleesangevines #mariagehebergement', '../img/Actualites/troisieme_post/troisieme_post.jpg', '../img/Actualites/troisieme_post/troisieme_post_2.jpg', '../img/Actualites/troisieme_post/troisieme_post_3.jpg', '../img/Actualites/troisieme_post/troisieme_post_4.jpg', '2022-07-10'),
 (4, 'Robe de mariée', 'Robe de mariée de Blandine\r\n\r\n#robedemariee #mariage #mariagechic #cheval #salledereception #hebergementinsolite', '../img/Actualites/quatrieme_post/quatrieme_post.jpg', NULL, NULL, NULL, '2022-06-26');
 
 INSERT INTO `Avis` (`id`, `nom`, `prenom`, `commentaire`, `email`, `note`) VALUES
-(4, 'Théo', 'SUEUR', 'Le logis fut fameux.', 'ttsueur62600@gmail.com', '3'),
-(8, 'Blois', 'Hugo', 'Le logis Ã©tait incroyable.', 'hugoblois@gmail.com', '5'),
-(9, 'Guilpin', 'Erwan', 'Les hÃ´tes nous ont trÃ¨s trÃ¨s bien reÃ§us.', 'erwanguilpin@gmail.com', '5'),
-(10, 'Souletis', 'Clovis', 'Amazing !!!!!!!!!!', 'cloclo@gmail.com', '5');
+(1, 'Théo', 'SUEUR', 'Le logis fut fameux.', 'ttsueur62600@gmail.com', '3'),
+(2, 'Blois', 'Hugo', 'Le logis était incroyable.', 'hugoblois@gmail.com', '5'),
+(3, 'Guilpin', 'Erwan', 'Les hôtes nous ont très très bien reçus.', 'erwanguilpin@gmail.com', '5'),
+(4, 'Souletis', 'Clovis', 'Amazing !!!!!!!!!!', 'cloclo@gmail.com', '5');
 
-INSERT INTO `clients`(`id`, `nom`, `prenom`, `email`, `numero`) VALUES 
+INSERT INTO `Clients`(`id`, `nom`, `prenom`, `email`, `numero`) VALUES 
 ("1","Erwan","Guilpin","erwanguilpin@gmail.com","0672348867"),
 ("2","Hugo","Blois","hugoblois@coucou.fr","0675473298");
