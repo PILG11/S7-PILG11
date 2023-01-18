@@ -11,6 +11,7 @@ source $ALL_CONF_FILE
 echo "START - reverse-proxy Server "$IP
 
 echo "=> [1]: Installing required packages..."
+DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get update $APT_OPT \
   >> $LOG_FILE 2>&1
 

@@ -14,6 +14,7 @@ source $ALL_CONF_FILE
 echo "START - Installation of phpMyAdmin - "$IP
 
 echo "=> [1]: Install required packages ...."
+DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get install $APT_OPT \
   openssl \
   php-xml \

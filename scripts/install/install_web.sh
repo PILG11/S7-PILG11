@@ -12,6 +12,7 @@ source $ALL_CONF_FILE
 echo "START - install web Server - "$IP
 
 echo "=> [1]: Installing required packages..."
+DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get install $APT_OPT \
   apache2 \
   libapache2-mod-rpaf \
