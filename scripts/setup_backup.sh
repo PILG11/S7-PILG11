@@ -11,7 +11,7 @@ AWS_CONF_FILE="/vagrant/scripts/config/config_aws.sh"
 
 source $ALL_CONF_FILE
 
-echo "START - Database backup "$IP
+echo "START - Database backup setup "$IP
 
 echo "=> [1]: Install required packages ..."
 DEBIAN_FRONTEND=$DEBIAN_FRONTEND
@@ -23,4 +23,4 @@ echo "=> [2]: Retrieving the database and storing it"
 mkdir -p $BACKUP_FILE
 echo "*/5 * * * * bash /vagrant/scripts/upload_backup.sh" | crontab -
 
-echo "END - Database backup completed successfully "$IP
+echo "END - Setup of database backup completed successfully "$IP
