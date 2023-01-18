@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
     end
     web1.vm.provision "shell", path: "scripts/install/install_sys.sh"
     web1.vm.provision "shell", path: "scripts/install/install_web.sh"
-    web1.vm.provision "shell", path: "scripts/install/install_myadmin.sh"
+    # web1.vm.provision "shell", path: "scripts/install/install_myadmin.sh"
     web1.vm.provision "shell", path: "scripts/install/install_firewall_web.sh"
   end
 
@@ -58,7 +58,7 @@ Vagrant.configure("2") do |config|
     end
     web2.vm.provision "shell", path: "scripts/install/install_sys.sh"
     web2.vm.provision "shell", path: "scripts/install/install_web.sh"
-    web2.vm.provision "shell", path: "scripts/install/install_myadmin.sh"
+    # web2.vm.provision "shell", path: "scripts/install/install_myadmin.sh"
     web2.vm.provision "shell", path: "scripts/install/install_firewall_web.sh"
   end
 
