@@ -2,14 +2,6 @@ CREATE DATABASE gite;
 
 USE gite;
 
-CREATE TABLE Inventaire (
-    id INTEGER PRIMARY KEY,
-    materiel VARCHAR(20),
-    quantite INTEGER,
-    etat ENUM('neuf', 'bon', 'moyen', 'mauvais'),
-    lieu VARCHAR(20)
-);
-
 CREATE TABLE Chambres (
     id INTEGER PRIMARY KEY,
     nom VARCHAR(20),
@@ -64,9 +56,9 @@ CREATE TABLE Avis (
   id INT PRIMARY KEY,
   nom VARCHAR(255),
   prenom VARCHAR(255),
-  email VARCHAR(255),
   commentaire VARCHAR(255),
-  etoile INT
+  email VARCHAR(255),
+  note INT
 );
 
 INSERT INTO `Actualites` (`Id`, `Nom`, `Description`, `PremièreImage`, `SecondeImage`, `TroisiemeImage`, `QuatriemeImage`, `date`) VALUES
@@ -75,9 +67,12 @@ INSERT INTO `Actualites` (`Id`, `Nom`, `Description`, `PremièreImage`, `Seconde
 (3, 'Mariage au logis', 'Mariage au logis #mariage #decomariage #lydiefleurs #salledereception #maineetloire #bassesvalleesangevines #mariagehebergement', '../img/Actualites/troisieme_post/troisieme_post.jpg', '../img/Actualites/troisieme_post/troisieme_post_2.jpg', '../img/Actualites/troisieme_post/troisieme_post_3.jpg', '../img/Actualites/troisieme_post/troisieme_post_4.jpg', '2022-07-10'),
 (4, 'Robe de mariée', 'Robe de mariée de Blandine\r\n\r\n#robedemariee #mariage #mariagechic #cheval #salledereception #hebergementinsolite', '../img/Actualites/quatrieme_post/quatrieme_post.jpg', NULL, NULL, NULL, '2022-06-26');
 
-INSERT INTO `avis` (`id`, `nom`, `prenom`, `commentaire`, `email`, `note`) VALUES
-(4, 'ThÃ©o', 'SUEUR', 'Le logis fut fameux.', 'ttsueur62600@gmail.com', '3'),
+INSERT INTO `Avis` (`id`, `nom`, `prenom`, `commentaire`, `email`, `note`) VALUES
+(4, 'Théo', 'SUEUR', 'Le logis fut fameux.', 'ttsueur62600@gmail.com', '3'),
 (8, 'Blois', 'Hugo', 'Le logis Ã©tait incroyable.', 'hugoblois@gmail.com', '5'),
 (9, 'Guilpin', 'Erwan', 'Les hÃ´tes nous ont trÃ¨s trÃ¨s bien reÃ§us.', 'erwanguilpin@gmail.com', '5'),
 (10, 'Souletis', 'Clovis', 'Amazing !!!!!!!!!!', 'cloclo@gmail.com', '5');
 
+INSERT INTO `clients`(`id`, `nom`, `prenom`, `email`, `numero`) VALUES 
+("1","Erwan","Guilpin","erwanguilpin@gmail.com","0672348867"),
+("2","Hugo","Blois","hugoblois@coucou.fr","0675473298");
