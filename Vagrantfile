@@ -2,7 +2,6 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-
   # config.ssh.insert_key = false
   # config.ssh.private_key_path = ["data/ssh/admin_key"]
   # config.vm.provision "shell", inline: <<-SHELL
@@ -11,6 +10,11 @@ Vagrant.configure("2") do |config|
   #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.82   
   #     sleep 3
   #     service ssh restart
+  #   SHELL
+  # config.vm.provision "shell", inline: <<-SHELL
+  #     mkdir -p "~/.ssh"
+  #     echo '#{File.read("data/ssh/admin_key.pub")}' >> "~/.ssh/authorized_keys"
+  #     chmod 600 "~/.ssh/authorized_keys"
   #   SHELL
 
   # Serveur virtuel du site web
