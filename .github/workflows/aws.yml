@@ -8,7 +8,6 @@ on:
           required: false
           default: false
           type: boolean
-  workflow_call:
 
 jobs:
   aws:
@@ -33,9 +32,9 @@ jobs:
       - name: list all sql files that are upload on s3 bucket
         id: list
         run: >
-          aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }} 
-          2>&1
-          | tee list.txt
+          aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }} --human-readable --summarize
+          | awk '{print $4}' 
+          > list.txt
 
       # run our custom summary script to generate the clickable output
       - name: save output to summary
