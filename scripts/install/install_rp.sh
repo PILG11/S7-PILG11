@@ -9,7 +9,7 @@ APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 source $ALL_CONF_FILE
 
-echo "START - reverse-proxy Server "$IP
+echo "START - Install reverse-proxy Server "$IP
 
 echo "=> [1]: Installing required packages..."
 DEBIAN_FRONTEND=$DEBIAN_FRONTEND
