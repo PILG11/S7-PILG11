@@ -15,3 +15,5 @@ jobs:
     uses: ./.github/workflows/aws.yml
     needs: [test]
     secrets: inherit
+    with:
+      list-bucket: true
