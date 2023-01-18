@@ -16,8 +16,8 @@ DEBIAN_FRONTEND=$DEBIAN_FRONTEND
 apt-get install $APT_OPT \
   apache2 \
   libapache2-mod-rpaf \
-  libapache2-mod-php \
   php \
+  libapache2-mod-php \
   php-mysql \
   php-intl \
   php-curl \
