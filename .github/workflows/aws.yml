@@ -1,6 +1,7 @@
 name: aws
 
 on:
+  workflow_call:
   workflow_dispatch:
       inputs:
         list-bucket:
