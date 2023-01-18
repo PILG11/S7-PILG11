@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
     rp.vm.box = "chavinje/fr-bull-64"
     rp.vm.network :private_network, ip: "192.168.56.82"
     rp.vm.network "forwarded_port", guest: 443, host: 8443
-    rp.vm.network "forwarded_port", guest: 80, host: 80
+    rp.vm.network "forwarded_port", guest: 80, host: 8080
     
     rp.vm.provider :virtualbox do |v3|
       v3.customize ["modifyvm", :id, "--name", "rp"]
