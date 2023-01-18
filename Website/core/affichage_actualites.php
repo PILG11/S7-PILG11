@@ -24,7 +24,7 @@ else{
                 ?>
                     <div class="publication">
                 <?php
-                if($row['PremièreImage'] != NULL){ ?>
+                if($row['premièreImage'] != NULL){ ?>
                     <a href="http://localhost:8888/pages/actualites.php?post=<?php echo $row['id'] ?>"><img src= <?php echo $row['premièreImage'] ?> alt= <?php echo $row['nom'] ?> class="image"></a> 
                     <?php
                 }
