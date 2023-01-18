@@ -2,6 +2,11 @@ name: aws
 
 on:
   workflow_call:
+    inputs:
+      list-bucket:
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   aws:
