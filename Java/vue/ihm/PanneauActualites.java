@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import Java.controleur.actions.ActionChangerPanneau;
 import Java.controleur.actions.ActionChoisirImage;
@@ -47,6 +48,9 @@ public class PanneauActualites extends JPanel{
         descriptionArea = new JTextArea();
         descriptionArea.setLineWrap(true);
         descriptionArea.setWrapStyleWord(true);
+           
+        titreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        descriptionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(titreLabel);
         add(titreField);
@@ -70,7 +74,11 @@ public class PanneauActualites extends JPanel{
         pathImage4 = new JLabel("Choisir une image 4");
         JButton buttonChoixImg4 = new JButton(new ActionChoisirImage(this,pathImage4));
         buttonChoixImg4.setText("Choisir Image 4");
-
+        
+        pathImage1.setHorizontalAlignment(SwingConstants.CENTER);
+        pathImage2.setHorizontalAlignment(SwingConstants.CENTER);
+        pathImage3.setHorizontalAlignment(SwingConstants.CENTER);
+        pathImage4.setHorizontalAlignment(SwingConstants.CENTER);
         
         this.add(buttonChoixImg1);
         this.add(pathImage1);

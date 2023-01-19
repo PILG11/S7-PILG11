@@ -8,9 +8,11 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import Java.controleur.actions.ActionChangerPanneau;
-import Java.modele.basededonnees.RequetteBddActualites;
+import Java.controleur.actions.ActionSupprActu;
+import Java.modele.basededonnees.RequeteBddActualites;
 
 public class PanneauManageActualites extends JPanel{
 
@@ -19,6 +21,7 @@ public class PanneauManageActualites extends JPanel{
     List<String> listTitre;
     List<String> listDescr;
     List<String> listDate;
+    List<Integer> listId;
 
     public PanneauManageActualites(MainJFrame mainJFrame){
         this.mainJFrame = mainJFrame;
@@ -26,9 +29,30 @@ public class PanneauManageActualites extends JPanel{
         this.setLayout(grid);
         super.setPreferredSize(new Dimension(600,500));
         this.initListe();
-        /// set les bouton suppr avec requete sqls
+        this.initNomColonne();
         this.afficherActu();
         this.returnButton();
+    }
+
+    private void initNomColonne(){
+        JPanel ligne = new JPanel();
+        ligne.setLayout(new GridLayout(1, 4));
+
+        JLabel labelTitre = new JLabel("Titre");
+        JLabel labelDescr = new JLabel("Description");
+        JLabel labelDate = new JLabel("Date");
+        JLabel labelSuppr = new JLabel("Supprimer l'actu");
+
+        labelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+        labelDescr.setHorizontalAlignment(SwingConstants.CENTER);
+        labelDate.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSuppr.setHorizontalAlignment(SwingConstants.CENTER);
+
+        ligne.add(labelTitre);
+        ligne.add(labelDescr);
+        ligne.add(labelDate);
+        ligne.add(labelSuppr);
+        this.add(ligne);
     }
 
     private void afficherActu(){
@@ -40,8 +64,14 @@ public class PanneauManageActualites extends JPanel{
             JLabel titre = new JLabel(this.listTitre.get(i));
             JLabel descr = new JLabel(this.listDescr.get(i));
             JLabel date = new JLabel(this.listDate.get(i));
-            JButton supprButton = new JButton();
+            JButton supprButton = new JButton(new ActionSupprActu(this.mainJFrame, this));
             supprButton.setText("Supprimer");
+            String num = Integer.toString(i);
+            supprButton.setName(num);
+
+            titre.setHorizontalAlignment(SwingConstants.CENTER);
+            descr.setHorizontalAlignment(SwingConstants.CENTER);
+            date.setHorizontalAlignment(SwingConstants.CENTER);
 
             ligne.add(titre);
             ligne.add(descr);
@@ -58,10 +88,15 @@ public class PanneauManageActualites extends JPanel{
     }
 
     private void initListe(){
-        RequetteBddActualites requetteBddActualites = new RequetteBddActualites();
-        this.listTitre = requetteBddActualites.getTitre();
-        this.listDescr = requetteBddActualites.getDescr();
-        this.listDate= requetteBddActualites.getDate();
+        RequeteBddActualites requeteBddActualites = new RequeteBddActualites();
+        this.listTitre = requeteBddActualites.getTitre();
+        this.listDescr = requeteBddActualites.getDescr();
+        this.listDate = requeteBddActualites.getDate();
+        this.listId = requeteBddActualites.getId();
+    }
+
+    public List<Integer> getListId() {
+        return listId;
     }
     
 }
