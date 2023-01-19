@@ -1,4 +1,4 @@
-name: list aws backups
+name: list aws backups auto
 run-name: list aws backups auto
 
 on:

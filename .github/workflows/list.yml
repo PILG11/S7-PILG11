@@ -1,4 +1,4 @@
-name: List AWS S3 backups manually
+name: list aws backups manually
 run-name: list aws backups manually
 
 on:
