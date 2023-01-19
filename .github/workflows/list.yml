@@ -1,0 +1,19 @@
+name: list aws backups manually
+run-name: list aws backups manually
+
+on:
+  workflow_dispatch:
+    inputs:
+      list-bucket:
+        description: List all object from S3 bucket
+        required: true
+        default: false
+        type: boolean
+
+jobs:
+  backup:
+    uses: ./.github/workflows/aws.yml
+    secrets: inherit
+    with:
+      env-name: manual-list
+      list-bucket: ${{ inputs.list-bucket || false }}

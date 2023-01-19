@@ -13,14 +13,14 @@ function onglet(option){
 
     if(option === 'chambres'){
 
-        indication[0].classList.remove("notActive");
-        indication[0].classList.add("active");
+        indication[0].classList.remove("buttonNotActive");
+        indication[0].classList.add("buttonActive");
 
-        indication[1].classList.remove("active");
-        indication[2].classList.remove("active");
+        indication[1].classList.remove("buttonActive");
+        indication[2].classList.remove("buttonActive");
 
-        indication[1].classList.add("notActive");
-        indication[2].classList.add("notActive");
+        indication[1].classList.add("buttonNotActive");
+        indication[2].classList.add("buttonNotActive");
 
         formulesDiv.style.display = "none";
         salleDesFetesDiv.style.display = "none";
@@ -29,14 +29,14 @@ function onglet(option){
 
     if(option === 'salledesfetes'){
 
-        indication[1].classList.remove("notActive");
-        indication[1].classList.add("active");
+        indication[1].classList.remove("buttonNotActive");
+        indication[1].classList.add("buttonActive");
 
-        indication[2].classList.remove("active");
-        indication[0].classList.remove("active");
+        indication[2].classList.remove("buttonActive");
+        indication[0].classList.remove("buttonActive");
 
-        indication[0].classList.add("notActive");
-        indication[2].classList.add("notActive");
+        indication[0].classList.add("buttonNotActive");
+        indication[2].classList.add("buttonNotActive");
 
         formulesDiv.style.display = "none";
         salleDesFetesDiv.style.display = "flex";
@@ -45,14 +45,14 @@ function onglet(option){
 
     if(option === 'formules'){
 
-        indication[2].classList.remove("notActive");
-        indication[2].classList.add("active");
+        indication[2].classList.remove("buttonNotActive");
+        indication[2].classList.add("buttonActive");
 
-        indication[1].classList.remove("active");
-        indication[0].classList.remove("active");
+        indication[1].classList.remove("buttonActive");
+        indication[0].classList.remove("buttonActive");
 
-        indication[1].classList.add("notActive");
-        indication[0].classList.add("notActive");
+        indication[1].classList.add("buttonNotActive");
+        indication[0].classList.add("buttonNotActive");
 
         formulesDiv.style.display = "flex";
         salleDesFetesDiv.style.display = "none";

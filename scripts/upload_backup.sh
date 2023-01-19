@@ -1,10 +1,11 @@
-DATE=$(date +"%d.%m.%Y_%Hh%M")
-#Utilisateur a créer (si un vide alors pas de création)
+#!/bin/bash
 DB_NAME="gite"
 DB_USER="admin"
 DB_PASSWD="mdpgite"
 
+DATE=$(date +"%d.%m.%Y_%Hh%M")
 BACKUP_FILE="/vagrant/backups"
+
 BACKUP_NAME="$DATE-$DB_NAME"
 
 AWS_CONF_FILE="/vagrant/scripts/config/config_aws.sh"
@@ -17,3 +18,9 @@ bash $AWS_CONF_FILE
 
 #Upload database file to AWS
 aws s3 cp "$BACKUP_FILE/$BACKUP_NAME.sql" s3://pilg11-db-backup/
+
+# Backup files will be kept for 10 minutes
+RETENTION=10
+
+# Remove files older than X days
+find $BACKUP_FILE/*.sql -mmin +$RETENTION -delete
