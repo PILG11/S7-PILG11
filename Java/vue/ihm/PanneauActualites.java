@@ -92,8 +92,12 @@ public class PanneauActualites extends JPanel{
         JButton buttonReset = new JButton(new ActionChangerPanneau(this.mainJFrame, "Reset", "actualites"));
         buttonReset.setText("Reset");
 
+        JButton buttonManage = new JButton(new ActionChangerPanneau(this.mainJFrame, "Manage", "manageActualites"));
+        buttonManage.setText("Gérer les actus");
+
         this.add(buttonValider);
         this.add(buttonReset);
+        this.add(buttonManage);
         this.add(buttonRetour);
     }
 
