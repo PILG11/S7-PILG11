@@ -1,6 +1,8 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "Java\\lib\\mysql-connector-j-8.0.31.jar"
+        "Java\\lib\\mysql-connector-j-8.0.31.jar",
+        "Java\\lib\\javax.mail-1.6.1.jar",
+        "Java\\lib\\activation.jar"
     ]
 }
