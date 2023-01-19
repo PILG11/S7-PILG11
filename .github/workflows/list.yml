@@ -1,4 +1,5 @@
-name: List AWS S3 backups
+name: List AWS S3 backups manually
+run-name: List AWS S3 backups manually
 
 on:
   workflow_dispatch:
@@ -12,6 +13,9 @@ on:
         - cancel
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
   backup:
     uses: ./.github/workflows/aws.yml
     with:

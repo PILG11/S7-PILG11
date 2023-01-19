@@ -2,6 +2,15 @@ name: list aws backups
 run-name: list aws backups
 
 on:
+  workflow_dispatch:
+    inputs:
+      list-bucket:
+        description: Do you want to list all object from S3 bucket ?
+        required: false
+        type: choice
+        options:
+        - run list
+        - cancel
   pull_request:
     branches:
       - main
