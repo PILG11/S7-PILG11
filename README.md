@@ -2,7 +2,7 @@
 
 Dépôt production "prod" pour le client Les Logis de Beaulieu.  
 
-## Overview 
+### Overview 
 
 Le site web est situé dans le répertoire `Website/`.  
 L'application java est situé dans le répertoire `Java/`.  
@@ -10,7 +10,7 @@ L'infra est construite autour de 4 VMs suivant ce diagramme :
 <img width="871" alt="Capture d’écran 2023-01-19 à 20 21 13" src="https://user-images.githubusercontent.com/120210590/213539880-bc2b6596-0cae-4895-a8d0-446aa96c72b0.png">
 
 
-## Description du Labs
+### Description du Labs
 
 Les machines sont reliées à votre machine réelle par un réseau privé hôte
 
@@ -31,3 +31,11 @@ Arréter une VM (db par exemple)
 
 Détruire toutes les VMs (sans demande de confirmation)
     ```vagrant destroy -f```
+    
+### [GitHub Actions](https://github.com/PILG11/S7-PILG11/actions)
+
+Dans ce dépôt, les actions sont utilisées pour exécuter les commandes ```aws s3 list``` automatiquement ou manuellement. 
+
+Vous pouvez en effet utilisé le bouton "Run workflow" pour lancer la lecture des backups présents sur le bucket S3 AWS du projet. 
+
+<img width="1079" alt="Capture d’écran 2023-01-19 à 20 31 15" src="https://user-images.githubusercontent.com/120210590/213541806-ccfc7f6a-07f4-4251-b4d5-c2fed26bb0ba.png">
