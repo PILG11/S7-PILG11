@@ -1,6 +1,7 @@
 name: List AWS S3 backups
 
 on:
+  workflow_call:
   workflow_dispatch:
     inputs:
       list-bucket:
