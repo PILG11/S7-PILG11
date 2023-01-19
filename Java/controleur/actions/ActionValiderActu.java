@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import javax.swing.AbstractAction;
 import javax.swing.JOptionPane;
 
-import Java.modele.basededonnees.RequetteBddActualites;
+import Java.modele.basededonnees.RequeteBddActualites;
 import Java.vue.ihm.MainJFrame;
 import Java.vue.ihm.PanneauActualites;
 
@@ -55,8 +55,8 @@ public class ActionValiderActu extends AbstractAction{
     }
 
     private void requetePublicationActu(){
-        RequetteBddActualites requetteBddActualites = new RequetteBddActualites();
-        requetteBddActualites.publierActu(this);
+        RequeteBddActualites requeteBddActualites = new RequeteBddActualites();
+        requeteBddActualites.publierActu(this);
     }
 
     private void resetPanneau(){

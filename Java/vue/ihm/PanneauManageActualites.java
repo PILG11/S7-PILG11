@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Java.controleur.actions.ActionChangerPanneau;
-import Java.modele.basededonnees.RequetteBddActualites;
+import Java.modele.basededonnees.RequeteBddActualites;
 
 public class PanneauManageActualites extends JPanel{
 
@@ -19,6 +19,7 @@ public class PanneauManageActualites extends JPanel{
     List<String> listTitre;
     List<String> listDescr;
     List<String> listDate;
+    List<Integer> listId;
 
     public PanneauManageActualites(MainJFrame mainJFrame){
         this.mainJFrame = mainJFrame;
@@ -26,9 +27,26 @@ public class PanneauManageActualites extends JPanel{
         this.setLayout(grid);
         super.setPreferredSize(new Dimension(600,500));
         this.initListe();
+        this.initNomColonne();
         /// set les bouton suppr avec requete sqls
         this.afficherActu();
         this.returnButton();
+    }
+
+    private void initNomColonne(){
+        JPanel ligne = new JPanel();
+        ligne.setLayout(new GridLayout(1, 4));
+
+        JLabel labelTitre = new JLabel("Titre");
+        JLabel labelDescr = new JLabel("Description");
+        JLabel labelDate = new JLabel("Date");
+        JLabel labelSuppr = new JLabel("Supprimer l'actu");
+
+        ligne.add(labelTitre);
+        ligne.add(labelDescr);
+        ligne.add(labelDate);
+        ligne.add(labelSuppr);
+        this.add(ligne);
     }
 
     private void afficherActu(){
@@ -58,10 +76,11 @@ public class PanneauManageActualites extends JPanel{
     }
 
     private void initListe(){
-        RequetteBddActualites requetteBddActualites = new RequetteBddActualites();
-        this.listTitre = requetteBddActualites.getTitre();
-        this.listDescr = requetteBddActualites.getDescr();
-        this.listDate= requetteBddActualites.getDate();
+        RequeteBddActualites requeteBddActualites = new RequeteBddActualites();
+        this.listTitre = requeteBddActualites.getTitre();
+        this.listDescr = requeteBddActualites.getDescr();
+        this.listDate = requeteBddActualites.getDate();
+        this.listId = requeteBddActualites.getId();
     }
     
 }

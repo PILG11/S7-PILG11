@@ -6,12 +6,12 @@ import java.util.List;
 
 import Java.controleur.actions.ActionValiderActu;
 
-public class RequetteBddActualites {
+public class RequeteBddActualites {
 
     private ConnectionBdd dbConnection;
     private ActionValiderActu actionValiderActu;
     
-    public RequetteBddActualites(){
+    public RequeteBddActualites(){
         this.dbConnection = new ConnectionBdd();
     }
 
@@ -88,5 +88,23 @@ public class RequetteBddActualites {
             dbConnection.closeConnection();
         }
         return listDate;
+    }
+
+    public List<Integer>  getId(){
+        dbConnection.openConnection();
+        List<Integer> listId = new ArrayList<>();
+        try {
+            String query = "SELECT id FROM Actualites";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                listId.add(rs.getInt("id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
+        return listId;
     }
 }
