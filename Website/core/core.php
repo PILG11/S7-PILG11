@@ -7,7 +7,7 @@
         'server' => 'localhost',
         'login' => 'root',
         'password' => 'root',
-        'db_name' => 'projet',
+        'db_name' => 'gite',
     ];
     
     $mysqli = new mysqli($infoBdd['server'], $infoBdd['login'],

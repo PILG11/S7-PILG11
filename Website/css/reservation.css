@@ -145,6 +145,7 @@ img{
 }
 
 .selected-date{
-    background-color: blue;
+    background: rgb(195, 195, 195);
+    pointer-events: none;
 }
 

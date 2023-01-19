@@ -1,20 +1,9 @@
-function afficherdeplacer(option){
-    const titre = document.getElementById('titre_reservation');
-    document.getElementById('bloc').style.display = 'block';
-    document.getElementById('bloc').scrollIntoView({
+function afficherdeplacer(){
+      document.getElementById('bloc').scrollIntoView({
         behavior: 'smooth',
         block: 'nearest'
       });
-    titre.innerHTML = option;
-    titre.style.textAlign = 'center';
-    titre.style.fontSize = '18px';
 }
-
-window.addEventListener('load', function() {
-    const calendrier = document.getElementById('bloc');
-    calendrier.style.display = 'none';
-  });
-
 
   document.addEventListener("DOMContentLoaded", function() {
 
@@ -52,8 +41,6 @@ window.addEventListener('load', function() {
         from_picker.set('max', false)
       }
     })
-  
-    document.querySelector('[aria-label="19 Janvier, 2023"]').classList.add("selected-date");
 
   });
  
