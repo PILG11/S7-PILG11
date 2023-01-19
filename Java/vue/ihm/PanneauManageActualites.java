@@ -30,7 +30,6 @@ public class PanneauManageActualites extends JPanel{
         super.setPreferredSize(new Dimension(600,500));
         this.initListe();
         this.initNomColonne();
-        /// set les bouton suppr avec requete sqls
         this.afficherActu();
         this.returnButton();
     }
@@ -65,7 +64,7 @@ public class PanneauManageActualites extends JPanel{
             JLabel titre = new JLabel(this.listTitre.get(i));
             JLabel descr = new JLabel(this.listDescr.get(i));
             JLabel date = new JLabel(this.listDate.get(i));
-            JButton supprButton = new JButton(new ActionSupprActu(this.mainJFrame));
+            JButton supprButton = new JButton(new ActionSupprActu(this.mainJFrame, this));
             supprButton.setText("Supprimer");
             String num = Integer.toString(i);
             supprButton.setName(num);
@@ -94,6 +93,10 @@ public class PanneauManageActualites extends JPanel{
         this.listDescr = requeteBddActualites.getDescr();
         this.listDate = requeteBddActualites.getDate();
         this.listId = requeteBddActualites.getId();
+    }
+
+    public List<Integer> getListId() {
+        return listId;
     }
     
 }
