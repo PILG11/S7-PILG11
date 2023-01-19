@@ -35,48 +35,48 @@
     <div class="sous_titre">
       <p> Les différentes activités près du logis </p>
     </div>
-
-    <div>
-      <div class="container">
-        <a href="" target="_blank">
-          <img src="./img/Accueil/acrobranche.jpg" alt="acrobranche">
-          <h3>Acrobranche</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+    
+    <div class="container">
+        <a href="https://www.giffard.com/fr/" target="_blank">
+          <img src="./img/Accueil/giffard.jpg" alt="giffard">
+          <h3>Distillerie Giffard</h3>
+          <p>Personnel accueillant, découverte de l histoire de cette société familiale et locale super intéressante. Et la dégustation un vrai délice... un incontournable de la région angevine !!</p>
         </a>
       </div>
 
       <div class="container">
-        <a href="" target="_blank">
-          <img src="./img/Accueil/canoe.jpg" alt="canoe">
-          <h3>Le Canoë</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-        </a>
-      </div>
-
-      <div class="container">
-        <a href="" target="_blank">
-          <img src="./img/Accueil/rando.jpg" alt="rando">
-          <h3>La Randonnée</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-        </a>
-      </div>
-
-      <div class="container">
-        <a href="" target="_blank">
-          <img src="./img/Accueil/cheval.jpg" alt="cheval">
-          <h3>Le Cheval</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-        </a>
-      </div>
-
-      <div class="container">
-        <a href="" target="_blank">
-          <img src="./img/Accueil/trot.jpg" alt="trot">
-          <h3>Balade en trotinette</h3>
-          <p>Bip Bip la trotinette électrique</p>
+        <a href="https://eseo.fr/" target="_blank">
+          <img src="./img/Accueil/eseo.jpg" alt="eseo">
+          <h3>ESEO</h3>
+          <p>L'Ecole Supérieur d'Electronique de l'Ouest ! A ne pas manquer !!!</p>
         </a>
       </div>
     </div>
+
+      <div class="container">
+        <a href="https://www.chateau-angers.fr/" target="_blank">
+          <img src="./img/Accueil/chateau.jpg" alt="chateau">
+          <h3>Le château d'Angers</h3>
+          <p>Château magnifique, unique, avec tellement d'histoire et sa tapisserie à voir absolument !</p>
+        </a>
+      </div>
+
+    <div>
+      <div class="container">
+        <a href="https://www.parcoursaventure49.fr/" target="_blank">
+          <img src="./img/Accueil/acrobranche.jpg" alt="acrobranche">
+          <h3>Acrobranche</h3>
+          <p>Quel calme...... Pour la nature, la détente, les parcours dans les arbres, il faut le faire. En plus, le personnel est super sympa. A faire absolument</p>
+        </a>
+      </div>
+
+      <div class="container">
+        <a href="https://ckca.fr/dev/" target="_blank">
+          <img src="./img/Accueil/canoe.jpg" alt="canoe">
+          <h3>Canoë - Kayak</h3>
+          <p>Très belle promenade sur le Lac de Maine. Les prix sont très abordables 5€/ pers  pour 1 heure sinon 8€/pers pour 2h</p>
+        </a>
+      </div>
 
     <div class="sous_titre">
       <p> Où nous situer </p>

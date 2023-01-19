@@ -31,8 +31,6 @@ public class ActionSupprActu extends AbstractAction{
         listId = this.panneauManageActualites.getListId();
         this.index = listId.get(Integer.valueOf(name));
 
-        System.out.println(index);
-
         RequeteBddActualites requeteBddActualites = new RequeteBddActualites();
         requeteBddActualites.supprActu(this);
         JOptionPane.showMessageDialog(null, "L'actualité à bien été supprimée de la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
