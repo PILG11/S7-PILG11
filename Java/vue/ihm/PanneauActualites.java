@@ -31,7 +31,7 @@ public class PanneauActualites extends JPanel{
         this.mainJFrame = mainJFrame;
         super.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         super.setBackground(Color.gray);
-        super.setPreferredSize(new Dimension(800,300));
+        super.setPreferredSize(new Dimension(600,400));
 
         this.initChampSaisie();
         this.initChampImage();
@@ -84,7 +84,7 @@ public class PanneauActualites extends JPanel{
         JButton buttonRetour = new JButton(new ActionChangerPanneau(this.mainJFrame, "Retour", "accueil"));
         buttonRetour.setText("Retour");
 
-        JButton buttonValider = new JButton(new ActionValiderActu(this.mainJFrame));
+        JButton buttonValider = new JButton(new ActionValiderActu(this.mainJFrame, this));
         buttonValider.setText("Valider");
 
         JButton buttonReset = new JButton(new ActionChangerPanneau(this.mainJFrame, "Reset", "actualites"));
@@ -97,6 +97,46 @@ public class PanneauActualites extends JPanel{
 
     public void setPath(JLabel pathImage, String path){
         pathImage.setText(path);
+    }
+
+    public String getTitle(){
+        return this.titreField.getText();
+    }
+
+    public String getDescription(){
+        return this.descriptionArea.getText();
+    }
+
+    public String getPathImage1(){
+        String path = this.pathImage1.getText();
+        if (path == "Choisir une image 1"){
+            return null;
+        }
+        return path;
+    }
+
+    public String getPathImage2(){
+        String path = this.pathImage2.getText();
+        if (path == "Choisir une image 2"){
+            return null;
+        }
+        return path;
+    }
+
+    public String getPathImage3(){
+        String path = this.pathImage3.getText();
+        if (path == "Choisir une image 3"){
+            return null;
+        }
+        return path;
+    }
+
+    public String getPathImage4(){
+        String path = this.pathImage4.getText();
+        if (path == "Choisir une image 4"){
+            return null;
+        }
+        return path;
     }
     
 }

@@ -15,7 +15,7 @@ public class RequeteBdd {
     private ConnectionBdd dbConnection;
 
     public RequeteBdd() {
-        dbConnection = new ConnectionBdd();
+        this.dbConnection = new ConnectionBdd();
     }
 
     public void tryRequete(ConnectionBdd dbConnection){

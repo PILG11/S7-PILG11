@@ -38,6 +38,8 @@ CREATE TABLE Actualites (
     date DATE
 );
 
+ALTER TABLE actualites MODIFY id INT NOT NULL AUTO_INCREMENT;
+
 CREATE TABLE Reservations (
     id INTEGER PRIMARY KEY,
     Type VARCHAR(20),
