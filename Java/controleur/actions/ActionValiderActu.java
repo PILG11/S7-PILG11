@@ -15,12 +15,13 @@ public class ActionValiderActu extends AbstractAction{
 
     private MainJFrame mainJFrame;
     private PanneauActualites panneauActualites;
+    public PanneauActualites getPanneauActualites() {
+        return panneauActualites;
+    }
+
     private String titre;
     private String description;
     private String premiereImage;
-    private String secondeImage;
-    private String troisiemeImage;
-    private String quatriemeImage;
     private Date date;
 
     public ActionValiderActu(MainJFrame mainJFrame, PanneauActualites panneauActualites){
@@ -54,42 +55,16 @@ public class ActionValiderActu extends AbstractAction{
         titre = this.panneauActualites.getTitle();
         description = this.panneauActualites.getDescription();
         premiereImage = this.panneauActualites.getPathImage1();
-        secondeImage = this.panneauActualites.getPathImage2();
-        troisiemeImage = this.panneauActualites.getPathImage3();
-        quatriemeImage = this.panneauActualites.getPathImage4();
         setDate();
     }
 
     private void requetePublicationActu(){
-        new RequetteBddActualites(this);
+        RequetteBddActualites requetteBddActualites = new RequetteBddActualites();
+        requetteBddActualites.publierActu(this);
     }
 
     private void resetPanneau(){
         this.mainJFrame.setContentPane("actualites");
-    }
-
-    public String getTitre() {
-        return this.titre;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public String getPremiereImage() {
-        return this.premiereImage;
-    }
-
-    public String getSecondeImage() {
-        return this.secondeImage;
-    }
-
-    public String getTroisiemeImage() {
-        return this.troisiemeImage;
-    }
-
-    public String getQuatriemeImage() {
-        return this.quatriemeImage;
     }
 
     private void setDate(){

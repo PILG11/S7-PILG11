@@ -8,6 +8,7 @@ public class MainJFrame extends JFrame{
     PanneauReservation panneauReservation = new PanneauReservation(this);
     PanneauQuestions panneauQuestions = new PanneauQuestions(this);
     PanneauActualites panneauActualites; 
+    PanneauManageActualites panneauManageActualites;
 
     public MainJFrame(){
         this.setContentPane("accueil");
@@ -32,6 +33,12 @@ public class MainJFrame extends JFrame{
                 this.panneauActualites = new PanneauActualites(this);
                 this.setContentPane(this.panneauActualites);
                 break;
+            case "manageActualites":
+                this.setTitle("Gestion Site Gite - Manage Actualites");
+                this.panneauManageActualites = new PanneauManageActualites(this);
+                this.setContentPane(this.panneauManageActualites);
+                break;
+
         }
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
