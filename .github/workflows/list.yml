@@ -7,10 +7,8 @@ on:
       list-bucket:
         description: Do you want to list all object from S3 bucket ?
         required: false
-        type: choice
-        options:
-        - run list
-        - cancel
+        default: false
+        type: boolean
 
 jobs:
   test:
