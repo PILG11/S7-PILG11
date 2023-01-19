@@ -19,8 +19,6 @@ jobs:
       matrix:
         component-name:
           - aws
-    concurrency:
-      group: list-${{ matrix.component-name }}-backups
     environment:
       name: ${{ inputs.env-name }}
     steps:
