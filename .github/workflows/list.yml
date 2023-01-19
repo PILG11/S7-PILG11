@@ -1,5 +1,5 @@
 name: List AWS S3 backups manually
-run-name: List AWS S3 backups manually
+run-name: list aws backups manually
 
 on:
   workflow_dispatch:

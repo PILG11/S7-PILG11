@@ -1,5 +1,5 @@
 name: list aws backups
-run-name: list aws backups
+run-name: list aws backups auto
 
 on:
   workflow_dispatch:
