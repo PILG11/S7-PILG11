@@ -2,9 +2,6 @@ name: list aws backups manually
 run-name: list aws backups manually
 
 on:
-  push:
-    branches:
-     - PILG11-60-implement-db-firewall
   workflow_dispatch:
     inputs:
       list-bucket:
@@ -19,4 +16,4 @@ jobs:
     secrets: inherit
     with:
       env-name: manual-list
-      list-bucket: ${{ inputs.list-bucket }}
+      list-bucket: ${{ inputs.list-bucket || false }}
