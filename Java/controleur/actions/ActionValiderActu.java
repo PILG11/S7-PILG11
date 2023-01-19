@@ -59,7 +59,8 @@ public class ActionValiderActu extends AbstractAction{
     }
 
     private void requetePublicationActu(){
-        new RequetteBddActualites(this);
+        RequetteBddActualites requetteBddActualites = new RequetteBddActualites();
+        requetteBddActualites.publierActu(this);
     }
 
     private void resetPanneau(){

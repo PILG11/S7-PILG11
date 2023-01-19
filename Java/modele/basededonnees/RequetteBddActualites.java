@@ -9,13 +9,12 @@ public class RequetteBddActualites {
     private ConnectionBdd dbConnection;
     private ActionValiderActu actionValiderActu;
     
-    public RequetteBddActualites(ActionValiderActu actionValiderActu){
+    public RequetteBddActualites(){
         this.dbConnection = new ConnectionBdd();
-        this.actionValiderActu = actionValiderActu;
-        this.publierActu();
     }
 
-    private void publierActu(){
+    public void publierActu(ActionValiderActu actionValiderActu){
+        this.actionValiderActu = actionValiderActu;
         dbConnection.openConnection();
         try {
             String sql = "INSERT INTO `actualites`(`nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`,`date`) VALUES (?,?,?,?,?,?,?)";

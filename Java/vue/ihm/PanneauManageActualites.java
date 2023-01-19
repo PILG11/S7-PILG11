@@ -1,7 +1,6 @@
 package Java.vue.ihm;
 
 import java.awt.GridLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 
 import java.util.Arrays;
@@ -26,9 +25,10 @@ public class PanneauManageActualites extends JPanel{
         GridLayout grid = new GridLayout(10, 1);
         this.setLayout(grid);
         super.setPreferredSize(new Dimension(600,500));
-
+        /// requete sql pour recup les lists
+        /// set les bouton suppr avec requete sqls
         afficherActu();
-        privateButton();
+        returnButton();
     }
 
     private void afficherActu(){
@@ -50,7 +50,8 @@ public class PanneauManageActualites extends JPanel{
             this.add(ligne);
         }
     }
-    private void privateButton(){
+
+    private void returnButton(){
         JButton buttonRetour = new JButton(new ActionChangerPanneau(this.mainJFrame, "Retour", "actualites"));
         buttonRetour.setText("Retour");
         this.add(buttonRetour);
