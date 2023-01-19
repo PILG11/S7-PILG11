@@ -5,17 +5,19 @@ on:
   workflow_dispatch:
     inputs:
       list-bucket:
-        description: Do you want to list all object from S3 bucket ?
+        description: List all object from S3 bucket
         required: false
         default: false
         type: boolean
 
-jobs:
-  test:
-    uses: ./.github/workflows/test.yml
+permissions:
+  id-token: write
+  contents: read
 
+jobs:
   backup:
     uses: ./.github/workflows/aws.yml
+    secrets: inherit
     with:
       env-name: manual-list
       list-bucket: ${{ inputs.list-bucket }}
