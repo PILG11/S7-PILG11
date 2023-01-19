@@ -20,12 +20,12 @@ public class RequetteBddActualites {
         try {
             String sql = "INSERT INTO `actualites`(`nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`,`date`) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql);
-            stmt.setString(1, this.actionValiderActu.getTitre());
-            stmt.setString(2, this.actionValiderActu.getDescription());
-            stmt.setString(3, this.actionValiderActu.getPremiereImage());
-            stmt.setString(4, this.actionValiderActu.getSecondeImage());
-            stmt.setString(5, this.actionValiderActu.getTroisiemeImage());
-            stmt.setString(6, this.actionValiderActu.getQuatriemeImage());
+            stmt.setString(1, this.actionValiderActu.getPanneauActualites().getTitle());
+            stmt.setString(2, this.actionValiderActu.getPanneauActualites().getDescription());
+            stmt.setString(3, this.actionValiderActu.getPanneauActualites().getPathImage1());
+            stmt.setString(4, this.actionValiderActu.getPanneauActualites().getPathImage2());
+            stmt.setString(5, this.actionValiderActu.getPanneauActualites().getPathImage3());
+            stmt.setString(6, this.actionValiderActu.getPanneauActualites().getPathImage4());
             stmt.setDate(7, this.actionValiderActu.getDate());
             stmt.executeUpdate();
         } catch (SQLException e) {
