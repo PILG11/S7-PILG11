@@ -1,9 +1,9 @@
 package Java.vue.ihm;
 
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.Dimension;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,9 +29,10 @@ public class PanneauActualites extends JPanel{
 
     public PanneauActualites(MainJFrame mainJFrame){
         this.mainJFrame = mainJFrame;
-        super.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        GridLayout grid = new GridLayout(8, 2,30,15);
+        this.setLayout(grid);
         super.setBackground(Color.gray);
-        super.setPreferredSize(new Dimension(600,400));
+        super.setPreferredSize(new Dimension(600,500));
 
         this.initChampSaisie();
         this.initChampImage();
@@ -70,14 +71,15 @@ public class PanneauActualites extends JPanel{
         JButton buttonChoixImg4 = new JButton(new ActionChoisirImage(this,pathImage4));
         buttonChoixImg4.setText("Choisir Image 4");
 
-        this.add(pathImage1);
+        
         this.add(buttonChoixImg1);
-        this.add(pathImage2);
+        this.add(pathImage1);
         this.add(buttonChoixImg2);
-        this.add(pathImage3);
+        this.add(pathImage2);
         this.add(buttonChoixImg3);
-        this.add(pathImage4);
+        this.add(pathImage3);
         this.add(buttonChoixImg4);
+        this.add(pathImage4);
     }
 
     private void initBouton(){
@@ -90,9 +92,9 @@ public class PanneauActualites extends JPanel{
         JButton buttonReset = new JButton(new ActionChangerPanneau(this.mainJFrame, "Reset", "actualites"));
         buttonReset.setText("Reset");
 
-        this.add(buttonRetour);
         this.add(buttonValider);
         this.add(buttonReset);
+        this.add(buttonRetour);
     }
 
     public void setPath(JLabel pathImage, String path){
