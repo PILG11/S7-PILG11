@@ -10,7 +10,7 @@ APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 source $ALL_CONF_FILE
 
-echo "START - install web Server - "$IP
+echo "START - Install Web Server - "$IP
 
 echo "=> [1]: Installing required packages..."
 DEBIAN_FRONTEND=$DEBIAN_FRONTEND
@@ -63,5 +63,6 @@ sudo a2ensite les-logis-de-beaulieu.conf \
 sudo systemctl restart apache2
 sudo systemctl status apache2 \
 >> $LOG_FILE 2>&1
-echo "END - install web Server"
+
+echo "END - Install Web Server"
 

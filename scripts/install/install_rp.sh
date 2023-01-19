@@ -9,7 +9,7 @@ APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 source $ALL_CONF_FILE
 
-echo "START - Install reverse-proxy Server "$IP
+echo "START - Install Reverse-proxy Server - "$IP
 
 echo "=> [1]: Installing required packages..."
 DEBIAN_FRONTEND=$DEBIAN_FRONTEND
@@ -67,4 +67,4 @@ sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/les-logis-de-beaulieu.conf /etc/nginx/sites-enabled/les-logis-de-beaulieu.conf
 sudo systemctl restart nginx
 
-echo "END - Install reverse-proxy Server "$IP
+echo "END - Install Reverse-proxy Server"
