@@ -17,19 +17,19 @@ Les machines sont reliées à votre machine réelle par un réseau privé hôte
 * Le site web est accéssible par l'adresse <https://192.168.56.80>
 
 
-Activer toutes les VMs
+Activer toutes les VMs. 
     ```vagrant up```
     
-Lancer les scripts de provision sur une VM (reverse-proxy par exemple)
+Lancer les scripts de provision sur une VM (reverse-proxy par exemple). 
     ```vagrant provision reverse-proxy```
 
-Se connecter à une VM (web1 par exemple)
+Se connecter à une VM (web1 par exemple). 
     ```vagrant ssh web1```
 
-Arréter une VM (db par exemple)
+Arréter une VM (db par exemple). 
     ```vagrant halt db```
 
-Détruire toutes les VMs (sans demande de confirmation)
+Détruire toutes les VMs (sans demande de confirmation). 
     ```vagrant destroy -f```
     
 ### [GitHub Actions](https://github.com/PILG11/S7-PILG11/actions)
