@@ -21,3 +21,8 @@ jobs:
   
   list: 
     uses: ./.github/workflows/list.yml
+    needs: [test]
+    secrets: inherit
+    with:
+      list-bucket: true
+      env-name: auto-list
