@@ -9,13 +9,9 @@ on:
     inputs:
       list-bucket:
         description: List all object from S3 bucket
-        required: false
+        required: true
         default: false
         type: boolean
-
-permissions:
-  id-token: write
-  contents: read
 
 jobs:
   backup:
