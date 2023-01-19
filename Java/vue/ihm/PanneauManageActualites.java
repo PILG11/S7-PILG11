@@ -3,7 +3,6 @@ package Java.vue.ihm;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -11,31 +10,32 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Java.controleur.actions.ActionChangerPanneau;
+import Java.modele.basededonnees.RequetteBddActualites;
 
 public class PanneauManageActualites extends JPanel{
 
     private MainJFrame mainJFrame;
 
-    List<String> listTitre = Arrays.asList("titre1", "titre2", "titre3");
-    List<String> listDescr = Arrays.asList("descr1", "descr2", "descr3");
-    List<String> listDate = Arrays.asList("date1","date2","date3");
+    List<String> listTitre;
+    List<String> listDescr;
+    List<String> listDate;
 
     public PanneauManageActualites(MainJFrame mainJFrame){
         this.mainJFrame = mainJFrame;
         GridLayout grid = new GridLayout(10, 1);
         this.setLayout(grid);
         super.setPreferredSize(new Dimension(600,500));
-        /// requete sql pour recup les lists
+        this.initListe();
         /// set les bouton suppr avec requete sqls
-        afficherActu();
-        returnButton();
+        this.afficherActu();
+        this.returnButton();
     }
 
     private void afficherActu(){
         for (int i = 0; i < this.listTitre.size(); i++) {
 
             JPanel ligne = new JPanel();
-            ligne.setLayout(new GridLayout(1, 3));
+            ligne.setLayout(new GridLayout(1, 4));
 
             JLabel titre = new JLabel(this.listTitre.get(i));
             JLabel descr = new JLabel(this.listDescr.get(i));
@@ -55,6 +55,13 @@ public class PanneauManageActualites extends JPanel{
         JButton buttonRetour = new JButton(new ActionChangerPanneau(this.mainJFrame, "Retour", "actualites"));
         buttonRetour.setText("Retour");
         this.add(buttonRetour);
+    }
+
+    private void initListe(){
+        RequetteBddActualites requetteBddActualites = new RequetteBddActualites();
+        this.listTitre = requetteBddActualites.getTitre();
+        this.listDescr = requetteBddActualites.getDescr();
+        this.listDate= requetteBddActualites.getDate();
     }
     
 }
