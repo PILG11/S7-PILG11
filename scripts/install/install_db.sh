@@ -37,7 +37,6 @@ if [ -n "$DB_NAME" ] && [ -n "$DB_USER" ] && [ -n "$DB_PASSWD" ] ;then
   >> $LOG_FILE 2>&1
   mysql -e "grant all privileges on $DB_NAME.* to '$DB_USER'@'%' identified by '$DB_PASSWD'" \
   >> $LOG_FILE 2>&1
-  echo "BDD CREER ET PRIVILEGES DONNEES"
 fi
 
 #Déchiffrage script config AWS
@@ -64,7 +63,6 @@ echo "=> [6]: Database configuration"
 if [ -n "$DB_FILE" ] ;then
   mysql -u $DB_USER --password=$DB_PASSWD < $DB_FILE \
   >> $LOG_FILE 2>&1
-  echo "FICHIER SQL INJECTE"
 fi
 
 sed -i "s|bind-address            = 127.0.0.1|bind-address            = 0.0.0.0|" \
