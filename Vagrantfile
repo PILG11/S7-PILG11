@@ -2,31 +2,12 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  # config.ssh.insert_key = false
-  # config.ssh.private_key_path = ["data/ssh/admin_key"]
-  # config.vm.provision "shell", inline: <<-SHELL
-  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.80
-  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.81
-  #     ssh-copy-id -i data/ssh/admin_key.pub vagrant@192.168.56.82   
-  #     sleep 3
-  #     service ssh restart
-  #   SHELL
-  # config.vm.provision "shell", inline: <<-SHELL
-  #     mkdir -p "~/.ssh"
-  #     echo '#{File.read("data/ssh/admin_key.pub")}' >> "~/.ssh/authorized_keys"
-  #     chmod 600 "~/.ssh/authorized_keys"
-  #   SHELL
-
   # Serveur virtuel du site web
   config.vm.define "web1" do |web1|
     web1.vm.hostname = "web1"
     web1.vm.box = "chavinje/fr-bull-64"
     web1.vm.network :private_network, ip: "192.168.56.82"
     web1.vm.network "forwarded_port", guest: 80, host: 8082
-    
-    # Un repertoire partagé est un plus mais demande beaucoup plus
-    # de travail - a voir à la fin
-    #machine.vm.synced_folder "./data", "/vagrant_data", SharedFoldersEnableSymlinksCreate: false
 
     web1.vm.provider :virtualbox do |v1|
       v1.customize ["modifyvm", :id, "--name", "web1"]
