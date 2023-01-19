@@ -2,6 +2,7 @@
 DB_NAME="gite"
 DB_USER="admin"
 DB_PASSWD="mdpgite"
+DB_FILE="/vagrant/files/database.sql"
 
 ## install Mariadb server (ex Mysql))
 LOG_FILE="/vagrant/logs/install_bdd.log"
