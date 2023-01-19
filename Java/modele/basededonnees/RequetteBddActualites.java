@@ -1,6 +1,8 @@
 package Java.modele.basededonnees;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import Java.controleur.actions.ActionValiderActu;
 
@@ -32,5 +34,59 @@ public class RequetteBddActualites {
         } finally {
             dbConnection.closeConnection();
         }
+    }
+
+    public List<String>  getTitre(){
+        dbConnection.openConnection();
+        List<String> listTitre = new ArrayList<>();
+        try {
+            String query = "SELECT nom FROM Actualites";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                listTitre.add(rs.getString("nom"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
+        return listTitre;
+    }
+
+    public List<String>  getDescr(){
+        dbConnection.openConnection();
+        List<String> listDescr = new ArrayList<>();
+        try {
+            String query = "SELECT description FROM Actualites";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                listDescr.add(rs.getString("description"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
+        return listDescr;
+    }
+
+    public List<String>  getDate(){
+        dbConnection.openConnection();
+        List<String> listDate = new ArrayList<>();
+        try {
+            String query = "SELECT date FROM Actualites";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                listDate.add(rs.getString("date"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
+        return listDate;
     }
 }

@@ -15,10 +15,6 @@ public class ActionValiderActu extends AbstractAction{
 
     private MainJFrame mainJFrame;
     private PanneauActualites panneauActualites;
-    public PanneauActualites getPanneauActualites() {
-        return panneauActualites;
-    }
-
     private String titre;
     private String description;
     private String premiereImage;
@@ -75,5 +71,9 @@ public class ActionValiderActu extends AbstractAction{
 
     public Date getDate(){
         return this.date;
+    }
+
+    public PanneauActualites getPanneauActualites() {
+        return panneauActualites;
     }
 }
