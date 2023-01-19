@@ -7,7 +7,6 @@ Vagrant.configure("2") do |config|
     web1.vm.hostname = "web1"
     web1.vm.box = "chavinje/fr-bull-64"
     web1.vm.network :private_network, ip: "192.168.56.82"
-    web1.vm.network "forwarded_port", guest: 80, host: 8082
 
     web1.vm.provider :virtualbox do |v1|
       v1.customize ["modifyvm", :id, "--name", "web1"]
@@ -27,7 +26,6 @@ Vagrant.configure("2") do |config|
     web2.vm.hostname = "web2"
     web2.vm.box = "chavinje/fr-bull-64"
     web2.vm.network :private_network, ip: "192.168.56.83"
-    web2.vm.network "forwarded_port", guest: 80, host: 8083
 
     web2.vm.provider :virtualbox do |v2|
       v2.customize ["modifyvm", :id, "--name", "web2"]
@@ -66,8 +64,6 @@ Vagrant.configure("2") do |config|
     rp.vm.hostname = "reverse-proxy"
     rp.vm.box = "chavinje/fr-bull-64"
     rp.vm.network :private_network, ip: "192.168.56.80"
-    rp.vm.network "forwarded_port", guest: 443, host: 8443
-    rp.vm.network "forwarded_port", guest: 80, host: 9080
     
     rp.vm.provider :virtualbox do |v4|
       v4.customize ["modifyvm", :id, "--name", "rp"]
