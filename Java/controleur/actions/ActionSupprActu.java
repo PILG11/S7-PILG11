@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import Java.modele.basededonnees.RequeteBddActualites;
 import Java.vue.ihm.MainJFrame;
@@ -34,7 +35,7 @@ public class ActionSupprActu extends AbstractAction{
 
         RequeteBddActualites requeteBddActualites = new RequeteBddActualites();
         requeteBddActualites.supprActu(this);
-
+        JOptionPane.showMessageDialog(null, "L'actualité à bien été supprimée de la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
         this.mainJFrame.setContentPane("manageActualites");
     }
 

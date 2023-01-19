@@ -44,6 +44,7 @@ public class ActionValiderActu extends AbstractAction{
         }  
 
         this.requetePublicationActu();
+        JOptionPane.showMessageDialog(null, "L'actualité à bien été ajoutée à la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
         this.resetPanneau();
     }
     
