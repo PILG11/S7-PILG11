@@ -4,12 +4,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import Java.controleur.actions.ActionSupprActu;
 import Java.controleur.actions.ActionValiderActu;
 
 public class RequeteBddActualites {
 
     private ConnectionBdd dbConnection;
     private ActionValiderActu actionValiderActu;
+    private ActionSupprActu actionSupprActu;
     
     public RequeteBddActualites(){
         this.dbConnection = new ConnectionBdd();
@@ -106,5 +108,20 @@ public class RequeteBddActualites {
             dbConnection.closeConnection();
         }
         return listId;
+    }
+
+    public void supprActu(ActionSupprActu actionSupprActu){
+        this.actionSupprActu = actionSupprActu;
+        dbConnection.openConnection();
+        try {
+            String query = "DELETE FROM Actualites WHERE id = ?";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            stmt.setInt(1, this.actionSupprActu.getIndex());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
     }
 }
