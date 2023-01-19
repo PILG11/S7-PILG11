@@ -8,8 +8,10 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import Java.controleur.actions.ActionChangerPanneau;
+import Java.controleur.actions.ActionSupprActu;
 import Java.modele.basededonnees.RequeteBddActualites;
 
 public class PanneauManageActualites extends JPanel{
@@ -42,6 +44,11 @@ public class PanneauManageActualites extends JPanel{
         JLabel labelDate = new JLabel("Date");
         JLabel labelSuppr = new JLabel("Supprimer l'actu");
 
+        labelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+        labelDescr.setHorizontalAlignment(SwingConstants.CENTER);
+        labelDate.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSuppr.setHorizontalAlignment(SwingConstants.CENTER);
+
         ligne.add(labelTitre);
         ligne.add(labelDescr);
         ligne.add(labelDate);
@@ -58,10 +65,14 @@ public class PanneauManageActualites extends JPanel{
             JLabel titre = new JLabel(this.listTitre.get(i));
             JLabel descr = new JLabel(this.listDescr.get(i));
             JLabel date = new JLabel(this.listDate.get(i));
-            JButton supprButton = new JButton(new ActionSupprActu());
+            JButton supprButton = new JButton(new ActionSupprActu(this.mainJFrame));
             supprButton.setText("Supprimer");
             String num = Integer.toString(i);
             supprButton.setName(num);
+
+            titre.setHorizontalAlignment(SwingConstants.CENTER);
+            descr.setHorizontalAlignment(SwingConstants.CENTER);
+            date.setHorizontalAlignment(SwingConstants.CENTER);
 
             ligne.add(titre);
             ligne.add(descr);
