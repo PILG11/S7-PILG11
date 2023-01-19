@@ -6,11 +6,13 @@ on:
       list-bucket:
         description: Do you want to list all object from S3 bucket ?
         required: false
-        default: false
-        type: boolean
+        type: choice
+        options:
+        - run list
+        - cancel
 
 jobs:
-  list:
+  backup:
     uses: ./.github/workflows/aws.yml
     with:
       env-name: manual-list
