@@ -36,10 +36,6 @@ iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT \
 iptables -A INPUT -s $PROXY_IP -j ACCEPT \
 >> $LOG_FILE 2>&1
 
-# Autoriser les connexions SSH entrantes
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT \
->> $LOG_FILE 2>&1
-
 echo "=> [3]: Saves iptables rules"
 # Enregistrer les règles du firewall
 iptables-save \
