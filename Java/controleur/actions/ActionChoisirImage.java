@@ -33,14 +33,12 @@ public class ActionChoisirImage extends AbstractAction{
 		
 		if(choose == JFileChooser.APPROVE_OPTION) {
 			String path  = fileChooser.getSelectedFile().getAbsolutePath();
-            if(path.contains("S7-PILG11")){
-                if(path.contains("Website")){
-                    if(path.contains("img")){
-                        int startIndex = path.indexOf("img");
-                        String newPath = path.substring(startIndex);
-                        newPath = newPath.replace("\\", "/");
-                        this.panneauActualites.setPath(this.imageChoisie,"../"+newPath);
-                    }
+            if(path.contains("Website")){
+                if(path.contains("img")){
+                    int startIndex = path.indexOf("img");
+                    String newPath = path.substring(startIndex);
+                    newPath = newPath.replace("\\", "/");
+                    this.panneauActualites.setPath(this.imageChoisie,"../"+newPath);
                 }
             }else{
 			    this.panneauActualites.setPath(this.imageChoisie,"L'image n'est pas dans le bon dossier");
