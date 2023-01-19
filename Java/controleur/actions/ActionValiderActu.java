@@ -1,6 +1,8 @@
 package Java.controleur.actions;
 
 import java.awt.event.ActionEvent;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.swing.AbstractAction;
 import javax.swing.JOptionPane;
@@ -19,6 +21,7 @@ public class ActionValiderActu extends AbstractAction{
     private String secondeImage;
     private String troisiemeImage;
     private String quatriemeImage;
+    private Date date;
 
     public ActionValiderActu(MainJFrame mainJFrame, PanneauActualites panneauActualites){
         super("ValidationActu");
@@ -54,6 +57,7 @@ public class ActionValiderActu extends AbstractAction{
         secondeImage = this.panneauActualites.getPathImage2();
         troisiemeImage = this.panneauActualites.getPathImage3();
         quatriemeImage = this.panneauActualites.getPathImage4();
+        setDate();
     }
 
     private void requetePublicationActu(){
@@ -65,26 +69,36 @@ public class ActionValiderActu extends AbstractAction{
     }
 
     public String getTitre() {
-        return titre;
+        return this.titre;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public String getPremiereImage() {
-        return premiereImage;
+        return this.premiereImage;
     }
 
     public String getSecondeImage() {
-        return secondeImage;
+        return this.secondeImage;
     }
 
     public String getTroisiemeImage() {
-        return troisiemeImage;
+        return this.troisiemeImage;
     }
 
     public String getQuatriemeImage() {
-        return quatriemeImage;
+        return this.quatriemeImage;
+    }
+
+    private void setDate(){
+        LocalDate localDate = LocalDate.now();
+        String dateJour = localDate.toString();
+        date = Date.valueOf(dateJour);
+    }
+
+    public Date getDate(){
+        return this.date;
     }
 }

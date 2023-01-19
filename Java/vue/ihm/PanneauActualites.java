@@ -109,7 +109,7 @@ public class PanneauActualites extends JPanel{
 
     public String getPathImage1(){
         String path = this.pathImage1.getText();
-        if (path == "Choisir une image 1"){
+        if (path == "Choisir une image 1" | path == "L'image n'est pas dans le bon dossier"){
             return null;
         }
         return path;
@@ -117,7 +117,7 @@ public class PanneauActualites extends JPanel{
 
     public String getPathImage2(){
         String path = this.pathImage2.getText();
-        if (path == "Choisir une image 2"){
+        if (path == "Choisir une image 2" | path == "L'image n'est pas dans le bon dossier"){
             return null;
         }
         return path;
@@ -125,7 +125,7 @@ public class PanneauActualites extends JPanel{
 
     public String getPathImage3(){
         String path = this.pathImage3.getText();
-        if (path == "Choisir une image 3"){
+        if (path == "Choisir une image 3" | path == "L'image n'est pas dans le bon dossier"){
             return null;
         }
         return path;
@@ -133,7 +133,7 @@ public class PanneauActualites extends JPanel{
 
     public String getPathImage4(){
         String path = this.pathImage4.getText();
-        if (path == "Choisir une image 4"){
+        if (path == "Choisir une image 4" | path == "L'image n'est pas dans le bon dossier"){
             return null;
         }
         return path;

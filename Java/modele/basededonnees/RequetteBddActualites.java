@@ -18,7 +18,7 @@ public class RequetteBddActualites {
     private void publierActu(){
         dbConnection.openConnection();
         try {
-            String sql = "INSERT INTO `actualites`(`nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`,`date`) VALUES (?,?,?,?,?,?,NULL)";
+            String sql = "INSERT INTO `actualites`(`nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`,`date`) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql);
             stmt.setString(1, this.actionValiderActu.getTitre());
             stmt.setString(2, this.actionValiderActu.getDescription());
@@ -26,8 +26,8 @@ public class RequetteBddActualites {
             stmt.setString(4, this.actionValiderActu.getSecondeImage());
             stmt.setString(5, this.actionValiderActu.getTroisiemeImage());
             stmt.setString(6, this.actionValiderActu.getQuatriemeImage());
+            stmt.setDate(7, this.actionValiderActu.getDate());
             stmt.executeUpdate();
-            System.out.println("L'actualité a été ajoutée avec succès!");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

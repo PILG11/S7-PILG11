@@ -1,7 +1,6 @@
 package Java.controleur.actions;
 
 import java.awt.event.ActionEvent;
-import java.io.File;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFileChooser;
@@ -25,8 +24,6 @@ public class ActionChoisirImage extends AbstractAction{
     @Override
     public void actionPerformed(ActionEvent e) {
         JFileChooser fileChooser = new JFileChooser("Importer");
-        
-        fileChooser.setCurrentDirectory(new File("C:\\Users\\erwan\\Desktop\\S7-PILG11"));
 
 		FileNameExtensionFilter filtre = new FileNameExtensionFilter("Images", "jpg", "jpeg", "png");
 		fileChooser.addChoosableFileFilter(filtre);
@@ -36,7 +33,18 @@ public class ActionChoisirImage extends AbstractAction{
 		
 		if(choose == JFileChooser.APPROVE_OPTION) {
 			String path  = fileChooser.getSelectedFile().getAbsolutePath();
-			this.panneauActualites.setPath(this.imageChoisie,path);
+            if(path.contains("S7-PILG11")){
+                if(path.contains("Website")){
+                    if(path.contains("img")){
+                        int startIndex = path.indexOf("img");
+                        String newPath = path.substring(startIndex);
+                        newPath = newPath.replace("\\", "/");
+                        this.panneauActualites.setPath(this.imageChoisie,"../"+newPath);
+                    }
+                }
+            }else{
+			    this.panneauActualites.setPath(this.imageChoisie,"L'image n'est pas dans le bon dossier");
+            }
 		}
     }
     
