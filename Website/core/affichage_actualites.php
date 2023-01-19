@@ -25,7 +25,7 @@ else{
                     <div class="publication">
                 <?php
                 if($row['premièreImage'] != NULL){ ?>
-                    <a href="http://localhost:8888/pages/actualites.php?post=<?php echo $row['id'] ?>"><img src= <?php echo $row['premièreImage'] ?> alt= <?php echo $row['nom'] ?> class="image"></a> 
+                    <a href="https://192.168.56.80/pages/actualites.php?post=<?php echo $row['id'] ?>"><img src= <?php echo $row['premièreImage'] ?> alt= <?php echo $row['nom'] ?> class="image"></a> 
                     <?php
                 }
                 echo '<p style="font-size:20px; margin-left:10px;">'.$row['nom'].'</p>';
