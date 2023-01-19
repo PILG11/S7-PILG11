@@ -11,7 +11,7 @@ ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
 
 source $ALL_CONF_FILE
 
-echo "START - install firewall - "$IP
+echo "START - Install Firewall - "$IP
 
 echo "=> [1]: Installing required packages..."
 # Installer iptables
@@ -44,3 +44,5 @@ echo "=> [3]: Saves iptables rules"
 # Enregistrer les règles du firewall
 iptables-save \
 >> $LOG_FILE 2>&1
+
+echo "END - Install Firewall"
