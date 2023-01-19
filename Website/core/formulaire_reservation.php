@@ -84,30 +84,30 @@ function isValidPhoneNumber($phoneNumber) {
 
             // -----------CLIENT-------------------
 
-            $result = $mysqli->query("SELECT * FROM clients WHERE Nom LIKE '".$nom."' AND Email LIKE '".$email."';");
+            $result = $mysqli->query("SELECT * FROM clients WHERE nom LIKE '".$nom."' AND email LIKE '".$email."';");
             $row = $result->fetch_assoc();
 
 
                 //------------Créer un CLIENT-------
             if($row === NULL){
 
-                $result = $mysqli->query("SELECT max(Id) FROM clients");
+                $result = $mysqli->query("SELECT max(id) FROM clients");
 
                 if (!$result) {
                     exit($mysqli->error);
                 }
                 else{
                     $row = $result->fetch_assoc();
-                    $idClient = $row['max(Id)'] + 1;
+                    $idClient = $row['max(id)'] + 1;
                 }
             }
             
                 //------------Réutilise un CLIENT-------
             else{
 
-                $result = $mysqli->query("SELECT clients.Id FROM clients WHERE Email LIKE '".$email."';");
+                $result = $mysqli->query("SELECT clients.id FROM clients WHERE email LIKE '".$email."';");
                 $row = $result->fetch_assoc();
-                $idClient = $row['Id'];
+                $idClient = $row['id'];
             }
 
             if(isValidPhoneNumber($numero)){
@@ -118,7 +118,7 @@ function isValidPhoneNumber($phoneNumber) {
 
                     $emailVerif = false;
 
-                    $sql = "INSERT INTO clients(Id, Nom, Prenom, Email, Numero)
+                    $sql = "INSERT INTO clients(id, nom, prenom, email, numero)
                     VALUES ('".$idClient."', '".$nom."', '".$prenom."'
                     , '".$email."', '".$numero."')";
                     
@@ -135,42 +135,42 @@ function isValidPhoneNumber($phoneNumber) {
 
             //----------Salle------------------
 
-            $list = array("Salle des fêtes", "Bar", "Le site");
-            $result = $mysqli->query("SELECT salles.Id FROM salles WHERE Nom LIKE '".$list[$chambre - 1]."';");
+            $list = array("Salle des fêtes", "Bar", "Le site", "Aucune");
+            $result = $mysqli->query("SELECT salles.id FROM salles WHERE nom LIKE '".$list[$salle - 1]."';");
             $idSalle = $result->fetch_assoc();
 
             //-----------Chambre----------------
 
-            $list = array("Chêne", "Peuplier", "Abricot", "Forêt", "Le site");
-            $result = $mysqli->query("SELECT chambres.Id FROM chambres WHERE Nom LIKE '".$list[$chambre - 1]."';");
+            $list = array("Chêne", "Peuplier", "Abricot", "Forêt", "Le site", "Aucune");
+            $result = $mysqli->query("SELECT chambres.id FROM chambres WHERE nom LIKE '".$list[$chambre - 1]."';");
             $idChambre = $result->fetch_assoc();
 
             //----------Reservations-------------
 
-            $result = $mysqli->query("SELECT reservations.dateDebut FROM reservations WHERE dateDebut LIKE '".$date_database."';");
+            $result = $mysqli->query("SELECT Reservations.dateDebut FROM Reservations WHERE dateDebut LIKE '".$date_database."';");
             $row = $result->fetch_assoc();
 
             if($row === NULL){
                 
-                $result = $mysqli->query("SELECT max(Id) FROM reservations");
+                $result = $mysqli->query("SELECT max(id) FROM Reservations");
 
                 if (!$result) {
                     exit($mysqli->error);
                 }
                 else{
                     $row = $result->fetch_assoc();
-                    $idReservation = $row['max(Id)'] + 1;
+                    $idReservation = $row['max(id)'] + 1;
                 }
 
                 $Duree = calculer_nombre_jours(unformatDate(formatDateToEnglish($input_from)), unformatDate(formatDateToEnglish($input_to)));
 
-                $sql = "INSERT INTO reservations(Id, Evenement, Valide, dateDebut, Duree, Chambres, Client, Salles)
+                $sql = "INSERT INTO Reservations(id, evenement, valide, dateDebut, duree, chambres, client, salles)
                 VALUES ('".$idReservation."', '".$event."', 0, 
                 '".$date_database."'
                 , '".$Duree."'
-                , '".intval($idChambre['Id'])."'
+                , '".intval($idChambre['id'])."'
                 , '".intval($idClient)."'
-                , '".intval($idSalle['Id'])."')";
+                , '".intval($idSalle['id'])."')";
 
                 $result = $mysqli->query($sql);
 
@@ -191,7 +191,7 @@ function isValidPhoneNumber($phoneNumber) {
 
     //--------------Changer Calendrier, Jours Reserves-----------------
 
-    $result = $mysqli->query("SELECT * FROM `reservations`");
+    $result = $mysqli->query("SELECT * FROM `Reservations`");
 
     if(!$result) {
         exit($mysqli->error);
@@ -205,7 +205,7 @@ function isValidPhoneNumber($phoneNumber) {
 
             $date = formatDate($row['dateDebut']);
 
-            for ($i = 0; $i < $row['Duree'] + 1; $i++) {
+            for ($i = 0; $i < $row['duree'] + 1; $i++) {
                 $datesReserves[] = $date;
                 $dateSuivante = date('Y-m-d', strtotime($date . ' +1 day'));
                 $date = formatDate($dateSuivante);

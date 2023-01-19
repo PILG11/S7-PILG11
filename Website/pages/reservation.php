@@ -176,6 +176,7 @@
                       <option value="3">Chambre double - Abricot</option>
                       <option value="4">Dortoir - Forêt</option>
                       <option value="5">L'ensemble</option>
+                      <option value="6">Aucune</option>
                     </select>
                   </div>
                   <div style="display: flex; margin-top:10px; justify-content:center;">
@@ -184,6 +185,7 @@
                       <option value="1">Salle des fêtes</option>
                       <option value="2">Bar</option>
                       <option value="3">L'ensemble</option>
+                      <option value="4">Aucune</option>
                     </select>
                   </div>
                   <button name="submit" value="1" type="submit" class="reserver" style="margin-top: 20px; margin-bottom:0;">Demander la réservation</button>
