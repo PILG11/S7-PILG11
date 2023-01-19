@@ -4,11 +4,11 @@ import javax.swing.JFrame;
 
 public class MainJFrame extends JFrame{
 
-    PanneauAccueil panneauAccueil = new PanneauAccueil(this);
-    PanneauReservation panneauReservation = new PanneauReservation(this);
-    PanneauQuestions panneauQuestions = new PanneauQuestions(this);
-    PanneauActualites panneauActualites; 
-    PanneauManageActualites panneauManageActualites;
+    private PanneauAccueil panneauAccueil = new PanneauAccueil(this);
+    private PanneauReservation panneauReservation = new PanneauReservation(this);
+    private PanneauQuestions panneauQuestions;
+    private PanneauActualites panneauActualites; 
+    private PanneauManageActualites panneauManageActualites;
 
     public MainJFrame(){
         this.setContentPane("accueil");
@@ -26,6 +26,7 @@ public class MainJFrame extends JFrame{
                 break;
             case "questions":
                 this.setTitle("Gestion Site Gite - Questions");
+                this.panneauQuestions = new PanneauQuestions(this);
                 this.setContentPane(this.panneauQuestions);
                 break;
             case "actualites":

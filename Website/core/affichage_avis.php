@@ -2,7 +2,7 @@
 
 include_once 'core.php';
 
-$result = $mysqli->query("SELECT nom, prenom, commentaire, note FROM Avis");
+$result = $mysqli->query("SELECT nom, prenom, commentaire, note FROM Avis WHERE valide = 1 ORDER BY RAND()");
 
 include_once 'core.php';
 
