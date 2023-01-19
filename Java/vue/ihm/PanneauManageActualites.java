@@ -58,8 +58,10 @@ public class PanneauManageActualites extends JPanel{
             JLabel titre = new JLabel(this.listTitre.get(i));
             JLabel descr = new JLabel(this.listDescr.get(i));
             JLabel date = new JLabel(this.listDate.get(i));
-            JButton supprButton = new JButton();
+            JButton supprButton = new JButton(new ActionSupprActu());
             supprButton.setText("Supprimer");
+            String num = Integer.toString(i);
+            supprButton.setName(num);
 
             ligne.add(titre);
             ligne.add(descr);
