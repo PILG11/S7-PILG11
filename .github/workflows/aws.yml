@@ -21,7 +21,8 @@ jobs:
           - aws
     concurrency:
       group: list-${{ matrix.component-name }}-backups
-
+    environment:
+      name: ${{ inputs.env-name }}
     steps:
       # pull the source code
       - uses: actions/checkout@v3
