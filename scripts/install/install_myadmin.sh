@@ -34,7 +34,7 @@ unzip /tmp/myadmin.zip -d ${WWW_REP} \
 
 rm /tmp/myadmin.zip
 
-echo "[3] - Configuration files for phpmyadmin  "
+echo "=> [3]: Configuration files for phpmyadmin  "
 ln -s ${WWW_REP}/phpMyAdmin-${MYADMIN_VERSION}-all-languages ${WWW_REP}/myadmin
 mkdir ${WWW_REP}/myadmin/tmp
 chown www-data:www-data ${WWW_REP}/myadmin/tmp
@@ -52,7 +52,7 @@ sed -i "/'192.168.56.81';/a \
 \$cfg['Servers'][\$i]['user'] = 'admin'; \n\
 \$cfg['Servers'][\$i]['password'] = 'mdpgite';" ${WWW_REP}/myadmin/config.inc.php
 
-echo "[4] Restarting Apache..."
+echo "=> [4]: Restarting Apache..."
 service apache2 restart
 
 cat <<EOF

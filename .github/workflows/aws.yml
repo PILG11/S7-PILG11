@@ -2,11 +2,25 @@ name: aws
 
 on:
   workflow_call:
+    inputs:
+      env-name:
+        required: true
+        type: string
+      list-bucket:
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   aws:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        component-name:
+          - aws
+    environment:
+      name: ${{ inputs.env-name }}
     steps:
       # pull the source code
       - uses: actions/checkout@v3
@@ -21,9 +35,18 @@ jobs:
       # verify identity
       - name: verify identity
         run: aws sts get-caller-identity
-        shell: bash
 
-      # upload backups files to aws
-      - name: upload all sql files to s3 bucket
-        run: aws s3 cp ./backups/ ${{ secrets.AWS_S3_BUCKET_BACKUP }} --exclude "Readme.md" --recursive
-        shell: bash
+      # list backups files on aws
+      - name: list all sql files that are upload on s3 bucket
+        id: list
+        run: >
+          aws s3 ls ${{ secrets.AWS_S3_BUCKET_BACKUP }} --human-readable --summarize
+          > list.txt
+
+      # run our custom summary script to generate the clickable output
+      - name: save output to summary
+        if: steps.list.outcome == 'success'
+        uses: actions/github-script@v6
+        with:
+          script: >
+            require('./.github/summary.js')(require)
