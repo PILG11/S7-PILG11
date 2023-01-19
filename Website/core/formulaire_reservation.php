@@ -84,14 +84,14 @@ function isValidPhoneNumber($phoneNumber) {
 
             // -----------CLIENT-------------------
 
-            $result = $mysqli->query("SELECT * FROM clients WHERE nom LIKE '".$nom."' AND email LIKE '".$email."';");
+            $result = $mysqli->query("SELECT * FROM Clients WHERE nom LIKE '".$nom."' AND email LIKE '".$email."';");
             $row = $result->fetch_assoc();
 
 
                 //------------Créer un CLIENT-------
             if($row === NULL){
 
-                $result = $mysqli->query("SELECT max(id) FROM clients");
+                $result = $mysqli->query("SELECT max(id) FROM Clients");
 
                 if (!$result) {
                     exit($mysqli->error);
@@ -105,7 +105,7 @@ function isValidPhoneNumber($phoneNumber) {
                 //------------Réutilise un CLIENT-------
             else{
 
-                $result = $mysqli->query("SELECT clients.id FROM clients WHERE email LIKE '".$email."';");
+                $result = $mysqli->query("SELECT Clients.id FROM Clients WHERE email LIKE '".$email."';");
                 $row = $result->fetch_assoc();
                 $idClient = $row['id'];
             }
@@ -118,7 +118,7 @@ function isValidPhoneNumber($phoneNumber) {
 
                     $emailVerif = false;
 
-                    $sql = "INSERT INTO clients(id, nom, prenom, email, numero)
+                    $sql = "INSERT INTO Clients(id, nom, prenom, email, numero)
                     VALUES ('".$idClient."', '".$nom."', '".$prenom."'
                     , '".$email."', '".$numero."')";
                     
@@ -136,13 +136,13 @@ function isValidPhoneNumber($phoneNumber) {
             //----------Salle------------------
 
             $list = array("Salle des fêtes", "Bar", "Le site", "Aucune");
-            $result = $mysqli->query("SELECT salles.id FROM salles WHERE nom LIKE '".$list[$salle - 1]."';");
+            $result = $mysqli->query("SELECT Salles.id FROM Salles WHERE nom LIKE '".$list[$salle - 1]."';");
             $idSalle = $result->fetch_assoc();
 
             //-----------Chambre----------------
 
             $list = array("Chêne", "Peuplier", "Abricot", "Forêt", "Le site", "Aucune");
-            $result = $mysqli->query("SELECT chambres.id FROM chambres WHERE nom LIKE '".$list[$chambre - 1]."';");
+            $result = $mysqli->query("SELECT Chambres.id FROM Chambres WHERE nom LIKE '".$list[$chambre - 1]."';");
             $idChambre = $result->fetch_assoc();
 
             //----------Reservations-------------
