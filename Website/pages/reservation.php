@@ -21,7 +21,7 @@
   </head>
 
   <?php include '../core/formulaire_reservation.php'  ?>
-  <?php include "header.php" ?>
+  <?php include "./header.php" ?>
 
   <body>
 
@@ -204,7 +204,7 @@
 
   </body>
 
-  <?php include 'footer.php' ?>
+  <?php include "./footer.php" ?>
 
   
 </html>
