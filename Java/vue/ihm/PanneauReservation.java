@@ -153,10 +153,6 @@ public class PanneauReservation extends JPanel{
 
                 JLabel trou = new JLabel("");
                 JLabel trou1 = new JLabel("");
-
-    
-                // JButton contacter = new JButton(new ActionChangerPanneau(this.mainJFrame, "Contacter", "contacterClient", this.listClient.get(i)));
-                // contacter.setText("Contacter");
     
                 ligne.add(evenement);
                 ligne.add(valide);

@@ -9,7 +9,6 @@ public class MainJFrame extends JFrame{
     PanneauQuestions panneauQuestions;
     PanneauActualites panneauActualites; 
     PanneauManageActualites panneauManageActualites;
-    PanneauContacterClient panneauContacterClient;
 
     public MainJFrame(){
         this.setContentPane("accueil");
@@ -46,17 +45,5 @@ public class MainJFrame extends JFrame{
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
-    }
-
-    public void setContentPane(String nomPanneau, int index){
-
-        switch(nomPanneau){
-            case "contacterClient":
-            this.setTitle("Gestion Site Gîte - Contacter Client");
-            this.panneauContacterClient = new PanneauContacterClient(this, index);
-            this.setContentPane(panneauContacterClient);
-        }
-
-    }
-    
+    }    
 }
