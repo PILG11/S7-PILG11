@@ -41,7 +41,7 @@ public class PanneauQuestions extends JPanel {
     List<Boolean> listValide;
 
     public PanneauQuestions(MainJFrame mainJFrame) {
-        super.setBackground(Color.white);
+        super.setBackground(Color.GRAY);
         this.mainJFrame = mainJFrame;
 
         GridLayout grid = new GridLayout(10, 1);
