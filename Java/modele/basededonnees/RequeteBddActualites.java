@@ -21,7 +21,7 @@ public class RequeteBddActualites {
         this.actionValiderActu = actionValiderActu;
         dbConnection.openConnection();
         try {
-            String sql = "INSERT INTO `actualites`(`nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`,`date`) VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO `Actualites`(`nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`,`date`) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql);
             stmt.setString(1, this.actionValiderActu.getPanneauActualites().getTitle());
             stmt.setString(2, this.actionValiderActu.getPanneauActualites().getDescription());
