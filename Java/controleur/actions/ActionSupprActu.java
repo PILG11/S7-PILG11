@@ -33,7 +33,7 @@ public class ActionSupprActu extends AbstractAction{
 
         RequeteBddActualites requeteBddActualites = new RequeteBddActualites();
         requeteBddActualites.supprActu(this);
-        JOptionPane.showMessageDialog(null, "L'actualité à bien été supprimée de la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "L'actualité a bien été supprimée de la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
         this.mainJFrame.setContentPane("manageActualites");
     }
 

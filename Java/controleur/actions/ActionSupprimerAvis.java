@@ -35,7 +35,7 @@ public class ActionSupprimerAvis extends AbstractAction{
 
         RequeteBddAvis requeteBddAvis = new RequeteBddAvis();
         requeteBddAvis.supprimerAvis(this);
-        JOptionPane.showMessageDialog(null, "L'avis a bien été supprimée de la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "L'avis a bien été supprimé de la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
         this.mainJFrame.setContentPane("questions");
     }
 
