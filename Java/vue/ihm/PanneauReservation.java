@@ -29,7 +29,9 @@ public class PanneauReservation extends JPanel{
     List<String> listClientNom;
     List<String> listClientPrenom;
     List<Integer> listClientId;
-
+    List<String> listClientInformtionEmail;
+    List<String> listClientInformtionNumero;
+    
     int nombreDemandeReservation;
     
     JLabel titre = new JLabel("Réservations demandées : ");
@@ -67,8 +69,12 @@ public class PanneauReservation extends JPanel{
 
             if(this.listValide.get(i) == 0){
 
+                RequeteBddReservation requeteBddReservation = new RequeteBddReservation();
+                this.listClientInformtionEmail = requeteBddReservation.informationClientEmail(listClientId.get(i));
+                this.listClientInformtionNumero = requeteBddReservation.informationClientNumero(listClientId.get(i));
+
                 JPanel ligne = new JPanel();
-                ligne.setLayout(new GridLayout(1, 8));
+                ligne.setLayout(new GridLayout(1, 9));
     
                 JLabel evenement = new JLabel(this.listEvent.get(i));
                 JLabel valide;
@@ -82,6 +88,8 @@ public class PanneauReservation extends JPanel{
                 JLabel chambres = new JLabel(this.listChambres.get(i));
                 JLabel salles = new JLabel(this.listSalles.get(i));
                 JLabel clientNomPrenom = new JLabel(this.listClientNom.get(i) + " " + this.listClientPrenom.get(i));
+                JLabel email = new JLabel(this.listClientInformtionEmail.get(0));
+                JLabel numero = new JLabel(this.listClientInformtionNumero.get(0));
     
                 JButton valider = new JButton(new ActionValiderReservation(this.mainJFrame, this.listClientId.get(i), "reservations"));
                 valider.setText("Valider");
@@ -101,6 +109,8 @@ public class PanneauReservation extends JPanel{
                 ligne.add(chambres);
                 ligne.add(salles);
                 ligne.add(clientNomPrenom);
+                ligne.add(email);
+                ligne.add(numero);
 
                 ligne.add(valider);
                 ligne.add(supprimer);
@@ -116,6 +126,10 @@ public class PanneauReservation extends JPanel{
         for(int i = 0; i < this.nombreDemandeReservation; i++){
 
             if(this.listValide.get(i) == 1){
+
+                RequeteBddReservation requeteBddReservation = new RequeteBddReservation();
+                this.listClientInformtionEmail = requeteBddReservation.informationClientEmail(listClientId.get(i));
+                this.listClientInformtionNumero = requeteBddReservation.informationClientNumero(listClientId.get(i));
 
                 JPanel ligne = new JPanel();
                 ligne.setLayout(new GridLayout(1, 8));
@@ -134,6 +148,8 @@ public class PanneauReservation extends JPanel{
                 JLabel chambres = new JLabel(this.listChambres.get(i));
                 JLabel salles = new JLabel(this.listSalles.get(i));
                 JLabel clientNomPrenom = new JLabel(this.listClientNom.get(i) + " " + this.listClientPrenom.get(i));
+                JLabel email = new JLabel(this.listClientInformtionEmail.get(0));
+                JLabel numero = new JLabel(this.listClientInformtionNumero.get(0));
 
                 JLabel trou = new JLabel("");
                 JLabel trou1 = new JLabel("");
@@ -149,6 +165,8 @@ public class PanneauReservation extends JPanel{
                 ligne.add(chambres);
                 ligne.add(salles);
                 ligne.add(clientNomPrenom);
+                ligne.add(email);
+                ligne.add(numero);
 
                 ligne.add(trou);
                 ligne.add(trou1);
@@ -167,11 +185,13 @@ public class PanneauReservation extends JPanel{
 
         JLabel evenement = new JLabel("Evenement");
         JLabel valide = new JLabel("valide");
-        JLabel dateDebut = new JLabel("dateDebut");
+        JLabel dateDebut = new JLabel("Date de debut");
         JLabel duree = new JLabel("duree");
         JLabel chambres = new JLabel("chambres");
         JLabel salles = new JLabel("salles");
         JLabel client = new JLabel("client");
+        JLabel email = new JLabel("email");
+        JLabel numero = new JLabel("numero");
         JLabel trou = new JLabel("");
         JLabel trou1 = new JLabel("");
 
@@ -182,6 +202,8 @@ public class PanneauReservation extends JPanel{
         ligne.add(chambres);
         ligne.add(salles);
         ligne.add(client);
+        ligne.add(email);
+        ligne.add(numero);
 
         ligne.add(trou);
         ligne.add(trou1);

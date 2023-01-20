@@ -212,20 +212,40 @@ public class RequeteBddReservation {
         return maxId;
     }
 
-    public List<String> informationClient(int idClient){
+    public List<String> informationClientEmail(int idClient){
 
         dbConnection.openConnection();
         List<String> listInformationClient = new ArrayList<>();
 
         try {
 
-            String query = "SELECT Clients.nom, Clients.prenom, Clients.email, Clients.numero FROM Clients WHERE Clients.id = " + idClient + ";";
+            String query = "SELECT Clients.email FROM Clients WHERE Clients.id = " + idClient + ";";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                listInformationClient.add(rs.getString("nom"));
-                listInformationClient.add(rs.getString("prenom"));
                 listInformationClient.add(rs.getString("email"));
+            }     
+            return listInformationClient;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
+        return listInformationClient;
+    }
+
+    public List<String> informationClientNumero(int idClient){
+
+        dbConnection.openConnection();
+        List<String> listInformationClient = new ArrayList<>();
+
+        try {
+
+            String query = "SELECT Clients.numero FROM Clients WHERE Clients.id = " + idClient + ";";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
                 listInformationClient.add(rs.getString("numero"));
             }     
             return listInformationClient;

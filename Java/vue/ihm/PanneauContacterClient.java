@@ -84,7 +84,6 @@ public class PanneauContacterClient extends JPanel{
     private void informationClient(){
 
         RequeteBddReservation requeteBddReservation = new RequeteBddReservation();
-        informationDuClient = requeteBddReservation.informationClient(this.indexClient);
 
     }
 }
