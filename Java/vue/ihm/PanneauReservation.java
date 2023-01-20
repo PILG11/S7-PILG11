@@ -26,7 +26,9 @@ public class PanneauReservation extends JPanel{
     List<String> listDuree;
     List<String> listChambres;
     List<String> listSalles;
-    List<Integer> listClient;
+    List<String> listClientNom;
+    List<String> listClientPrenom;
+    List<Integer> listClientId;
 
     int nombreDemandeReservation;
     
@@ -69,18 +71,23 @@ public class PanneauReservation extends JPanel{
                 ligne.setLayout(new GridLayout(1, 8));
     
                 JLabel evenement = new JLabel(this.listEvent.get(i));
-                JLabel valide = new JLabel(String.valueOf(this.listValide.get(i)));
-                JLabel dateDebut = new JLabel(this.listDateDebut.get(i));
+                JLabel valide;
+                if(this.listValide.get(i) == 0){
+                    valide = new JLabel("Non validé");
+                }
+                else{
+                    valide = new JLabel("Validé");
+                }                JLabel dateDebut = new JLabel(this.listDateDebut.get(i));
                 JLabel duree = new JLabel(this.listDuree.get(i));
                 JLabel chambres = new JLabel(this.listChambres.get(i));
                 JLabel salles = new JLabel(this.listSalles.get(i));
-                JLabel client = new JLabel(String.valueOf(this.listClient.get(i)));
+                JLabel clientNomPrenom = new JLabel(this.listClientNom.get(i) + " " + this.listClientPrenom.get(i));
     
-                JButton valider = new JButton(new ActionValiderReservation(this.mainJFrame, this.listClient.get(i), "reservations"));
+                JButton valider = new JButton(new ActionValiderReservation(this.mainJFrame, this.listClientId.get(i), "reservations"));
                 valider.setText("Valider");
                 valider.setBackground(Color.green);
     
-                JButton supprimer = new JButton(new ActionSupprimerReservation(this.mainJFrame, this.listClient.get(i), "reservations"));
+                JButton supprimer = new JButton(new ActionSupprimerReservation(this.mainJFrame, this.listClientId.get(i), "reservations"));
                 supprimer.setText("Supprimer");
                 supprimer.setBackground(Color.red);
     
@@ -93,8 +100,8 @@ public class PanneauReservation extends JPanel{
                 ligne.add(duree);
                 ligne.add(chambres);
                 ligne.add(salles);
-                ligne.add(client);
-    
+                ligne.add(clientNomPrenom);
+
                 ligne.add(valider);
                 ligne.add(supprimer);
     
@@ -114,12 +121,19 @@ public class PanneauReservation extends JPanel{
                 ligne.setLayout(new GridLayout(1, 8));
     
                 JLabel evenement = new JLabel(this.listEvent.get(i));
-                JLabel valide = new JLabel(String.valueOf(this.listValide.get(i)));
+
+                JLabel valide;
+                if(this.listValide.get(i) == 0){
+                    valide = new JLabel("Non validé");
+                }
+                else{
+                    valide = new JLabel("Validé");
+                }
                 JLabel dateDebut = new JLabel(this.listDateDebut.get(i));
-                JLabel duree = new JLabel(this.listDuree.get(i));
+                JLabel duree = new JLabel(this.listDuree.get(i) + " jours");
                 JLabel chambres = new JLabel(this.listChambres.get(i));
                 JLabel salles = new JLabel(this.listSalles.get(i));
-                JLabel client = new JLabel(String.valueOf(this.listClient.get(i)));
+                JLabel clientNomPrenom = new JLabel(this.listClientNom.get(i) + " " + this.listClientPrenom.get(i));
 
                 JLabel trou = new JLabel("");
                 JLabel trou1 = new JLabel("");
@@ -134,7 +148,7 @@ public class PanneauReservation extends JPanel{
                 ligne.add(duree);
                 ligne.add(chambres);
                 ligne.add(salles);
-                ligne.add(client);
+                ligne.add(clientNomPrenom);
 
                 ligne.add(trou);
                 ligne.add(trou1);
@@ -190,7 +204,9 @@ public class PanneauReservation extends JPanel{
         this.listDuree = requeteBddReservation.RecupererReservationDuree();
         this.listChambres = requeteBddReservation.RecupererReservationChambres();
         this.listSalles = requeteBddReservation.RecupererReservationSalles();
-        this.listClient = requeteBddReservation.RecupererReservationClient();
+        this.listClientNom = requeteBddReservation.RecupererReservationClientNom();
+        this.listClientPrenom = requeteBddReservation.RecupererReservationClientPrenom();
+        this.listClientId = requeteBddReservation.RecupererReservationClientId();
 
     }
 

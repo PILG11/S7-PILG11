@@ -108,11 +108,11 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.chambres FROM Reservations ;";
+            String query = "SELECT Chambres.nom FROM Chambres, Reservations WHERE Chambres.id = Reservations.chambres";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                listId.add(rs.getString("chambres"));
+                listId.add(rs.getString("nom"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -126,11 +126,11 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.salles FROM Reservations ;";
+            String query = "SELECT Salles.nom FROM Salles, Reservations WHERE Salles.id = Reservations.salles";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                listId.add(rs.getString("salles"));
+                listId.add(rs.getString("nom"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -140,11 +140,47 @@ public class RequeteBddReservation {
         return listId;
     }
 
-    public List<Integer>  RecupererReservationClient(){
+    public List<String>  RecupererReservationClientNom(){
+        dbConnection.openConnection();
+        List<String> listId = new ArrayList<>();
+        try {
+            String query = "SELECT Clients.nom FROM Clients, Reservations WHERE Clients.id = Reservations.client";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                listId.add(rs.getString("nom"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
+        return listId;
+    }
+
+    public List<String>  RecupererReservationClientPrenom(){
+        dbConnection.openConnection();
+        List<String> listId = new ArrayList<>();
+        try {
+            String query = "SELECT Clients.prenom FROM Clients, Reservations WHERE Clients.id = Reservations.client";
+            PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                listId.add(rs.getString("prenom"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dbConnection.closeConnection();
+        }
+        return listId;
+    }
+
+    public List<Integer>  RecupererReservationClientId(){
         dbConnection.openConnection();
         List<Integer> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.client FROM Reservations ;";
+            String query = "SELECT Reservations.client FROM Reservations;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
