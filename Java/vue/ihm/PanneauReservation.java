@@ -35,7 +35,7 @@ public class PanneauReservation extends JPanel{
     int nombreDemandeReservation;
     
     JLabel titre = new JLabel("Réservations demandées : ");
-    JLabel titre2 = new JLabel("Réservations en confirmé : ");
+    JLabel titre2 = new JLabel("Réservations confirmées : ");
 
 
     public PanneauReservation(MainJFrame mainJFrame){

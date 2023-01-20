@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Java.controleur.actions.ActionChangerPanneau;
 import Java.controleur.actions.ActionEnvoyerMessageClient;
 import Java.modele.basededonnees.RequeteBddReservation;
 
@@ -37,6 +38,11 @@ public class PanneauContacterClient extends JPanel{
         this.initComponent();
         this.initComponentInformationClient();
         this.initBoutonEnvoyer();
+
+        JButton buttonRetour = new JButton(new ActionChangerPanneau(this.mainJFrame, "Retour", "accueil"));
+        buttonRetour.setText("Retour");
+
+        this.add(buttonRetour);
 
     }
 

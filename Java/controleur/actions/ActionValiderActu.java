@@ -39,12 +39,12 @@ public class ActionValiderActu extends AbstractAction{
             return;
         }  
         if(this.premiereImage == null){
-            JOptionPane.showMessageDialog(null, "Erreur : Sélectionner au minimum l'image 1", "Erreur", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erreur : Sélectionnez au minimum l'image 1", "Erreur", JOptionPane.ERROR_MESSAGE);
             return;
         }  
 
         this.requetePublicationActu();
-        JOptionPane.showMessageDialog(null, "L'actualité à bien été ajoutée à la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "L'actualité a bien été ajoutée à la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
         this.resetPanneau();
     }
     

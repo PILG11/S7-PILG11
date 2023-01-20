@@ -80,7 +80,8 @@ INSERT INTO `Avis` (`id`, `nom`, `prenom`, `commentaire`, `email`, `note`, `vali
 
 INSERT INTO `Clients`(`id`, `nom`, `prenom`, `email`, `numero`) VALUES 
 (1,"Erwan","Guilpin","erwanguilpin@gmail.com","0672348867"),
-(2,"Hugo","Blois","hugoblois@coucou.fr","0675473298");
+(2,"Hugo","Blois","hugoblois@coucou.fr","0675473298"),
+(3,"Théo","Sueur","ttsueur62600@gmail.com","0617035622");
 
 INSERT INTO `Chambres`(`id`, `nom`, `type`, `places`, `douche`, `image`) VALUES
 (1, "Chêne", "Double", 2, 0, NULL),
@@ -95,3 +96,8 @@ INSERT INTO `Salles`(`id`, `nom`, `type`, `capacite`, `image`) VALUES
 (2, "Bar", "Chill", 40, NULL),
 (3, "Le site", "Maraiage", 130, NULL),
 (4, "Aucune", "N/A", 0, NULL);
+
+INSERT INTO reservations (id, evenement, valide, dateDebut, duree, chambres, salles, client) VALUES
+(1, 'Mariage', 1, '2023-01-24', 2, 4, 1, 1),
+(2, 'Anniversaire', 0, '2023-03-20', 5, 6, 3, 3),
+(3, 'Mariage', 0, '2023-02-10', 1, 2, 2, 2);

@@ -28,11 +28,11 @@ public class PanneauAccueil extends JPanel{
 
     private void initButton(){
         JButton buttonReservations = new JButton(new ActionChangerPanneau(this.mainJFrame, "Reservations", "reservations"));
-        buttonReservations.setText("Reservations");
+        buttonReservations.setText("Réservations");
         this.add(buttonReservations);
 
         JButton buttonActualites = new JButton(new ActionChangerPanneau(this.mainJFrame, "Actualites", "actualites"));
-        buttonActualites.setText("Actualites");
+        buttonActualites.setText("Actualités");
         this.add(buttonActualites);
 
         JButton buttonQuestions = new JButton(new ActionChangerPanneau(this.mainJFrame, "Questions", "questions"));
