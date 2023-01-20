@@ -246,7 +246,7 @@ public class RequeteBddReservation {
 
             String query = "UPDATE reservations SET valide = 1 WHERE reservations.client = " + idClient + ";";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
-            int rowsAffected = stmt.executeUpdate();
+            stmt.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -263,7 +263,7 @@ public class RequeteBddReservation {
 
             String query = "DELETE FROM reservations WHERE reservations.client = " + idClient + ";";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
-            int rowsAffected = stmt.executeUpdate();
+            stmt.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

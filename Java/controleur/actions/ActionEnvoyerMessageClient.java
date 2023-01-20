@@ -20,7 +20,7 @@ public class ActionEnvoyerMessageClient extends AbstractAction{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+            System.out.println(message);
             Properties prop = new Properties();
             prop.put("mail.smtp.host", "smtp.gmail.com");
             prop.put("mail.smtp.port", "587");
