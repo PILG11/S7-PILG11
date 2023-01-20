@@ -14,15 +14,15 @@ public class RequeteBddReservation {
         this.dbConnection = new ConnectionBdd();
     }
 
-    public List<String>  RecupererReservationId(){
+    public List<Integer>  RecupererReservationId(){
         dbConnection.openConnection();
-        List<String> listId = new ArrayList<>();
+        List<Integer> listId = new ArrayList<>();
         try {
             String query = "SELECT Reservations.id FROM Reservations ;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                listId.add(rs.getString("id"));
+                listId.add(rs.getInt("id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -198,11 +198,11 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         int maxId = 0;
         try {
-            String query = "SELECT max(id) FROM Reservations;";
+            String query = "SELECT COUNT(*) FROM Reservations;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-            maxId = rs.getInt("max(id)");
+            maxId = rs.getInt("COUNT(*)");
             
         } catch (SQLException e) {
             e.printStackTrace();
@@ -264,7 +264,7 @@ public class RequeteBddReservation {
 
         try {
 
-            String query = "UPDATE reservations SET valide = 1 WHERE reservations.client = " + idClient + ";";
+            String query = "UPDATE Reservations SET valide = 1 WHERE Reservations.client = " + idClient + ";";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             stmt.executeUpdate();
 
@@ -281,7 +281,7 @@ public class RequeteBddReservation {
 
         try {
 
-            String query = "DELETE FROM reservations WHERE reservations.client = " + idClient + ";";
+            String query = "DELETE FROM Reservations WHERE Reservations.id = " + idClient + ";";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             stmt.executeUpdate();
 
@@ -293,4 +293,6 @@ public class RequeteBddReservation {
     }
 
 // id / evenement / valide / dateDebut / duree / chambres / salles / client
+
+// INSERT INTO `reservations` (`id`, `evenement`, `valide`, `dateDebut`, `duree`, `chambres`, `salles`, `client`) VALUES ('1', 'Anniv', '0', '2023-02-02', '2', '2', '2', '1'), ('2', 'Mariage', '0', '2023-05-02', '3', '3', '1', '2');
 }

@@ -19,7 +19,7 @@ public class PanneauReservation extends JPanel{
     private MainJFrame mainJFrame;
 
     // id / evenement / valide / dateDebut / duree / chambres / salles / client
-    List<String> listId;
+    List<Integer> listId;
     List<String> listEvent;
     List<Integer> listValide;
     List<String> listDateDebut;
@@ -95,7 +95,7 @@ public class PanneauReservation extends JPanel{
                 valider.setText("Valider");
                 valider.setBackground(Color.green);
     
-                JButton supprimer = new JButton(new ActionSupprimerReservation(this.mainJFrame, this.listClientId.get(i), "reservations"));
+                JButton supprimer = new JButton(new ActionSupprimerReservation(this.mainJFrame, this.listId.get(i), "reservations"));
                 supprimer.setText("Supprimer");
                 supprimer.setBackground(Color.red);
     
