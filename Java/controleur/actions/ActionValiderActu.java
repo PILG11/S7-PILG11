@@ -39,7 +39,7 @@ public class ActionValiderActu extends AbstractAction{
             return;
         }  
         if(this.premiereImage == null){
-            JOptionPane.showMessageDialog(null, "Erreur : Sélectionnez au minimum une image", "Erreur", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erreur : Sélectionnez au minimum l'image 1", "Erreur", JOptionPane.ERROR_MESSAGE);
             return;
         }  
 
