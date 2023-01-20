@@ -55,8 +55,8 @@ Vagrant.configure("2") do |config|
     end
     db.vm.provision "shell", path: "scripts/install/install_sys.sh"
     db.vm.provision "shell", path: "scripts/install/install_db.sh"
-    db.vm.provision "shell", path: "scripts/setup_backup.sh"
-    db.vm.provision "shell", path: "scripts/install/install_firewall_db.sh"
+    # db.vm.provision "shell", path: "scripts/setup_backup.sh"
+    # db.vm.provision "shell", path: "scripts/install/install_firewall_db.sh"
   end
 
   # Serveur virtuel du reverse-proxy
