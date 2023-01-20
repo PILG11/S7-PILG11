@@ -42,7 +42,7 @@ public class PanneauReservation extends JPanel{
 
         this.mainJFrame = mainJFrame;
 
-        GridLayout grid = new GridLayout(7,1);
+        GridLayout grid = new GridLayout(12,1);
         this.setLayout(grid);
         super.setBackground(Color.gray);
         super.setPreferredSize(new Dimension(600,500));
@@ -74,7 +74,7 @@ public class PanneauReservation extends JPanel{
                 this.listClientInformtionNumero = requeteBddReservation.informationClientNumero(listClientId.get(i));
 
                 JPanel ligne = new JPanel();
-                ligne.setLayout(new GridLayout(1, 9));
+                ligne.setLayout(new GridLayout(1, 11));
     
                 JLabel evenement = new JLabel(this.listEvent.get(i));
                 JLabel valide;
@@ -98,9 +98,6 @@ public class PanneauReservation extends JPanel{
                 JButton supprimer = new JButton(new ActionSupprimerReservation(this.mainJFrame, this.listClientId.get(i), "reservations"));
                 supprimer.setText("Supprimer");
                 supprimer.setBackground(Color.red);
-    
-                // JButton contacter = new JButton(new ActionChangerPanneau(this.mainJFrame, "Contacter", "contacterClient", this.listClient.get(i)));
-                // contacter.setText("Contacter");
     
                 ligne.add(evenement);
                 ligne.add(valide);
@@ -132,7 +129,7 @@ public class PanneauReservation extends JPanel{
                 this.listClientInformtionNumero = requeteBddReservation.informationClientNumero(listClientId.get(i));
 
                 JPanel ligne = new JPanel();
-                ligne.setLayout(new GridLayout(1, 8));
+                ligne.setLayout(new GridLayout(1, 11));
     
                 JLabel evenement = new JLabel(this.listEvent.get(i));
 
@@ -153,10 +150,6 @@ public class PanneauReservation extends JPanel{
 
                 JLabel trou = new JLabel("");
                 JLabel trou1 = new JLabel("");
-
-    
-                // JButton contacter = new JButton(new ActionChangerPanneau(this.mainJFrame, "Contacter", "contacterClient", this.listClient.get(i)));
-                // contacter.setText("Contacter");
     
                 ligne.add(evenement);
                 ligne.add(valide);
@@ -180,7 +173,7 @@ public class PanneauReservation extends JPanel{
     private void initTitreListe(){
 
         JPanel ligne = new JPanel();
-        ligne.setLayout(new GridLayout(1, 8));
+        ligne.setLayout(new GridLayout(1, 11));
         ligne.setBackground(new Color(210,210,210));
 
         JLabel evenement = new JLabel("Evenement");
