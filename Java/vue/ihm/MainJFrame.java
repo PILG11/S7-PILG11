@@ -6,7 +6,7 @@ public class MainJFrame extends JFrame{
 
     PanneauAccueil panneauAccueil = new PanneauAccueil(this);
     PanneauReservation panneauReservation;
-    PanneauQuestions panneauQuestions = new PanneauQuestions(this);
+    PanneauQuestions panneauQuestions;
     PanneauActualites panneauActualites; 
     PanneauManageActualites panneauManageActualites;
     PanneauContacterClient panneauContacterClient;
@@ -28,6 +28,7 @@ public class MainJFrame extends JFrame{
                 break;
             case "questions":
                 this.setTitle("Gestion Site Gite - Questions");
+                this.panneauQuestions = new PanneauQuestions(this);
                 this.setContentPane(this.panneauQuestions);
                 break;
             case "actualites":

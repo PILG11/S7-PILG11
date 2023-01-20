@@ -60,7 +60,8 @@ CREATE TABLE Avis (
   prenom VARCHAR(255),
   commentaire VARCHAR(255),
   email VARCHAR(255),
-  note INT
+  note INT,
+  valide BOOLEAN
 );
 
 ALTER TABLE Avis MODIFY id INT NOT NULL AUTO_INCREMENT;
@@ -71,11 +72,11 @@ INSERT INTO `Actualites` (`id`, `nom`, `description`, `premièreImage`, `seconde
 (3, 'Mariage au logis', 'Mariage au logis #mariage #decomariage #lydiefleurs #salledereception #maineetloire #bassesvalleesangevines #mariagehebergement', '../img/Actualites/troisieme_post/troisieme_post.jpg', '../img/Actualites/troisieme_post/troisieme_post_2.jpg', '../img/Actualites/troisieme_post/troisieme_post_3.jpg', '../img/Actualites/troisieme_post/troisieme_post_4.jpg', '2022-07-10'),
 (4, 'Robe de mariée', 'Robe de mariée de Blandine\r\n\r\n#robedemariee #mariage #mariagechic #cheval #salledereception #hebergementinsolite', '../img/Actualites/quatrieme_post/quatrieme_post.jpg', NULL, NULL, NULL, '2022-06-26');
 
-INSERT INTO `Avis` (`id`, `nom`, `prenom`, `commentaire`, `email`, `note`) VALUES
-(1, 'Théo', 'SUEUR', 'Le logis fut fameux.', 'ttsueur62600@gmail.com', '3'),
-(2, 'Blois', 'Hugo', 'Le logis était incroyable.', 'hugoblois@gmail.com', '5'),
-(3, 'Guilpin', 'Erwan', 'Les hôtes nous ont très très bien reçus.', 'erwanguilpin@gmail.com', '5'),
-(4, 'Souletis', 'Clovis', 'Amazing !!!!!!!!!!', 'cloclo@gmail.com', '5');
+INSERT INTO `Avis` (`id`, `nom`, `prenom`, `commentaire`, `email`, `note`, `valide`) VALUES
+(1, 'Théo', 'SUEUR', 'Le logis fut fameux.', 'ttsueur62600@gmail.com', '3', 1),
+(2, 'Blois', 'Hugo', 'Le logis était incroyable.', 'hugoblois@gmail.com', '5', 1),
+(3, 'Guilpin', 'Erwan', 'Les hôtes nous ont très très bien reçus.', 'erwanguilpin@gmail.com', '5', 1),
+(4, 'Souletis', 'Clovis', 'Amazing !!!!!!!!!!', 'cloclo@gmail.com', '5', 0);
 
 INSERT INTO `Clients`(`id`, `nom`, `prenom`, `email`, `numero`) VALUES 
 (1,"Erwan","Guilpin","erwanguilpin@gmail.com","0672348867"),

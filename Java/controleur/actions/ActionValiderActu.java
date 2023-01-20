@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import javax.swing.AbstractAction;
 import javax.swing.JOptionPane;
 
-import Java.modele.basededonnees.RequetteBddActualites;
+import Java.modele.basededonnees.RequeteBddActualites;
 import Java.vue.ihm.MainJFrame;
 import Java.vue.ihm.PanneauActualites;
 
@@ -15,10 +15,6 @@ public class ActionValiderActu extends AbstractAction{
 
     private MainJFrame mainJFrame;
     private PanneauActualites panneauActualites;
-    public PanneauActualites getPanneauActualites() {
-        return panneauActualites;
-    }
-
     private String titre;
     private String description;
     private String premiereImage;
@@ -48,6 +44,7 @@ public class ActionValiderActu extends AbstractAction{
         }  
 
         this.requetePublicationActu();
+        JOptionPane.showMessageDialog(null, "L'actualité à bien été ajoutée à la base de données", "Information", JOptionPane.INFORMATION_MESSAGE);
         this.resetPanneau();
     }
     
@@ -59,8 +56,8 @@ public class ActionValiderActu extends AbstractAction{
     }
 
     private void requetePublicationActu(){
-        RequetteBddActualites requetteBddActualites = new RequetteBddActualites();
-        requetteBddActualites.publierActu(this);
+        RequeteBddActualites requeteBddActualites = new RequeteBddActualites();
+        requeteBddActualites.publierActu(this);
     }
 
     private void resetPanneau(){
@@ -75,5 +72,9 @@ public class ActionValiderActu extends AbstractAction{
 
     public Date getDate(){
         return this.date;
+    }
+
+    public PanneauActualites getPanneauActualites() {
+        return panneauActualites;
     }
 }
