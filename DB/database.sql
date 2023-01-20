@@ -38,8 +38,6 @@ CREATE TABLE Actualites (
     date DATE
 );
 
-ALTER TABLE actualites MODIFY id INT NOT NULL AUTO_INCREMENT;
-
 CREATE TABLE Reservations (
     id INTEGER PRIMARY KEY,
     evenement VARCHAR(255),
@@ -65,6 +63,8 @@ CREATE TABLE Avis (
 );
 
 ALTER TABLE Avis MODIFY id INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE actualites MODIFY id INT NOT NULL AUTO_INCREMENT;
 
 INSERT INTO `Actualites` (`id`, `nom`, `description`, `premièreImage`, `secondeImage`, `troisiemeImage`, `quatriemeImage`, `date`) VALUES
 (1, 'Mariage Champêtre', 'La saison des mariages n’est pas fini, mariage d’automne ce week-end.\r\n\r\n#mariagechampetre #maineetloire #bassesvalleesangevines #rivesduloirenanjou #salledereceptionmariage #salledereceptionavechebergements', '../img/Actualites/premier_post/premier_post.jpg', '../img/Actualites/premier_post/premier_post_2.jpg', '../img/Actualites/premier_post/premier_post_3.jpg', '../img/Actualites/premier_post/premier_post_4.jpg', '2022-10-08'),
@@ -97,7 +97,7 @@ INSERT INTO `Salles`(`id`, `nom`, `type`, `capacite`, `image`) VALUES
 (3, "Le site", "Maraiage", 130, NULL),
 (4, "Aucune", "N/A", 0, NULL);
 
-INSERT INTO reservations (id, evenement, valide, dateDebut, duree, chambres, salles, client) VALUES
+INSERT INTO `Reservations` (`id`, `evenement`, `valide`, `dateDebut`, `duree`, `chambres`, `salles`, `client`) VALUES
 (1, 'Mariage', 1, '2023-01-24', 2, 4, 1, 1),
 (2, 'Anniversaire', 0, '2023-03-20', 5, 6, 3, 3),
 (3, 'Mariage', 0, '2023-02-10', 1, 2, 2, 2);
