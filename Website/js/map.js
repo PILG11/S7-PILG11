@@ -17,21 +17,33 @@ marker.on("mouseout", function(event) { this.closePopup(); });
 
 // Affichage des marqueurs pour les lieux des différentes activités (page index)
 if (window.location.href == "http://localhost:8888/") {
-    var canoe = L.marker([47.593383, -0.476700])
-        .bindPopup("Canoë")
+    var chateau = L.marker([47.469917, -0.560008])
+        .bindPopup("Château d'Angers")
         .addTo(map);
-    canoe.on("mouseover", function(event) { this.openPopup(); });
-    canoe.on("mouseout", function(event) { this.closePopup(); });
+    chateau.on("mouseover", function(event) { this.openPopup(); });
+    chateau.on("mouseout", function(event) { this.closePopup(); });
 
-    accrobranche = L.marker([47.580901, -0.373485])
+    accrobranche = L.marker([47.451603, -0.112016])
         .bindPopup("Accrobranche")
         .addTo(map);
     accrobranche.on("mouseover", function(event) { this.openPopup(); });
     accrobranche.on("mouseout", function(event) { this.closePopup(); });
 
-    cheval = L.marker([47.549582, -0.398853])
-        .bindPopup("Le")
+    canoe = L.marker([47.458451, -0.594786])
+        .bindPopup("Canöe - Kayak")
         .addTo(map);
-    daronne.on("mouseover", function(event) { this.openPopup(); });
-    daronne.on("mouseout", function(event) { this.closePopup(); });
+    canoe.on("mouseover", function(event) { this.openPopup(); });
+    canoe.on("mouseout", function(event) { this.closePopup(); });
+
+    giffard = L.marker([47.504445, -0.578552])
+        .bindPopup("Giffard")
+        .addTo(map);
+    giffard.on("mouseover", function(event) { this.openPopup(); });
+    giffard.on("mouseout", function(event) { this.closePopup(); });
+
+    canoe = L.marker([47.493399, -0.550317])
+        .bindPopup("ESEO")
+        .addTo(map);
+    canoe.on("mouseover", function(event) { this.openPopup(); });
+    canoe.on("mouseout", function(event) { this.closePopup(); });
 }
