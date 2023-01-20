@@ -12,12 +12,12 @@ public class ActionSupprimerReservation extends AbstractAction{
 
     private MainJFrame mainJFrame;
     private String nouveauPanneau;
-    private int idClient;
+    private int idReservation;
 
-    public ActionSupprimerReservation(MainJFrame mainJFrame, int idClient, String nouveauPanneau){
+    public ActionSupprimerReservation(MainJFrame mainJFrame, int idReservation, String nouveauPanneau){
         this.mainJFrame = mainJFrame;
         this.nouveauPanneau = nouveauPanneau;
-        this.idClient = idClient;
+        this.idReservation = idReservation;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ActionSupprimerReservation extends AbstractAction{
         int result = JOptionPane.showConfirmDialog(null, "Etes-vous sur de vouloir supprimer la réservation?", "Confirmation", JOptionPane.YES_NO_OPTION);
 
         if (result == JOptionPane.YES_OPTION) {
-            requeteBddReservation.supprimerReservation(idClient);
+            requeteBddReservation.supprimerReservation(idReservation);
             this.mainJFrame.setContentPane(this.nouveauPanneau);
         } 
 
