@@ -1,6 +1,8 @@
 # Projet Infrastructure et Logiciels
 
 Dépôt production "prod" pour le client Les Logis de Beaulieu.  
+Pour suivre les versions du projet l'onglet [releases](https://github.com/PILG11/S7-PILG11/releases) est disponible.  
+
 
 ### Overview 
 
