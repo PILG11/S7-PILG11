@@ -48,3 +48,15 @@ Dans ce dépôt, les actions sont utilisées pour exécuter les commandes ```aws
 Vous pouvez en effet utilisé le bouton "Run workflow" pour lancer la lecture des backups présents sur le bucket S3 AWS du projet. 
 
 <img width="1079" alt="Capture d’écran 2023-01-19 à 20 31 15" src="https://user-images.githubusercontent.com/120210590/213541806-ccfc7f6a-07f4-4251-b4d5-c2fed26bb0ba.png">
+
+Vous devriez obtenir un résumé des backups présents sur le cloud AWS comme l'image suivante :  
+
+<img width="1070" alt="Capture d’écran 2023-01-23 à 21 29 46" src="https://user-images.githubusercontent.com/120210590/214143307-163c605d-2359-4034-9ffc-29bcaef970e7.png">
+
+Signification de la liste :  
+
+```diff     
++       2023-01-23 19:35:07    8.9  KiB   test-23.01.2023_20h35-gite.sql
+=       [Date/Heure d'upload]  [Taille]   [Nom du backup fichier SQL]    
+```
+
