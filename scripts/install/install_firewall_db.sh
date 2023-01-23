@@ -42,7 +42,7 @@ iptables -A INPUT -s $WEB2_IP -j ACCEPT \
 >> $LOG_FILE 2>&1
 
 # Autoriser les connexions entrantes local sur le port 3306 (pour app JAVA)
-iptables -A INPUT -p tcp --dport 3306 -s 127.0.0.1 -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 3306 -j ACCEPT
 
 echo "=> [3]: Saves iptables rules"
 # Enregistrer les règles du firewall

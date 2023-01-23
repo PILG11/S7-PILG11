@@ -7,7 +7,7 @@ DB_PASSWD="mdpgite"
 DATE=$(date +"%d.%m.%Y_%Hh%M")
 BACKUP_FILE="/vagrant/backups"
 
-BACKUP_NAME="$DATE-$DB_NAME"
+BACKUP_NAME="test-$DATE-$DB_NAME"
 
 AWS_CONF_FILE="/vagrant/scripts/config/config_aws.sh"
 
