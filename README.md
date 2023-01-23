@@ -7,15 +7,22 @@ Dépôt production "prod" pour le client Les Logis de Beaulieu.
 Le site web est situé dans le répertoire `Website/`.  
 L'application java est situé dans le répertoire `Java/`.  
 L'infra est construite autour de 4 VMs suivant ce diagramme :  
+
 <img width="871" alt="Capture d’écran 2023-01-19 à 20 21 13" src="https://user-images.githubusercontent.com/120210590/213539880-bc2b6596-0cae-4895-a8d0-446aa96c72b0.png">
 
 
-### Description du Labs
+### Description du Projet
 
-Les machines sont reliées à votre machine réelle par un réseau privé hôte
+Les machines sont reliées à la machine réelle par un réseau privé hôte
 
-* Le site web est accéssible par l'adresse <https://192.168.56.80>
+* Afin de monter l'infrastructure il est nécessaire d'exécuter la commande ```vagrant up``` puis d'attendre environ 12 minutes  
 
+* Le site web est accéssible par l'adresse <https://192.168.56.80>   
+
+* L'application java est accessible sur ce répertoire et exécutable via le fichier `Java/GestionSite.java`  
+
+
+### Commandes Vagrant utiles  
 
 Activer toutes les VMs.  
     ```vagrant up```
