@@ -18,7 +18,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<Integer> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.id FROM Reservations ;";
+            String query = "SELECT Reservations.id FROM Reservations ORDER BY id;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -36,7 +36,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.evenement FROM Reservations ;";
+            String query = "SELECT Reservations.evenement FROM Reservations ORDER BY id;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -54,7 +54,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<Integer> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.valide FROM Reservations ;";
+            String query = "SELECT Reservations.valide FROM Reservations ORDER BY id;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -72,7 +72,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.dateDebut FROM Reservations ;";
+            String query = "SELECT Reservations.dateDebut FROM Reservations ORDER BY id;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -90,7 +90,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.duree FROM Reservations ;";
+            String query = "SELECT Reservations.duree FROM Reservations ORDER BY id;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -108,7 +108,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Chambres.nom FROM Chambres, Reservations WHERE Chambres.id = Reservations.chambres";
+            String query = "SELECT Chambres.nom FROM Chambres, Reservations WHERE Chambres.id = Reservations.chambres ORDER BY Reservations.id";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -126,7 +126,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Salles.nom FROM Salles, Reservations WHERE Salles.id = Reservations.salles";
+            String query = "SELECT Salles.nom FROM Salles, Reservations WHERE Salles.id = Reservations.salles ORDER BY Reservations.id";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -144,7 +144,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Clients.nom FROM Clients, Reservations WHERE Clients.id = Reservations.client";
+            String query = "SELECT Clients.nom FROM Clients, Reservations WHERE Clients.id = Reservations.client ORDER BY Reservations.id";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -162,7 +162,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<String> listId = new ArrayList<>();
         try {
-            String query = "SELECT Clients.prenom FROM Clients, Reservations WHERE Clients.id = Reservations.client";
+            String query = "SELECT Clients.prenom FROM Clients, Reservations WHERE Clients.id = Reservations.client ORDER BY Reservations.id";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -180,7 +180,7 @@ public class RequeteBddReservation {
         dbConnection.openConnection();
         List<Integer> listId = new ArrayList<>();
         try {
-            String query = "SELECT Reservations.client FROM Reservations;";
+            String query = "SELECT Reservations.client FROM Reservations ORDER BY Reservations.id;";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -258,13 +258,13 @@ public class RequeteBddReservation {
         return listInformationClient;
     }
 
-    public void validerReservation(int idClient){
+    public void validerReservation(int idReservation){
 
         dbConnection.openConnection();
 
         try {
 
-            String query = "UPDATE Reservations SET valide = 1 WHERE Reservations.client = " + idClient + ";";
+            String query = "UPDATE Reservations SET valide = 1 WHERE Reservations.id = " + idReservation + ";";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             stmt.executeUpdate();
 
@@ -275,13 +275,13 @@ public class RequeteBddReservation {
         }
     }
 
-    public void supprimerReservation(int idClient){
+    public void supprimerReservation(int idReservation){
 
         dbConnection.openConnection();
 
         try {
 
-            String query = "DELETE FROM Reservations WHERE Reservations.id = " + idClient + ";";
+            String query = "DELETE FROM Reservations WHERE Reservations.id = " + idReservation + ";";
             PreparedStatement stmt = dbConnection.getConnection().prepareStatement(query);
             stmt.executeUpdate();
 
