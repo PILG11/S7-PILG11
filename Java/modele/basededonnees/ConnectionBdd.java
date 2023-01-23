@@ -9,7 +9,7 @@ public class ConnectionBdd {
     public void openConnection() {
         try {
             // Établir la connexion à la base de données en utilisant les informations de connexion
-            String url = "jdbc:mysql://192.168.56.81:3306 ";
+            String url = "jdbc:mysql://192.168.56.81:3306/gite";
             String login = "admin";
             String password = "mdpgite";
             connection = DriverManager.getConnection(url, login, password);

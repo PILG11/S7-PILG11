@@ -4,6 +4,7 @@ include_once 'core.php';
 
 $emissionAvisFail = false;
 $inputAvisFail = false;
+$affichage_escaped = 0;
 
 if (isset($_POST['avis_submit'])) {
     if (
@@ -26,10 +27,12 @@ if (isset($_POST['avis_submit'])) {
 
         if ($resultfinal == 0) {
             // Requête SQL pour ajouter l'avis à la base de donnée
-            $sql = "INSERT INTO Avis (nom, prenom, commentaire, email, note)
+            $sql = "INSERT INTO Avis (nom, prenom, commentaire, email, note, valide)
             VALUES ('" . $nom_escaped . "', '" . $prenom_escaped . "'
-, '" . $message_escaped . "' , '" . $mail_escaped . "' , '" . $note_escaped . "')";
+, '" . $message_escaped . "' , '" . $mail_escaped . "' , '" . $note_escaped . "', '" . $affichage_escaped . "')";
             $mysqli->query($sql);
+            $inputAvisFail = true;
+            $error_input_message = "Votre message a été envoyé avec succès !";
         } else {
             // Une personne a déjà mis un avis avec cette adresse mail
             $inputAvisFail = true;
