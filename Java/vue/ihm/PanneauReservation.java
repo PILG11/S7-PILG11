@@ -78,20 +78,19 @@ public class PanneauReservation extends JPanel{
     
                 JLabel evenement = new JLabel(this.listEvent.get(i));
                 JLabel valide;
-                if(this.listValide.get(i) == 0){
-                    valide = new JLabel("Non validé");
-                }
-                else{
-                    valide = new JLabel("Validé");
-                }                JLabel dateDebut = new JLabel(this.listDateDebut.get(i));
+                valide = new JLabel("Non validé");
+             
+                JLabel dateDebut = new JLabel(this.listDateDebut.get(i));
                 JLabel duree = new JLabel(this.listDuree.get(i));
+
                 JLabel chambres = new JLabel(this.listChambres.get(i));
                 JLabel salles = new JLabel(this.listSalles.get(i));
+                
                 JLabel clientNomPrenom = new JLabel(this.listClientNom.get(i) + " " + this.listClientPrenom.get(i));
                 JLabel email = new JLabel(this.listClientInformtionEmail.get(0));
                 JLabel numero = new JLabel(this.listClientInformtionNumero.get(0));
     
-                JButton valider = new JButton(new ActionValiderReservation(this.mainJFrame, this.listClientId.get(i), "reservations"));
+                JButton valider = new JButton(new ActionValiderReservation(this.mainJFrame, this.listId.get(i), "reservations"));
                 valider.setText("Valider");
                 valider.setBackground(Color.green);
     

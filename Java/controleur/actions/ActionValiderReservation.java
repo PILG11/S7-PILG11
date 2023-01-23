@@ -11,12 +11,12 @@ public class ActionValiderReservation extends AbstractAction{
 
     private MainJFrame mainJFrame;
     private String nouveauPanneau;
-    private int idClient;
+    private int idReservation;
 
-    public ActionValiderReservation(MainJFrame mainJFrame, int idClient, String nouveauPanneau){
+    public ActionValiderReservation(MainJFrame mainJFrame, int idReservation, String nouveauPanneau){
         this.mainJFrame = mainJFrame;
         this.nouveauPanneau = nouveauPanneau;
-        this.idClient = idClient;
+        this.idReservation = idReservation;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class ActionValiderReservation extends AbstractAction{
         
         RequeteBddReservation requeteBddReservation = new RequeteBddReservation();
 
-        requeteBddReservation.validerReservation(this.idClient);
+        requeteBddReservation.validerReservation(this.idReservation);
 
         this.mainJFrame.setContentPane(this.nouveauPanneau);
     }
