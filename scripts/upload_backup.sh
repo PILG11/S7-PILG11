@@ -1,4 +1,5 @@
 #!/bin/bash
+
 DB_NAME="gite"
 DB_USER="admin"
 DB_PASSWD="mdpgite"

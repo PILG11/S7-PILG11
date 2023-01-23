@@ -1,6 +1,7 @@
 #!/bin/bash
 
 LOG_FILE="/vagrant/logs/install_backup.log"
+APT_OPT="-o Dpkg::Progress-Fancy="0" -q -y"
 
 #Fichier config all
 ALL_CONF_FILE="/vagrant/scripts/config/config_all.sh"
