@@ -22,6 +22,9 @@ apt-get install $APT_OPT \
 
 echo "=> [2]: Retrieving the database and storing it"
 mkdir -p $BACKUP_FILE
+
 echo "*/5 * * * * bash /vagrant/scripts/upload_backup.sh" | crontab -
+
+sudo systemctl cron restart
 
 echo "END - Setup of database backup completed successfully "$IP

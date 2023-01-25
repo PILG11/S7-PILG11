@@ -7,18 +7,18 @@ DB_PASSWD="mdpgite"
 DATE=$(date +"%d.%m.%Y_%Hh%M")
 BACKUP_FILE="/vagrant/backups"
 
-BACKUP_NAME="test-$DATE-$DB_NAME"
+BACKUP_NAME="$DATE-$DB_NAME"
 
 AWS_CONF_FILE="/vagrant/scripts/config/config_aws.sh"
 
 #Dump actual database
-mysqldump --force --opt --user=$DB_USER -p$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME > "$BACKUP_FILE/$BACKUP_NAME.sql"
+mysqldump --force --opt --user=$DB_USER --password=$DB_PASSWD --skip-lock-tables --events --databases $DB_NAME > "$BACKUP_FILE/$BACKUP_NAME.sql"
 
 #Config AWS credentials
 bash $AWS_CONF_FILE
 
 #Upload database file to AWS
-aws s3 cp "$BACKUP_FILE/$BACKUP_NAME.sql" s3://pilg11-db-backup/
+#aws s3 cp "$BACKUP_FILE/$BACKUP_NAME.sql" s3://pilg11-db-backup/
 
 # Backup files will be kept for 10 minutes
 RETENTION=10
