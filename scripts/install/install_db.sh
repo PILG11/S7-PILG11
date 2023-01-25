@@ -32,6 +32,10 @@ apt-get install $APT_OPT \
   gnupg \
   >> $LOG_FILE 2>&1
 
+echo "=> [1.1]: Fix \r problem"
+sed -i -e 's/\r$//' /vagrant/scripts/upload_backup.sh
+sed -i -e 's/\r$//' /vagrant/scripts/config/config_aws.sh
+
 echo "=> [2]: Service configuration"
 if [ -n "$DB_NAME" ] && [ -n "$DB_USER" ] && [ -n "$DB_PASSWD" ] ;then
   mysql -e "CREATE DATABASE $DB_NAME" \
