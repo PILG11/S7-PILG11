@@ -19,7 +19,7 @@ Les machines sont reliées à la machine réelle par un réseau privé hôte
 
 * Afin de monter l'infrastructure il est nécessaire d'exécuter la commande ```vagrant up``` puis d'attendre environ 12 minutes  
 
-* Le site web est accéssible par l'adresse <https://192.168.56.80>   
+* Le site web est accéssible via une adresse IP publique
 
 * L'application java est accessible sur ce répertoire et exécutable via le fichier `Java/GestionSite.java`  
 
